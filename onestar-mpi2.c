@@ -25,9 +25,7 @@ int main(int argc, char *argv[])
 	//initialize MPI variables
 	int numProc;
 	int procId;
-	int rootPerProc;
-	int r;
-	
+
 	MPI_Status status;
 	MPI_Request request;
 	
@@ -35,21 +33,7 @@ int main(int argc, char *argv[])
 	MPI_Comm_size(MPI_COMM_WORLD,&numProc);  
 	MPI_Comm_rank(MPI_COMM_WORLD,&procId);
 	
-	while ((r = getopt(argc, argv, "pd")) != -1) { //command line args
-		switch(r)
-		{
-			case 'p':
-				gprint = true;
-				break;
-			case 'd':
-				debug = true;
-				break;
-			default:
-				//printUsage();
-			  exit(1);
-		}
-	}
-
+	
 	//graph variables
 	unsigned int V;
 	unsigned int E;
@@ -61,13 +45,26 @@ int main(int argc, char *argv[])
 	int perParent;
 	int perChild;
 	
-	double starttime, endtime;
-
-	//allocate memory for groups
-	groups = (int *) malloc (sizeof(int) * numTer);
+	double starttime, endtime;	
 	
-	//using proc 0
+	//proc 0
 	if(!procId)  {
+		int r;
+		while ((r = getopt(argc, argv, "pd")) != -1) { //command line args
+			switch(r)
+			{
+				case 'p':
+					gprint = true;
+					break;
+				case 'd':
+					debug = true;
+					break;
+				default:
+					//printUsage();
+					exit(1);
+			}
+		}
+
 		unsigned int v1, v2, w;
 		
 		//get size of graph	
@@ -76,7 +73,6 @@ int main(int argc, char *argv[])
 		//allocate memory
 		D = (int *) malloc(sizeof(int) * V * V);
 		G = (int *) malloc(sizeof(int) * V * V);
-		term = (int *) malloc(sizeof(int) * numTer);
 		
 		
 		//initialize graph to INF
@@ -93,6 +89,9 @@ int main(int argc, char *argv[])
 		
 		//read from file terminals
 		scanf("%d",&numTer);
+		term = (int *) malloc(sizeof(int) * numTer);
+		groups = (int *) malloc (sizeof(int) * numTer);
+		
 		for(int i = 0; i < numTer; i++) {
 			int v;
 			scanf("%d", &v);
@@ -108,83 +107,66 @@ int main(int argc, char *argv[])
         groups[(i * (numTer/numGroups)) + j] = v - 1;
       }
     }
-	}
-
-	//broadcast size variables
-	MPI_Bcast(&V, 1, MPI_INT, 0, MPI_COMM_WORLD);
-	MPI_Bcast(&numTer, 1, MPI_INT, 0, MPI_COMM_WORLD);
-	MPI_Bcast(&numGroups, 1, MPI_INT, 0, MPI_COMM_WORLD);
+    
+    
+    
+    //broadcast size variables
+		MPI_Bcast(&V, 1, MPI_INT, 0, MPI_COMM_WORLD);
+		MPI_Bcast(&numTer, 1, MPI_INT, 0, MPI_COMM_WORLD);
+		MPI_Bcast(&numGroups, 1, MPI_INT, 0, MPI_COMM_WORLD);
 	
-	//broadbast groups
-	MPI_Bcast(groups, numTer, MPI_INT, 0, MPI_COMM_WORLD);
+		//buffer for combined onestar cost matrix
+		onestar = (int *) malloc(sizeof(int) * V * numGroups);
 		
-	//terminate if any excess processors
-	if (!validNumProc(V, numProc)) {
-		if(!procId)
+		//broadbast groups
+		MPI_Bcast(groups, numTer, MPI_INT, 0, MPI_COMM_WORLD);
+    
+		if (!validNumProc(V, numProc)) {
 			printf("Error: More number of compute nodes than needed.\n");
-		MPI_Finalize();
-		return 0;
-	}
-	
-	pars = calcLaunchPar(numProc, V);
-	perParent = pars[1];
-	perChild = pars[0];
-	
-	if(debug) {	
-		if(!procId) {
+			MPI_Finalize();
+			return 0;
+		}
+		
+		
+		
+		pars = calcLaunchPar(numProc, V);
+		perParent = pars[1];
+		perChild = pars[0];
+		
+		
+		if(debug) {	
 			printf("Number of vertices: %d\n", V);
 			printf("Parent process gets: %d\n", pars[1]);
 			printf("%d child processes get: %d\n", numProc - 1, pars[0]);
 		}
-	}
 	
-	//construct metric closure
-	if(!procId) {
-		starttime = MPI_Wtime();
+		//construct metric closure
+		//starttime = MPI_Wtime();
 		fw_gpu(V, G, D);
-		
+	
 		if(gprint) {
 			printf("Metric Closure:\n");
 			print(D,V);
 		}
-	}
-	
-	//reciveing buffer for distributing the metric closure
-	D_sub = (int *) malloc(sizeof(int) * V * perChild);
-	
-	//buffer for combined onestar cost matrix
-	if(!procId) {
-		onestar = (int *) malloc(sizeof(int) * V * numGroups);
-	}
-	
-	//buffer for sub onestar matrix in each process
-	if(procId) {
+		
+		//reciveing buffer for distributing the metric closure
+		D_sub = (int *) malloc(sizeof(int) * V * perChild);
+		
+		//buffer for sub onestar matrix in each process
 		onestar_sub = (int *) malloc(sizeof(int) * perChild * numGroups);
-	}
-
-	//Distribute one row of the metric closure to each proc at a time
-	for(int i = 0; i < perChild; i++) {
 	
-		MPI_Scatter(D + ((perParent - perChild) * V) + (i * (V * numProc)),V, MPI_INT, D_sub + (i * V),V, MPI_INT, 0, MPI_COMM_WORLD);
 		
-		if(!procId) {
-			printf("I scattered, i = %d\n",i);
-		}
-		
-		
-		int src = (perParent - perChild) + (i * numProc) + procId;
-		if(procId) {
-			oneStarCost(V, numTer,src,numGroups,onestar_sub + (i * numGroups),groups,D_sub + (i * V),procId);
-			int * p = onestar_sub + (i * numGroups);
-			//printf("Proc: %d, src: %d, onestar: %2d %2d %2d %2d %2d %2d\n\n", procId, src, p[0],p[1],p[2],p[3],p[4],p[5]);
-		}
-		
-		MPI_Gather(onestar_sub + (i * numGroups),numGroups, MPI_INT, onestar + (src * numGroups),numGroups, MPI_INT, 0, MPI_COMM_WORLD);
-		
-		if(!procId) {
+		//Distribute one row of the metric closure to each proc at a time
+		for(int i = 0; i < perChild; i++) {
+			
+			MPI_Scatter(D + ((perParent - perChild) * V) + (i * (V * numProc)),V, MPI_INT, D_sub + (i * V),V, MPI_INT, 0, MPI_COMM_WORLD);
+			
+			int src = (perParent - perChild) + (i * numProc) + procId;
+			
+			MPI_Gather(onestar_sub + (i * numGroups),numGroups, MPI_INT, onestar + (src * numGroups),numGroups, MPI_INT, 0, MPI_COMM_WORLD);			
 			oneStarCost(V, numTer,src,numGroups,onestar + (src * numGroups),groups,D_sub + (i * V),procId);
 			int * p = onestar + (src * numGroups);
-			//printf("Proc: %d, src: %d, onestar: %2d %2d %2d %2d %2d %2d\n\n", procId, src, p[0],p[1],p[2],p[3],p[4],p[5]);\
+			//printf("Proc: %d, src: %d, onestar: %2d %2d %2d %2d %2d %2d\n\n", procId, src, p[0],p[1],p[2],p[3],p[4],p[5]);
 			
 			for(int j = 0; j < (perParent - perChild); j++) {
 				int srcc = j;
@@ -192,30 +174,61 @@ int main(int argc, char *argv[])
 				int * pp = onestar + (srcc * numGroups);
 				//printf("Proc: %d, src: %d, onestar: %2d %2d %2d %2d %2d %2d\n\n", procId, srcc, pp[0],pp[1],pp[2],pp[3],pp[4],pp[5]);
 			}
-				
 		}
-	}
-	if(!procId) {
-		for(int j = 0; j < (perParent - perChild); j++) {
-			int srcc = j;
-			oneStarCost(V, numTer,srcc,numGroups,onestar + (srcc * numGroups),groups,D + (j * V),procId);
-			int * pp = onestar + (srcc * numGroups);
-			//printf("Proc: %d, src: %d, onestar: %2d %2d %2d %2d %2d %2d\n\n", procId, srcc, pp[0],pp[1],pp[2],pp[3],pp[4],pp[5]);
-		}
-			
-	}
-	
-	//above and below same pieces of code, doesnt work unless both are there ????why
-	
-	if(!procId) {
+		
 		endtime = MPI_Wtime();
-		printf("Time %lfs \n", endtime - starttime);
-		for(int i = 0; i < V; i++) {
-       printf("Root%d:  ", i);
-       for(int j = 0; j < numGroups; j++)
-          printf("%3d  ", onestar[i * numGroups + j]);
-       printf("\n");
-    }
+		
+		if(debug) {
+			printf("Time %lfs \n", endtime - starttime);
+			for(int i = 0; i < V; i++) {
+		     printf("Root%d:  ", i);
+		     for(int j = 0; j < numGroups; j++)
+		        printf("%3d  ", onestar[i * numGroups + j]);
+		     printf("\n");
+		  }
+		}
+	}
+	
+	if(procId) {
+		//broadcast size variables
+		MPI_Bcast(&V, 1, MPI_INT, 0, MPI_COMM_WORLD);
+		MPI_Bcast(&numTer, 1, MPI_INT, 0, MPI_COMM_WORLD);
+		MPI_Bcast(&numGroups, 1, MPI_INT, 0, MPI_COMM_WORLD);
+		
+		groups = (int *) malloc (sizeof(int) * numTer);
+	
+		//broadbast groups
+		MPI_Bcast(groups, numTer, MPI_INT, 0, MPI_COMM_WORLD);
+	
+		//terminate if any excess processors
+		if (!validNumProc(V, numProc)) {
+			printf("Error: More number of compute nodes than needed.\n");
+			MPI_Finalize();
+			return 0;
+		}
+	
+		pars = calcLaunchPar(numProc, V);
+		perParent = pars[1];
+		perChild = pars[0];
+		
+		//reciveing buffer for distributing the metric closure
+		D_sub = (int *) malloc(sizeof(int) * V * perChild);
+	
+		//buffer for sub onestar matrix in each process
+		onestar_sub = (int *) malloc(sizeof(int) * perChild * numGroups);
+		
+		for(int i = 0; i < perChild; i++) {
+	
+			MPI_Scatter(D + ((perParent - perChild) * V) + (i * (V * numProc)),V, MPI_INT, D_sub + (i * V),V, MPI_INT, 0, MPI_COMM_WORLD);		
+			int src = (perParent - perChild) + (i * numProc) + procId;
+			if(procId) {
+				oneStarCost(V, numTer,src,numGroups,onestar_sub + (i * numGroups),groups,D_sub + (i * V),procId);
+				int * p = onestar_sub + (i * numGroups);
+				//printf("Proc: %d, src: %d, onestar: %2d %2d %2d %2d %2d %2d\n\n", procId, src, p[0],p[1],p[2],p[3],p[4],p[5]);
+			}
+			MPI_Gather(onestar_sub + (i * numGroups),numGroups, MPI_INT, onestar + (src * numGroups),numGroups, MPI_INT, 0, MPI_COMM_WORLD);
+		}
+		
 	}
 	
 	MPI_Finalize();
