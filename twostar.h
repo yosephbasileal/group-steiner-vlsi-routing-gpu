@@ -30,3 +30,42 @@ int twostar(int root,int *groupIds,int *onestar,int numGroups,int remGroups,int 
 	
 	return TOTAL_COST;
 }
+
+
+int twostarwrapper(int V, int numGroups, int perChild, int perParent, int numProc, int procId, int * D, int * onestar) { 
+	int TOTAL_COST;
+	int MINIMUM = INT_MAX;
+	int minRoot = INT_MAX;
+
+	//Allocate memory for 2-star
+	int * intermSet = (int *) malloc(sizeof(int) * (V + 1)); //index 0 shows how many intermediates are in the set
+	int * groupIds = (int *) malloc(sizeof(int) * numGroups); //keeps track of groups already spanned
+	int * newGroupIds = (int *) malloc(sizeof(int) * numGroups); //helper buffer when modifying groupIds
+	int * partialStar1 = (int *) malloc(sizeof(int) * (2 + numGroups));//[0] -> interm v  [1] -> numGroups it spansthe rest are the groups V spans
+
+	int remGroups; //number of groups not spanned yer
+	int root;
+
+	for(int i = 0; i < perChild; i++) {
+		root = (perParent - perChild) + (i * numProc) + procId;
+		TOTAL_COST = twostar(root,groupIds,onestar,numGroups,remGroups,V,D, partialStar1,intermSet,newGroupIds);		
+		if(TOTAL_COST < MINIMUM) { //update minimum
+			MINIMUM = TOTAL_COST;
+			minRoot = root;
+		}
+	}//all two star loop
+	
+	if (!procId) {
+		for(int j = 0; j < (perParent - perChild); j++) {
+			root = j;
+			TOTAL_COST = twostar(root,groupIds,onestar,numGroups,remGroups,V,D, partialStar1,intermSet,newGroupIds);
+			if(TOTAL_COST < MINIMUM) { //update minimum
+				MINIMUM = TOTAL_COST;
+				//minRoot = root;
+			}
+		}//for any remaining roots - by proc 0 only	
+	}
+	
+	printf("\nMINIMUM STEINER COST: %d,   root: %d, proc ID: %d\n", MINIMUM, minRoot,procId);
+	return MINIMUM;
+}
