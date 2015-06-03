@@ -1,14 +1,14 @@
 CUDALDFLAGS=-L/share/apps/cuda/lib64 -lcudart 
-all: onestar
+all: twostar
 
 floydWarshall.o: floydWarshall.cu 
 	nvcc -c floydWarshall.cu -o floydWarshall.o
 
-onestar-mpi.o: onestar-mpi.c 
-	mpicc -std=c99 -c onestar-mpi.c -o onestar-mpi.o
+twostar-mpi.o: twostar-mpi.c 
+	mpicc -std=c99 -c twostar-mpi.c -o twostar-mpi.o
 
-onestar: floydWarshall.o onestar-mpi.o 
-	mpicc -o onestar floydWarshall.o onestar-mpi.o $(CUDALDFLAGS) -lstdc++
+twostar: floydWarshall.o twostar-mpi.o 
+	mpicc -o twostar floydWarshall.o twostar-mpi.o $(CUDALDFLAGS) -lstdc++
 	
 clean:
-	rm -rf *.o *~ onestar
+	rm -rf *.o *~ twostar
