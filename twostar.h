@@ -41,7 +41,7 @@ int twostarwrapper(int V, int numGroups, int perChild, int perParent, int numPro
 	int * intermSet = (int *) malloc(sizeof(int) * (V + 1)); //index 0 shows how many intermediates are in the set
 	int * groupIds = (int *) malloc(sizeof(int) * numGroups); //keeps track of groups already spanned
 	int * newGroupIds = (int *) malloc(sizeof(int) * numGroups); //helper buffer when modifying groupIds
-	int * partialStar1 = (int *) malloc(sizeof(int) * (2 + numGroups));//[0] -> interm v  [1] -> numGroups it spansthe rest are the groups V spans
+	int * partialStar1 = (int *) malloc(sizeof(int) * (2 + numGroups));//[0] -> interm v,  [1] -> numGroups it spans, the rest are the groups V spans
 
 	int remGroups; //number of groups not spanned yer
 	int root;
@@ -61,7 +61,7 @@ int twostarwrapper(int V, int numGroups, int perChild, int perParent, int numPro
 			TOTAL_COST = twostar(root,groupIds,onestar,numGroups,remGroups,V,D, partialStar1,intermSet,newGroupIds);
 			if(TOTAL_COST < MINIMUM) { //update minimum
 				MINIMUM = TOTAL_COST;
-				//minRoot = root;
+				minRoot = root;
 			}
 		}//for any remaining roots - by proc 0 only	
 	}
