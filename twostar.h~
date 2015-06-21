@@ -31,9 +31,6 @@ int twostar(int root,int *groupIds,int *onestar,int numGroups,int remGroups,int 
 
 		remSpanned(groupIds,partialStar1,newGroupIds,remGroups,numGroups); //remove those already spanned
 		groupIds = newGroupIds;
-		if (root == 116) {
-			printf("cur total cost: %d\n", TOTAL_COST);
-		}
 	}//rooted two star loop
 	
 	return TOTAL_COST;

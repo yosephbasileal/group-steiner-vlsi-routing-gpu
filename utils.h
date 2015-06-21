@@ -49,4 +49,23 @@ void printOnestar(int * onestar, int numGroups, int V) {
 		 printf("\n");
 	}
 }
+void printTermGroups(int numTer, int numGroups, int * groups, int * terminals) {
+	printf("\nNum of Terminals: %d\n",numTer);
+	printf("\nTerminal vertices: ");
+	for(int i = 0; i < numTer; i++)
+		printf("%d ", terminals[i]);
+	printf("\n");
+
+
+	printf("\nNum of Groups: %d\n",numGroups);
+	printf("Per group: %d\n",numTer/numGroups);
+	for(int i = 0; i < numGroups; i++) {
+		printf("Group %d: ", i);
+		for(int j = 0; j < numTer/numGroups; j++)
+			printf(" %d ", groups[(i * (numTer/numGroups)) + j]);
+			printf("\n");
+	}
+	printf("\n\n");
+
+}
 	

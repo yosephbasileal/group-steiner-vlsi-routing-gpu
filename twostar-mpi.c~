@@ -131,7 +131,7 @@ int main(int argc, char *argv[])
 
 		//construct one star
 		onestarWrapper(V,numTer,perChild,perParent,numProc,procId,numGroups,D,D_sub,onestar,onestar_sub,groups);
-		//printf( "procId = %d   cpuuuuuuuuu = %d\n", procId, sched_getcpu() );
+		printf( "procId = %d   cpuuuuuuuuu = %d\n", procId, sched_getcpu() );
 		//broadbast onestar
 		MPI_Bcast(onestar, V * numGroups, MPI_INT, 0, MPI_COMM_WORLD);
 		
@@ -198,7 +198,7 @@ int main(int argc, char *argv[])
 
 		//construct one star
 		onestarWrapper(V,numTer,perChild,perParent,numProc,procId,numGroups,D,D_sub,onestar,onestar_sub,groups);
-		//printf( "procId = %d   cpuuuuuu = %d\n", procId, sched_getcpu() );
+		printf( "procId = %d   cpuuuuuu = %d\n", procId, sched_getcpu() );
 		//recieve onestar
 		MPI_Bcast(onestar, V * numGroups, MPI_INT, 0, MPI_COMM_WORLD);
 
@@ -216,7 +216,7 @@ int main(int argc, char *argv[])
 		MPI_Reduce(&solution,&minSolution,1,MPI_2INT,MPI_MINLOC,0,MPI_COMM_WORLD);		
 		//MPI_Allreduce(&MINIMUM,&overall_min,1,MPI_INT,MPI_MIN,MPI_COMM_WORLD);
 	}//end child processes		
-	//printf( "procId = %d   cpu = %d\n", procId, sched_getcpu() );
+	printf( "procId = %d   cpu = %d\n", procId, sched_getcpu() );
 	MPI_Finalize();
 	return 0;
 }

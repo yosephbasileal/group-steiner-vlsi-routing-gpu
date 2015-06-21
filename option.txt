@@ -1,0 +1,12 @@
+--report-bindings
+-map-by core -map-by node
+-bind-to core
+
+
+
+currenlty processes are not bound to any core that means even though they
+star off running on a single core, they might potentially migrated  around
+between cores by the process scheduleer inorder to keep the processing resources
+equally busy. 
+
+http://blogs.cisco.com/performance/open-mpi-binding-to-core-by-default
