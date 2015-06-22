@@ -4,35 +4,35 @@ declare -a arr=("13.txt" "24.txt" "34.txt" "55.txt" "96.txt" "99.txt" "LIN/12.st
 TIMEFORMAT=%R
 line="____________________________________________"
 break="---------------------------------------------------"
-echo $line `date` $line >> time.log
-echo $line `date` $line >> output.log
+echo $line `date` $line >> log/time.log
+echo $line `date` $line >> log/output.log
 for i in  "${arr[@]}"
 do
 	echo "$i"
-	echo $break >> time.log
-	echo $break >> output.log
-	echo -n "$i" >> time.log
-	echo -n "$i" >> output.log
-	echo -n "    (V,E)--> " >> time.log
-	echo -n "    (V,E(--> " >> output.log
+	echo $break >> log/time.log
+	echo $break >> log/output.log
+	echo -n "$i" >> log/time.log
+	echo -n "$i" >> log/output.log
+	echo -n "    (V,E)--> " >> log/time.log
+	echo -n "    (V,E(--> " >> log/output.log
 	size=$(head -n 1 grouped/$i)
 	V=`echo $size java | cut -d' ' -f1`
 	echo $V
-	(echo $size) >> time.log
-	(echo $size) >> output.log
-	echo $break >> time.log
-	echo $break >> output.log
+	(echo $size) >> log/time.log
+	(echo $size) >> log/output.log
+	echo $break >> log/time.log
+	echo $break >> log/output.log
 
 	for p in {4,8,16,32,64,128,256,384,512,1024}
 	do
-		echo -n $p": "  >> time.log
+		echo -n $p": "  >> log/time.log
 		if ((V > p))
 		then
-			(time mpirun -n $p --hostfile /home/basileal/hosts ./twostar < grouped/"$i" >> output.log) &>> time.log
+			(time mpirun -n $p --hostfile hosts/allhosts ./twostar < grouped/"$i" -p  >> log/output.log) &>> log/time.log
 		else
-			echo "# of nodes is more than needed" >> time.log
+			echo "# of nodes is more than needed" >> log/time.log
 		fi
 	done
-	printf "\n\n"  >> time.log
-	printf "\n\n"  >> output.log
+	printf "\n\n"  >> log/time.log
+	printf "\n\n"  >> log/output.log
 done
