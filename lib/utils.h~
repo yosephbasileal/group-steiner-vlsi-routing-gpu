@@ -80,7 +80,7 @@ void printPartialStars(int * partialStar1, int numGroups, int count) {
 	}
 }
 
-void printSolutionCost(int root, int cost) {
+void printSolutionCost(int cost, int root) {
 	printf("\nOVERALL MINIMUM STEINER COST: %d Root: %d\n\n", cost, root);
 }
 

@@ -32,7 +32,7 @@ void readFile(int ** D, int ** G, int ** P, int ** term, int ** groups, int * V,
 		(*G)[(v2 - 1) * (*V) + (v1 - 1)] = w;
 		if ((v1 - 1) != (v2 - 1)) {
 			(*P)[(v1 - 1) * (*V) + (v2 - 1)] = (v1 - 1);
-			(*P)[(v2 - 1) * (*V) + (v1 - 1)] = (v2 - 1);
+			//(*P)[(v2 - 1) * (*V) + (v1 - 1)] = (v2 - 1);
 		}
 	}
 

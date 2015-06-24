@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <limits.h>
 #include <getopt.h>
+#include <string.h>
 
 //Library for sched_getcpu()
 #define _GNU_SOURCE 
@@ -12,11 +13,14 @@
 
 //Constant
 #define INF 1061109567
+#define NONE	-1
+#define CHARINF 63	   // 3F
 
 //Global variables
 bool gprint = false; // print graph and metric closure -o
 bool debug = false;	// print more deatails for debugging -d
 bool parallel = false; //construct metric closure in serial or parallel -p
+bool build = false; //build solution
 
 //File headers
 #include "lib/utils.h"
@@ -24,10 +28,11 @@ bool parallel = false; //construct metric closure in serial or parallel -p
 #include "lib/onestar.h"
 #include "lib/twostar.h"
 #include "lib/floydSerial.h"
+#include "lib/buildsolution.h"
 
 //Function declaration
 int sched_getcpu(void);
-void fw_gpu(const unsigned int n, const int * const G, int * const d);
+void fw_gpu(const unsigned int n, const int * const G, int * const d, int * const p);
 
 //Main
 int main(int argc, char *argv[])
@@ -44,12 +49,13 @@ int main(int argc, char *argv[])
 
 	//graph variables
 	unsigned int V, E, numTer, numGroups;
-	int *D, *G, *term, *groups, *D_sub, *onestar, *onestar_sub;
+	int *D, *G, *P, *term, *groups, *D_sub, *onestar, *onestar_sub;
 
 	//solution variables
 	int MINIMUM, overall_min;
 	struct Solution solution;
 	struct Solution minSolution;
+	//struct Solution solutionTree
 
 	//variables for mapping roots to processes
 	int *pars;
@@ -67,7 +73,7 @@ int main(int argc, char *argv[])
 	/*--------------------------------------------Parent process------------------------------------------------*/
 	if(!procId)  {
 		int r;
-		while ((r = getopt(argc, argv, "odp")) != -1) { //command line args
+		while ((r = getopt(argc, argv, "odpb")) != -1) { //command line args
 			switch(r)
 			{
 				case 'o':
@@ -79,6 +85,9 @@ int main(int argc, char *argv[])
 				case 'p':
 					parallel = true;
 					break;
+				case 'b':
+					build = true;
+					break;
 				default:
 					//printUsage();
 					exit(1);
@@ -86,7 +95,7 @@ int main(int argc, char *argv[])
 		}
 
 		//read graph from file and allocate memory
-		readFile(&D, &G, &term, &groups, &V, &E, &numTer, &numGroups);
+		readFile(&D, &G, &P, &term, &groups, &V, &E, &numTer, &numGroups);
 
 		//broadcast size variables
 		MPI_Bcast(&V, 1, MPI_INT, 0, MPI_COMM_WORLD);
@@ -123,12 +132,13 @@ int main(int argc, char *argv[])
 			if(debug) {
 				printf("Construction metric closure on the GPU...\n");			
 			}
-			fw_gpu(V, G, D);
+			fw_gpu(V, G, D, P);
 		} else{
 			if(debug) {
 				printf("Construction metric closure on the CPU...\n");			
 			}
-			floydWarshall(V, G, D);
+			//floydWarshall(V, G, D);
+			floydWarshallWithPath(V,G,D,P);
 		}
 
 		//broadcast metric closure - non-blocking
@@ -136,9 +146,12 @@ int main(int argc, char *argv[])
 
 		//output for debug
 		if(gprint) {
+			printf("Graph:\n");
+			print(G,V);
+			printf("Metric Closure:\n");
 			print(D,V);
-		}
-		if(debug) {
+			printf("Predecessors:\n");
+			print(P,V);
 			printTermGroups(numTer,numGroups,groups,term);
 		}
 
@@ -155,7 +168,9 @@ int main(int argc, char *argv[])
 		MPI_Bcast(onestar, V * numGroups, MPI_INT, 0, MPI_COMM_WORLD);
 
 		//output onestar
-		if(debug) printOnestar(onestar,numGroups,V);
+		if(gprint) {
+			printOnestar(onestar,numGroups,V);
+		}
 
 		//check if metric closure broadcast is done
 		MPI_Wait(&request, &status);
@@ -167,10 +182,14 @@ int main(int argc, char *argv[])
 		MPI_Reduce(&solution,&minSolution,1,MPI_2INT,MPI_MINLOC,0,MPI_COMM_WORLD);
 
 		//ouput overall minimum cost
-		printf("\nOVERALL MINIMUM STEINER COST: %d Root: %d\n\n", minSolution.cost, minSolution.root);
+		if(!build) {		
+			printf("\nOVERALL MINIMUM STEINER COST: %d Root: %d\n\n", minSolution.cost, minSolution.root);
+		}
+		
 
-		//buildPrintSolution(minSolution.root,V,numGroups,D,onestar); //build complete solution with complete path - TODO
-	
+		/*if(build) {
+			buildWrapper(minSolution,V,numGroups,P,G,D,onestar);
+		}*/
 	}//end parent process
 	
 

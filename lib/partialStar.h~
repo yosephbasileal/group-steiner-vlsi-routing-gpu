@@ -157,7 +157,7 @@ void sort(int src, int interm, int* groupIds, int* vertToGroup, int numGroups, i
 			arr[i] = (float) INT_MAX;
 			continue;
 		}	
-		arr[i] = ((float) vertToGroup[interm * numGroups + groupIds[i]]) / ((float) vertToGroup[src * numGroups + groupIds[i]]);		
+		arr[i] = ((float) vertToGroup[interm * numGroups + i]) / ((float) vertToGroup[src * numGroups + i]);		
 	}
 	
 
