@@ -173,7 +173,7 @@ int main(int argc, char *argv[])
 		if(gprint) {
 			printf("One star cost: \n");
 			printOnestar(onestar,numGroups,V);
-			printf("One star terminals: \n");
+			printf("One star vert: \n");
 			printOnestar(onestar_V,numGroups,V);
 		}
 
