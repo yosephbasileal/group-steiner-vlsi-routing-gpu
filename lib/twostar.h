@@ -33,6 +33,8 @@ int twostar(int root,int *groupIds,int *onestar,int numGroups,int remGroups,int 
 		}
 
 		TOTAL_COST += D[root * V + curParStar[0]]; //root to intermediate cost
+		
+		//increment counter of partial stars		
 		c++;
 
 		remGroups -= curParStar[1]; //update number of remaining groups
@@ -77,7 +79,7 @@ void twostarwrapper(int V, int numGroups, int perChild, int perParent, int numPr
 			minRoot = root;
 		}
 	}
-	
+
 	//The first (perParent - perChild) roots are calculated by the parent process
 	if (!procId) {
 		for(int j = 0; j < (perParent - perChild); j++) {
@@ -89,11 +91,11 @@ void twostarwrapper(int V, int numGroups, int perChild, int perParent, int numPr
 			}
 		}
 	}
-	
+
 	//Store solution
 	solution->root = minRoot;
 	solution->cost = MINIMUM;
-	
+
 	/*if(debug) {
 		printf("MINIMUM STEINER COST: %d,   root: %d, proc ID: %d\n", MINIMUM, minRoot,procId);
 	}*/

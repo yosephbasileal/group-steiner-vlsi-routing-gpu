@@ -192,9 +192,9 @@ int main(int argc, char *argv[])
 		}
 		
 
-		/*if(build) {
-			buildWrapper(minSolution,V,numGroups,P,G,D,onestar);
-		}*/
+		if(build) {
+			buildWrapper(minSolution,V,numGroups,P,G,D,onestar,onestar_V,term,numTer);
+		}
 	}//end parent process
 	
 

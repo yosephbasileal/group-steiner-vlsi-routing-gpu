@@ -39,6 +39,52 @@ void print(int * G, int V) {
 	 printf("\n");
 }
 
+int caclGraphCost(int * G, int V) {
+	int sum = 0;
+	int curr;
+	for(int i = 0; i < V; i++) {
+		for(int j = 0; j < V; j++) {
+			if (i <= j) {
+				continue;
+			}
+			int curr = G[i * V + j];
+			if(curr  == INF) {
+			  continue;
+			}
+			sum += curr;			
+		}
+	}
+	return sum;
+}
+
+int isTerminal(int v, int numTer, int * terminals) {
+	for(int i = 0; i < numTer; i++)
+		if(v == terminals[i])
+			return 1;
+	return 0;
+}
+
+int countNonTerminals(int * G, int V, int numTer, int * terminals) {
+	int count = 0;
+	for(int i = 0; i < V; i++) {
+		if(isTerminal(i,numTer,terminals)) {
+			continue;
+		}
+		int edge = 0;
+		for(int j = 0; j < V; j++) {
+			if(G[i * V + j] != INF) {
+				//printf("i: %d cost: %d \n",i,G[i * V + j]);
+				edge = 1;
+				break;
+			}
+		}
+		if(edge == 1) {
+			count++;
+		}
+	}
+	return count;
+}
+
 //Print one star
 void printOnestar(int * onestar, int numGroups, int V) {
 	for(int i = 0; i < V; i++) {
@@ -71,9 +117,10 @@ void printTermGroups(int numTer, int numGroups, int * groups, int * terminals) {
 }
 
 void printPartialStars(int * partialStar1, int numGroups, int count) {
+	printf("Parital stars of solution: \n");
 	for(int i = 0; i < count; i++) {
 		int * curStar = partialStar1 + (i * (2 + numGroups));
-		printf("intem: %d NumGr: %d IDs ",curStar[0],curStar[1]);
+		printf("\tintem: %d NumGr: %d IDs ",curStar[0],curStar[1]);
 		for(int i = 0; i < curStar[1]; i++)
 			printf(" %d ", curStar[i+2]);
 		printf("\n");
@@ -96,7 +143,7 @@ int reconstruct_path(unsigned int n, unsigned int i, unsigned int j, const int *
 		if (path == INF) 
 			return INF;
 		else
-			patth[(*count) * 2 + 0] = p [i * n + j];
+			patth[(*count) * 2 + 0] = p[i * n + j];
 			patth[(*count) * 2 + 1] = j;
 			*count = (*count) + 1;
 			return path + G[ p [i * n + j] * n + j];

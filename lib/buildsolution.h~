@@ -1,12 +1,12 @@
 void drawEdge(int i, int j, int V, int * S, int * G) {
-        S[i * V + j] = G[i * V + j];
-        S[j * V + i] = G[j * V + i];
+	S[i * V + j] = G[i * V + j];
+	S[j * V + i] = G[j * V + i];
 }
 
 int getPath(int i, int j, int V, int * path, int * P, int * G) {
-        int count = 0;
-        int final = reconstruct_path(V, i,j, P, G,path,&count);
-       	return count;
+	int count = 0;
+	int final = reconstruct_path(V, i,j, P, G,path,&count);
+	return count;
 }
 
 int buildSolution(int minRoot, int V, int numGroups, int * D, int * onestar,struct SolutionTree * solutionTree) {
@@ -40,7 +40,7 @@ int buildSolution(int minRoot, int V, int numGroups, int * D, int * onestar,stru
 	return count;
 }
 
-void buildWrapper(struct Solution minSolution, int V, int numGroups, int * P,int * G, int * D, int * onestar) {
+void buildWrapper(struct Solution minSolution, int V, int numGroups, int * P,int * G, int * D, int * onestar, int * onestar_V, int * terminals, int numTer ) {
 	// variables
 	struct SolutionTree solutionTree;
 	int * partialStar1;
@@ -64,20 +64,34 @@ void buildWrapper(struct Solution minSolution, int V, int numGroups, int * P,int
 	printPartialStars(partialStar1,numGroups,solutionTree.numPar);
 	
 	int * path = (int *) malloc(sizeof(int) * 2 * V);
-	for(int i = 0; i < count; i++) {
+	for(int i = 0; i < count; i++) { //for each partial star
 		int * curStar = partialStar1 + (i * (2 + numGroups));
-		int c = getPath(root,curStar[0],V,path,P,G);
+		int interm = curStar[0];
+		int c = getPath(root,interm,V,path,P,G);
+		//printf("INTERMEDIATE: %d \n", interm);
+		//printf("\troot to inter count: %d\n", c);
 		for(int j = 0; j < c; j++) {
-			drawEdge(path[j * 2 + 0], path[j * 2 + 1], V, S, G);
+			int s = path[j * 2 + 0];
+			int d = path[j * 2 + 1];
+			//printf("\t\t\tS: %d  D: %d\n",s,d);
+			drawEdge(s, d , V, S, G);
 		}
-
-		for(int j = 0; j < curStar[1]; j++) {
-			int terminal = groups[
-			int cc = getPath(curStar[0], curStar[2 + j],V,path,P,G);
+		//printf("\n");
+		for(int j = 0; j < curStar[1]; j++) { //for each groupID
+			int term = onestar_V[interm * numGroups + curStar[2+j]];
+			int cc = getPath(interm, term,V,path,P,G);
+			//printf("\tGROUP: %d TERM: %d \n", curStar[2+j], term);
+			//printf("\t\tinterm to term count: %d\n", cc);
 			for(int k = 0; k < cc; k++) {
-				drawEdge(path[j * 2 + 0], path[j * 2 + 1], V, S, G);
+				int s = path[k * 2 + 0];
+				int d = path[k * 2 + 1];
+				//printf("\t\t\tS: %d  D: %d\n",s,d);
+				drawEdge(s, d , V, S, G);
 			}
 		}
+		//printf("\n\n");
 	}
-	print(S,V);
+	//print(S,V);
+	printf("final graph cost: %d\n", caclGraphCost(S,V));
+	printf("NonTer part of solution: %d\n",countNonTerminals(S,V,numTer, terminals));
 }

@@ -33,6 +33,8 @@ int twostar(int root,int *groupIds,int *onestar,int numGroups,int remGroups,int 
 		}
 
 		TOTAL_COST += D[root * V + curParStar[0]]; //root to intermediate cost
+		
+		//increment counter of partial stars		
 		c++;
 
 		remGroups -= curParStar[1]; //update number of remaining groups
@@ -103,30 +105,4 @@ void twostarwrapper(int V, int numGroups, int perChild, int perParent, int numPr
 	free(partialStar1);
 }
 
-void buildPrintSolution(int minRoot, int V, int numGroups, int * D, int * onestar,struct SolutionTree * solutionTree) {
-	int TOTAL_COST;
 
-	int * intermSet = (int *) malloc(sizeof(int) * (V + 1)); 
-	int * groupIds = (int *) malloc(sizeof(int) * numGroups);
-	int * newGroupIds = (int *) malloc(sizeof(int) * numGroups); 
-	int * partialStar1 = (int *) malloc(sizeof(int) * (2 + numGroups) * V);
-
-	if(!intermSet || !groupIds || !newGroupIds || !partialStar1) {
-		printf("Error: Memory allocation error inside twostar wrapper!\n");
-		exit(1);
-	}
-
-	int remGroups;
-	int root = minRoot;
-
-	int count = twostar(root,groupIds,onestar,numGroups,remGroups,V,D, partialStar1,intermSet,newGroupIds,true);		
-	
-	//Store solution
-	solutionTree->root = minRoot;
-	solutionTree->numPar = count;
-	solutionTree->partialstars = partialStar1;
-	
-	free(intermSet);
-	free(groupIds);
-	free(newGroupIds);
-}
