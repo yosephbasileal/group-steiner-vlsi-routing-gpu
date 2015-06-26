@@ -121,10 +121,42 @@ void printPartialStars(int * partialStar1, int numGroups, int count) {
 	for(int i = 0; i < count; i++) {
 		int * curStar = partialStar1 + (i * (2 + numGroups));
 		printf("\tintem: %d NumGr: %d IDs ",curStar[0],curStar[1]);
-		for(int i = 0; i < curStar[1]; i++)
-			printf(" %d ", curStar[i+2]);
+		for(int j = 0; j < curStar[1]; j++)
+			printf(" %d ", curStar[j+2]);
 		printf("\n");
 	}
+}
+
+void copypartialStar(int * A, int  * B, int numGroups, int count) {
+	//A - from, B - to
+	for(int i = 0; i < count; i++) {
+		//get a partial star
+		int * curStarA = A + (i * (2 + numGroups));
+		int * curStarB = B + (i * (2 + numGroups));
+
+		//copy intermediate and num of groups
+		curStarB[0] = curStarA[0];
+		curStarB[1] = curStarA[1];
+
+		//copy groups
+		for(int j = 0; j < curStarA[1]; j++) {
+			curStarB[j+2] = curStarA[j+2];
+		}
+	}
+}
+
+int getProcId(int root, int perChild, int perParent, int numProc, int V) {
+	int diff = perParent - perChild;
+	int procId = 0;
+	if(root < diff) {
+		procId = 0;
+	}
+	else {
+		int i = (root - diff)/(numProc);
+		printf("I: %d ___________--____\n", i);		
+		procId = root - ((i * numProc) + diff);
+	}
+	return procId;
 }
 
 void printSolutionCost(int root, int cost) {

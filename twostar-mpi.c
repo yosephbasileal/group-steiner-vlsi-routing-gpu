@@ -55,6 +55,7 @@ int main(int argc, char *argv[])
 	int MINIMUM, overall_min;
 	struct Solution solution;
 	struct Solution minSolution;
+	struct TwoStar twostar;
 	//struct Solution solutionTree
 
 	//variables for mapping roots to processes
@@ -181,20 +182,20 @@ int main(int argc, char *argv[])
 		MPI_Wait(&request, &status);
 
 		//construct two star
-		twostarwrapper(V,numGroups,perChild,perParent,numProc,procId,D,onestar,&solution);
+		twostarwrapper(V,numGroups,perChild,perParent,numProc,procId,D,onestar,&solution,&twostar);
 
 		//get minimum from all using reduction
 		MPI_Reduce(&solution,&minSolution,1,MPI_2INT,MPI_MINLOC,0,MPI_COMM_WORLD);
 
 		//ouput overall minimum cost
-		if(!build) {		
+		//if(!build) {		
 			printf("\nOVERALL MINIMUM STEINER COST: %d Root: %d\n\n", minSolution.cost, minSolution.root);
-		}
+		//}
 		
 
-		if(build) {
-			buildWrapper(minSolution,V,numGroups,P,G,D,onestar,onestar_V,term,numTer);
-		}
+		//if(build) {
+		buildWrapper(minSolution,V,numGroups,P,G,D,onestar,onestar_V,term,numTer,perParent,perChild,numProc,procId,&twostar);
+		//}
 	}//end parent process
 	
 
@@ -247,11 +248,12 @@ int main(int argc, char *argv[])
 		MPI_Wait(&request, &status);
 
 		//construct two star
-		twostarwrapper(V,numGroups,perChild,perParent,numProc,procId,D,onestar,&solution);
+		twostarwrapper(V,numGroups,perChild,perParent,numProc,procId,D,onestar,&solution,&twostar);
 
 		//get minimum of all
 		MPI_Reduce(&solution,&minSolution,1,MPI_2INT,MPI_MINLOC,0,MPI_COMM_WORLD);		
 
+		buildWrapper(minSolution,V,numGroups,P,G,D,onestar,onestar_V,term,numTer,perParent,perChild,numProc,procId,&twostar);
 	}//end child processes
 
 	MPI_Finalize();

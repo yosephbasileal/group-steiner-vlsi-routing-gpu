@@ -1,2 +1,18 @@
 look at sort function
+
 modify onestar to include not just the cost but also the minV from each group
+
+
+
+Right solution from previoud build solution
+
+OVERALL MINIMUM STEINER COST: 1100427 Root: 17
+
+Parital stars of solution: 
+	intem: 2 NumGr: 4 IDs  0  1  10  2 
+	intem: 27 NumGr: 2 IDs  9  8 
+	intem: 21 NumGr: 2 IDs  7  6 
+	intem: 87 NumGr: 2 IDs  3  4 
+	intem: 122 NumGr: 1 IDs  5 
+Final Graph Cost: 1100388
+
