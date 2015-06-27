@@ -109,7 +109,7 @@ void twostarwrapper(int V, int numGroups, int perChild, int perParent, int numPr
 	solution->cost = MINIMUM;
 
 	//if(debug) {
-		printf("MINIMUM STEINER COST: %d,   root: %d, proc ID: %d\n", MINIMUM, minRoot,procId);
+		//printf("MINIMUM STEINER COST: %d,   root: %d, proc ID: %d\n", MINIMUM, minRoot,procId);
 	//}
 	free(intermSet);
 	free(groupIds);

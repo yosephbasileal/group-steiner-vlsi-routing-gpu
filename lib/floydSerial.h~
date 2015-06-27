@@ -42,7 +42,7 @@ void floydWarshallWithPath(int V, int * G, int * D, int * P) {
   		for (j = 0; j < V; j++)
      		D[i * V + j] = G[i * V + j]; //copy graph to solution matrix
 
-    constructInitialMatixOfPredecessors(D,P,V);
+    //constructInitialMatixOfPredecessors(D,P,V);
     for (k = 0; k < V; k++) {
         for (i = 0; i < V; i++) {
             for (j = 0; j < V; j++) {

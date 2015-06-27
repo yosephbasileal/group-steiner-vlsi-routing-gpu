@@ -3,6 +3,7 @@ void drawEdge(int i, int j, int V, int * S, int * G) {
 	S[j * V + i] = G[j * V + i];
 }
 
+//gets path from i to j using predecessors matrix, stores in in 'path'
 int getPath(int i, int j, int V, int * path, int * P, int * G) {
 	int count = 0;
 	int final = reconstruct_path(V, i,j, P, G,path,&count);
@@ -20,7 +21,7 @@ void buildWrapper(struct Solution minSolution, int V, int numGroups, int * P,int
 
 	if(!procId) {
 		minProc = getProcId(minSolution.root,perChild, perParent,numProc,V);
-		printf("Min Proc: %d \n", minProc);
+		//printf("Min Proc: %d \n", minProc);
 		
 		MPI_Bcast(&minProc,1,MPI_INT,0,MPI_COMM_WORLD);
 		if(minProc == 0) {
@@ -45,7 +46,7 @@ void buildWrapper(struct Solution minSolution, int V, int numGroups, int * P,int
 			}
 		}
 	
-		printSolutionCost(root, cost);
+		printTwoStarCost(root, cost);
 		printPartialStars(partialStar1,numGroups,count);
 	
 		path = (int *) malloc(sizeof(int) * 2 * V);
@@ -91,8 +92,5 @@ void buildWrapper(struct Solution minSolution, int V, int numGroups, int * P,int
 			MPI_Send(&(twostar->numPar),1,MPI_INT,0,0,MPI_COMM_WORLD);
 			MPI_Send(twostar->partialstars,(2 + numGroups) * V,MPI_INT,0,0,MPI_COMM_WORLD);			
 		}
-
-
-	} 
-	/**/
+	}
 }

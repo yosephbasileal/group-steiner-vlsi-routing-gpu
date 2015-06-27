@@ -3,43 +3,14 @@ void drawEdge(int i, int j, int V, int * S, int * G) {
 	S[j * V + i] = G[j * V + i];
 }
 
+//gets path from i to j using predecessors matrix, stores in in 'path'
 int getPath(int i, int j, int V, int * path, int * P, int * G) {
 	int count = 0;
 	int final = reconstruct_path(V, i,j, P, G,path,&count);
 	return count;
 }
-/*
-int buildSolution(int minRoot, int V, int numGroups, int * D, int * onestar,struct SolutionTree * solutionTree) {
-	int TOTAL_COST;
 
-	int * intermSet = (int *) malloc(sizeof(int) * (V + 1)); 
-	int * groupIds = (int *) malloc(sizeof(int) * numGroups);
-	int * newGroupIds = (int *) malloc(sizeof(int) * numGroups); 
-	int * partialStar1 = (int *) malloc(sizeof(int) * (2 + numGroups) * V);
 
-	if(!intermSet || !groupIds || !newGroupIds || !partialStar1) {
-		printf("Error: Memory allocation error inside twostar wrapper!\n");
-		exit(1);
-	}
-
-	int remGroups;
-	int root = minRoot;
-
-	int count = twostar(root,groupIds,onestar,numGroups,remGroups,V,D, partialStar1,intermSet,newGroupIds,true);		
-	
-	//Store solution
-	solutionTree->root = minRoot;
-	solutionTree->numPar = count;
-	solutionTree->partialstars = partialStar1;
-	
-
-	free(intermSet);
-	free(groupIds);
-	free(newGroupIds);
-	
-	return count;
-}
-*/
 void buildWrapper(struct Solution minSolution, int V, int numGroups, int * P,int * G, int * D, int * onestar, int * onestar_V, int * terminals, int numTer, int perParent, int perChild, int numProc, int procId, struct TwoStar * twostar) {
 	
 	int root, cost, count, *partialStar1;
@@ -50,7 +21,7 @@ void buildWrapper(struct Solution minSolution, int V, int numGroups, int * P,int
 
 	if(!procId) {
 		minProc = getProcId(minSolution.root,perChild, perParent,numProc,V);
-		printf("Min Proc: %d \n", minProc);
+		//printf("Min Proc: %d \n", minProc);
 		
 		MPI_Bcast(&minProc,1,MPI_INT,0,MPI_COMM_WORLD);
 		if(minProc == 0) {
@@ -121,8 +92,5 @@ void buildWrapper(struct Solution minSolution, int V, int numGroups, int * P,int
 			MPI_Send(&(twostar->numPar),1,MPI_INT,0,0,MPI_COMM_WORLD);
 			MPI_Send(twostar->partialstars,(2 + numGroups) * V,MPI_INT,0,0,MPI_COMM_WORLD);			
 		}
-
-
-	} 
-	/**/
+	}
 }

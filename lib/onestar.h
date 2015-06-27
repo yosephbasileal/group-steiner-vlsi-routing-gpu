@@ -7,7 +7,6 @@ void oneStarCost(int V, int numTer, int src,  int numGroups, int * oneStar, int 
 
 	for(int i = 0; i < numGroups; i++) { //for each group
 		currMin = INT_MAX;
-		vertMin = 99;
 		for(int j = 0; j < numTer/numGroups; j++) { //for each vertex in current group
 			vert = groups[(i * (numTer/numGroups)) + j];
 			if(vert == src) { //if current vertex is same as the root
@@ -22,8 +21,8 @@ void oneStarCost(int V, int numTer, int src,  int numGroups, int * oneStar, int 
 				vertMin = vert;
 			}	
 		}
-		oneStar[i] = currMin; //save minimum
-		oneStar_V[i] = vertMin; //save minimum vertex
+		oneStar[i] = currMin; //save minimum cost to current group
+		oneStar_V[i] = vertMin; //save minimum vertex for current group
 	}
 }
 

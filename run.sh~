@@ -28,7 +28,7 @@ do
 		echo -n $p": "  >> log/time.log
 		if ((V > p))
 		then
-			(time mpirun -n $p --hostfile hosts/allhosts ./twostar < grouped/"$i"  >> log/output.log) &>> log/time.log
+			(time mpirun -n $p --hostfile hosts/allhosts ./twostar < grouped/"$i" -pb  >> log/output.log) &>> log/time.log
 		else
 			echo "# of nodes is more than needed" >> log/time.log
 		fi

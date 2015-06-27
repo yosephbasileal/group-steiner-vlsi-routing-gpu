@@ -30,6 +30,8 @@
 bool gPrint = false; 	// print graph d or not
 bool gDebug = false;	// print more deatails to debug
 
+extern "C" void fw_gpu(const unsigned int n, const int * const G, int * const d, int * const p);
+
 /** Cuda handle error, if err is not success print error and line in code
 *
 * @param status CUDA Error types
@@ -227,123 +229,4 @@ bool check_paths(const unsigned int n, const int * const G, const int * const d,
 	}
 
 	return true;
-}
-
-int main(int argc, char **argv)
-{
-	unsigned int V;
-	unsigned int E;
-	unsigned int v1, v2, w; 
-  	int check = false;
-	int opt;
-
-	while ((opt = getopt (argc, argv, "pdc")) != -1)
-	{
-		switch(opt)
-		{
-			case 'p':
-				gPrint = true;
-				break;
-			case 'd':
-				gDebug = true;
-				break;
-			case 'c':
-				check = true;
-				break;
-			case '?':
-				fprintf (stderr, "Unknown option character `\\x%x'.\n", opt);
-				return 1;
-			default:
-			        abort ();
-		}
-	}
-
-	// Load number vertices of the graph |V(G)| and number edges of the graph |E(G)|
-	scanf("%d %d", &V, &E);
-		
-	// Alloc host data for G - graph, d - matrix of shortest paths
-	unsigned int size = V * V;
-	
-	int *G = (int *) malloc (sizeof(int) * size);
-	int *d = (int *) malloc (sizeof(int) * size);
-	int *p = (int *) malloc (sizeof(int) * size);
-
-	// Init Data for the graph G and p
-	memset(G, CHARINF, sizeof(int) * size);
-	memset(p, NONE, sizeof(int) * size);
-
-	if (gDebug)
-	{
-		fprintf(stdout, "\nInit data:\n");
-	       	print_graph(V, G);
-	}
-
-	// Load weight of the edges of the graph E(G)
-	REP(e, E)
-	{
-		scanf("%d %d %d", &v1, &v2, &w);
-		G[v1 * V + v2] = w;
-		if (v1 != v2)
-			 p[v1 * V + v2] = v1;
-	}
-
-	FOR (v, 0, V - 1)
-		G[v * V + v] = 0;
-
-	if (gDebug)
-	{	
-		fprintf(stdout, "\nLoaded data:\n");
-		print_graph(V, G);
-	}
-
-	// Initialize CUDA Event
-	cudaEvent_t start,stop;
-	float elapsedTime;
-
-	cudaEventCreate(&start);
-	cudaEventCreate(&stop);
-	cudaEventRecord(start,0);
-	
-	fw_gpu(V, G, d, p);
-	
-	// Finish recording
-	cudaEventRecord(stop,0);
-	cudaEventSynchronize(stop);
-	
-	// Calculate elasped time
-	cudaEventElapsedTime(&elapsedTime,start,stop);
-
-	if (gPrint) 
-	{
-		fprintf(stdout, "\nResult short path:\n");
-		print_graph(V, d);
-	}
-
-        if (gPrint)
-	{
-		fprintf(stdout, "\nResult predecessors:\n");
-		print_graph(V, p);
-	}
-	
-	elapsedTime /= 1000;
-	printf ("Time : %f s\n", elapsedTime);
- 
-	if (check)
-	{
-		if (check_paths(V, G, d, p))
-		{
-			 fprintf(stdout, "\nResult are correct:\n");
-		}
-		else
-		{
-			 fprintf(stdout, "\nResult are incorrect:\n");
-		}
-	}
- 
-	// Delete allocated memory 
-	free(G);
-	free(d);
-	free(p);
-
-	return 0;
 }

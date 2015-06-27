@@ -7,31 +7,20 @@
 #include <getopt.h>
 #include <string.h>
 
-//Library for sched_getcpu()
-#define _GNU_SOURCE 
-#include <utmpx.h>
-
-//Constant
-#define INF 1061109567
-#define NONE	-1
-#define CHARINF 63	   // 3F
-
 //Global variables
 bool gprint = false; // print graph and metric closure -o
 bool debug = false;	// print more deatails for debugging -d
-bool parallel = false; //construct metric closure in serial or parallel -p
-bool build = false; //build solution
+bool serial = false; //construct metric closure in serial or parallel -n
 
 //File headers
+#include "lib/macros.h"
 #include "lib/utils.h"
 #include "lib/readFile.h"
+#include "lib/floydSerial.h"
 #include "lib/onestar.h"
 #include "lib/twostar.h"
-#include "lib/floydSerial.h"
 #include "lib/buildsolution.h"
 
-//Function declaration
-int sched_getcpu(void);
 void fw_gpu(const unsigned int n, const int * const G, int * const d, int * const p);
 
 //Main
@@ -61,20 +50,12 @@ int main(int argc, char *argv[])
 	//variables for mapping roots to processes
 	int *pars;
 	int perParent;
-	int perChild;
-
-	//variables for calculating time
-	double starttime, endtime;	
-
-	//mapping of processes to CPU cores
-	if(debug) {
-		printf("ProcID = %d CpuID = %d\n", procId, sched_getcpu());
-	}
+	int perChild;	
 
 	/*--------------------------------------------Parent process------------------------------------------------*/
 	if(!procId)  {
 		int r;
-		while ((r = getopt(argc, argv, "odpb")) != -1) { //command line args
+		while ((r = getopt(argc, argv, "odn")) != -1) { //command line args
 			switch(r)
 			{
 				case 'o':
@@ -83,11 +64,8 @@ int main(int argc, char *argv[])
 				case 'd':
 					debug = true;
 					break;
-				case 'p':
-					parallel = true;
-					break;
-				case 'b':
-					build = true;
+				case 'n':
+					serial = true;
 					break;
 				default:
 					//printUsage();
@@ -130,7 +108,7 @@ int main(int argc, char *argv[])
 		}
 
 		//construct metric closure
-		if(parallel) {
+		if(!serial) {
 			if(debug) {
 				printf("Construction metric closure on the GPU...\n");			
 			}
@@ -148,13 +126,11 @@ int main(int argc, char *argv[])
 
 		//output for debug
 		if(gprint) {
-			printf("Graph:\n");
-			print(G,V);
-			printf("Metric Closure:\n");
-			print(D,V);
-			printf("Predecessors:\n");
-			print(P,V);
-			printTermGroups(numTer,numGroups,groups,term);
+			print(G,V,"Graph");
+			print(D,V,"Metric Closure");
+			print(P,V,"Predecessors");
+			printTerm(numTer, term);
+			printGroups(numGroups, numTer, groups);
 		}
 
 		//reciveing buffer for distributing some rows of metric closure
@@ -172,10 +148,8 @@ int main(int argc, char *argv[])
 
 		//output onestar
 		if(gprint) {
-			printf("One star cost: \n");
-			printOnestar(onestar,numGroups,V);
-			printf("One star terminals: \n");
-			printOnestar(onestar_V,numGroups,V);
+			printOnestar(onestar,numGroups,V,"One star cost");
+			printOnestar(onestar_V,numGroups,V,"One star vertices");
 		}
 
 		//check if metric closure broadcast is done
@@ -189,7 +163,7 @@ int main(int argc, char *argv[])
 
 		//ouput overall minimum cost
 		//if(!build) {		
-			printf("\nOVERALL MINIMUM STEINER COST: %d Root: %d\n\n", minSolution.cost, minSolution.root);
+			//printf("\nOVERALL MINIMUM STEINER COST: %d Root: %d\n\n", minSolution.cost, minSolution.root);
 		//}
 		
 
