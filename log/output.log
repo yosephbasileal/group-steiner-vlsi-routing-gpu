@@ -2571,3 +2571,1628 @@ intem: 171 NumGr: 3 IDs  22  10  7
 intem: 668 NumGr: 1 IDs  19 
 
 
+____________________________________________ Fri Jun 26 23:52:19 EDT 2015 ____________________________________________
+---------------------------------------------------
+13.txt    (V,E(--> 311 613
+---------------------------------------------------
+
+TWOSTAR: 
+	Cost: 1300573 Root: 117
+
+Parital stars: 
+	Intermediate: 257 # of Groups: 6 Group IDs  3  5  7  9  0  6 
+	Intermediate: 6 # of Groups: 2 Group IDs  2  1 
+	Intermediate: 32 # of Groups: 3 Group IDs  10  11  8 
+	Intermediate: 15 # of Groups: 1 Group IDs  4 
+	Intermediate: 52 # of Groups: 1 Group IDs  12 
+
+Final Graph Cost: 1300530
+
+TWOSTAR: 
+	Cost: 1300573 Root: 117
+
+Parital stars: 
+	Intermediate: 257 # of Groups: 6 Group IDs  3  5  7  9  0  6 
+	Intermediate: 6 # of Groups: 2 Group IDs  2  1 
+	Intermediate: 32 # of Groups: 3 Group IDs  10  11  8 
+	Intermediate: 15 # of Groups: 1 Group IDs  4 
+	Intermediate: 52 # of Groups: 1 Group IDs  12 
+
+Final Graph Cost: 1300530
+
+TWOSTAR: 
+	Cost: 1300573 Root: 117
+
+Parital stars: 
+	Intermediate: 257 # of Groups: 6 Group IDs  3  5  7  9  0  6 
+	Intermediate: 6 # of Groups: 2 Group IDs  2  1 
+	Intermediate: 32 # of Groups: 3 Group IDs  10  11  8 
+	Intermediate: 15 # of Groups: 1 Group IDs  4 
+	Intermediate: 52 # of Groups: 1 Group IDs  12 
+
+Final Graph Cost: 1300530
+
+TWOSTAR: 
+	Cost: 1300573 Root: 117
+
+Parital stars: 
+	Intermediate: 257 # of Groups: 6 Group IDs  3  5  7  9  0  6 
+	Intermediate: 6 # of Groups: 2 Group IDs  2  1 
+	Intermediate: 32 # of Groups: 3 Group IDs  10  11  8 
+	Intermediate: 15 # of Groups: 1 Group IDs  4 
+	Intermediate: 52 # of Groups: 1 Group IDs  12 
+
+Final Graph Cost: 1300530
+
+TWOSTAR: 
+	Cost: 1300573 Root: 117
+
+Parital stars: 
+	Intermediate: 257 # of Groups: 6 Group IDs  3  5  7  9  0  6 
+	Intermediate: 6 # of Groups: 2 Group IDs  2  1 
+	Intermediate: 32 # of Groups: 3 Group IDs  10  11  8 
+	Intermediate: 15 # of Groups: 1 Group IDs  4 
+	Intermediate: 52 # of Groups: 1 Group IDs  12 
+
+Final Graph Cost: 1300530
+
+TWOSTAR: 
+	Cost: 1300573 Root: 117
+
+Parital stars: 
+	Intermediate: 257 # of Groups: 6 Group IDs  3  5  7  9  0  6 
+	Intermediate: 6 # of Groups: 2 Group IDs  2  1 
+	Intermediate: 32 # of Groups: 3 Group IDs  10  11  8 
+	Intermediate: 15 # of Groups: 1 Group IDs  4 
+	Intermediate: 52 # of Groups: 1 Group IDs  12 
+
+Final Graph Cost: 1300530
+
+TWOSTAR: 
+	Cost: 1300573 Root: 117
+
+Parital stars: 
+	Intermediate: 257 # of Groups: 6 Group IDs  3  5  7  9  0  6 
+	Intermediate: 6 # of Groups: 2 Group IDs  2  1 
+	Intermediate: 32 # of Groups: 3 Group IDs  10  11  8 
+	Intermediate: 15 # of Groups: 1 Group IDs  4 
+	Intermediate: 52 # of Groups: 1 Group IDs  12 
+
+Final Graph Cost: 1300530
+
+
+---------------------------------------------------
+24.txt    (V,E(--> 262 487
+---------------------------------------------------
+
+TWOSTAR: 
+	Cost: 2401094 Root: 41
+
+Parital stars: 
+	Intermediate: 31 # of Groups: 3 Group IDs  10  8  0 
+	Intermediate: 73 # of Groups: 4 Group IDs  22  23  21  20 
+	Intermediate: 191 # of Groups: 7 Group IDs  1  2  6  4  7  5  3 
+	Intermediate: 57 # of Groups: 3 Group IDs  18  19  17 
+	Intermediate: 33 # of Groups: 2 Group IDs  11  9 
+	Intermediate: 49 # of Groups: 2 Group IDs  16  15 
+	Intermediate: 37 # of Groups: 1 Group IDs  12 
+	Intermediate: 46 # of Groups: 1 Group IDs  14 
+	Intermediate: 251 # of Groups: 1 Group IDs  13 
+
+Final Graph Cost: 2400758
+
+TWOSTAR: 
+	Cost: 2401094 Root: 41
+
+Parital stars: 
+	Intermediate: 31 # of Groups: 3 Group IDs  10  8  0 
+	Intermediate: 73 # of Groups: 4 Group IDs  22  23  21  20 
+	Intermediate: 191 # of Groups: 7 Group IDs  1  2  6  4  7  5  3 
+	Intermediate: 57 # of Groups: 3 Group IDs  18  19  17 
+	Intermediate: 33 # of Groups: 2 Group IDs  11  9 
+	Intermediate: 49 # of Groups: 2 Group IDs  16  15 
+	Intermediate: 37 # of Groups: 1 Group IDs  12 
+	Intermediate: 46 # of Groups: 1 Group IDs  14 
+	Intermediate: 251 # of Groups: 1 Group IDs  13 
+
+Final Graph Cost: 2400758
+
+TWOSTAR: 
+	Cost: 2401094 Root: 41
+
+Parital stars: 
+	Intermediate: 31 # of Groups: 3 Group IDs  10  8  0 
+	Intermediate: 73 # of Groups: 4 Group IDs  22  23  21  20 
+	Intermediate: 191 # of Groups: 7 Group IDs  1  2  6  4  7  5  3 
+	Intermediate: 57 # of Groups: 3 Group IDs  18  19  17 
+	Intermediate: 33 # of Groups: 2 Group IDs  11  9 
+	Intermediate: 49 # of Groups: 2 Group IDs  16  15 
+	Intermediate: 37 # of Groups: 1 Group IDs  12 
+	Intermediate: 46 # of Groups: 1 Group IDs  14 
+	Intermediate: 251 # of Groups: 1 Group IDs  13 
+
+Final Graph Cost: 2400758
+
+TWOSTAR: 
+	Cost: 2401094 Root: 41
+
+Parital stars: 
+	Intermediate: 31 # of Groups: 3 Group IDs  10  8  0 
+	Intermediate: 73 # of Groups: 4 Group IDs  22  23  21  20 
+	Intermediate: 191 # of Groups: 7 Group IDs  1  2  6  4  7  5  3 
+	Intermediate: 57 # of Groups: 3 Group IDs  18  19  17 
+	Intermediate: 33 # of Groups: 2 Group IDs  11  9 
+	Intermediate: 49 # of Groups: 2 Group IDs  16  15 
+	Intermediate: 37 # of Groups: 1 Group IDs  12 
+	Intermediate: 46 # of Groups: 1 Group IDs  14 
+	Intermediate: 251 # of Groups: 1 Group IDs  13 
+
+Final Graph Cost: 2400758
+
+TWOSTAR: 
+	Cost: 2401094 Root: 41
+
+Parital stars: 
+	Intermediate: 31 # of Groups: 3 Group IDs  10  8  0 
+	Intermediate: 73 # of Groups: 4 Group IDs  22  23  21  20 
+	Intermediate: 191 # of Groups: 7 Group IDs  1  2  6  4  7  5  3 
+	Intermediate: 57 # of Groups: 3 Group IDs  18  19  17 
+	Intermediate: 33 # of Groups: 2 Group IDs  11  9 
+	Intermediate: 49 # of Groups: 2 Group IDs  16  15 
+	Intermediate: 37 # of Groups: 1 Group IDs  12 
+	Intermediate: 46 # of Groups: 1 Group IDs  14 
+	Intermediate: 251 # of Groups: 1 Group IDs  13 
+
+Final Graph Cost: 2400758
+
+TWOSTAR: 
+	Cost: 2401094 Root: 41
+
+Parital stars: 
+	Intermediate: 31 # of Groups: 3 Group IDs  10  8  0 
+	Intermediate: 73 # of Groups: 4 Group IDs  22  23  21  20 
+	Intermediate: 191 # of Groups: 7 Group IDs  1  2  6  4  7  5  3 
+	Intermediate: 57 # of Groups: 3 Group IDs  18  19  17 
+	Intermediate: 33 # of Groups: 2 Group IDs  11  9 
+	Intermediate: 49 # of Groups: 2 Group IDs  16  15 
+	Intermediate: 37 # of Groups: 1 Group IDs  12 
+	Intermediate: 46 # of Groups: 1 Group IDs  14 
+	Intermediate: 251 # of Groups: 1 Group IDs  13 
+
+Final Graph Cost: 2400758
+
+TWOSTAR: 
+	Cost: 2401094 Root: 41
+
+Parital stars: 
+	Intermediate: 31 # of Groups: 3 Group IDs  10  8  0 
+	Intermediate: 73 # of Groups: 4 Group IDs  22  23  21  20 
+	Intermediate: 191 # of Groups: 7 Group IDs  1  2  6  4  7  5  3 
+	Intermediate: 57 # of Groups: 3 Group IDs  18  19  17 
+	Intermediate: 33 # of Groups: 2 Group IDs  11  9 
+	Intermediate: 49 # of Groups: 2 Group IDs  16  15 
+	Intermediate: 37 # of Groups: 1 Group IDs  12 
+	Intermediate: 46 # of Groups: 1 Group IDs  14 
+	Intermediate: 251 # of Groups: 1 Group IDs  13 
+
+Final Graph Cost: 2400758
+
+
+---------------------------------------------------
+34.txt    (V,E(--> 1244 2474
+---------------------------------------------------
+
+TWOSTAR: 
+	Cost: 3401105 Root: 79
+
+Parital stars: 
+	Intermediate: 106 # of Groups: 5 Group IDs  32  31  28  30  27 
+	Intermediate: 16 # of Groups: 5 Group IDs  0  33  1  2  4 
+	Intermediate: 1183 # of Groups: 2 Group IDs  13  20 
+	Intermediate: 47 # of Groups: 5 Group IDs  5  3  11  12  7 
+	Intermediate: 275 # of Groups: 3 Group IDs  29  26  25 
+	Intermediate: 64 # of Groups: 2 Group IDs  15  16 
+	Intermediate: 83 # of Groups: 3 Group IDs  19  24  14 
+	Intermediate: 989 # of Groups: 4 Group IDs  6  10  8  9 
+	Intermediate: 570 # of Groups: 2 Group IDs  23  22 
+	Intermediate: 88 # of Groups: 2 Group IDs  17  21 
+	Intermediate: 1228 # of Groups: 1 Group IDs  18 
+
+Final Graph Cost: 3400926
+
+TWOSTAR: 
+	Cost: 3401105 Root: 79
+
+Parital stars: 
+	Intermediate: 106 # of Groups: 5 Group IDs  32  31  28  30  27 
+	Intermediate: 16 # of Groups: 5 Group IDs  0  33  1  2  4 
+	Intermediate: 1183 # of Groups: 2 Group IDs  13  20 
+	Intermediate: 47 # of Groups: 5 Group IDs  5  3  11  12  7 
+	Intermediate: 275 # of Groups: 3 Group IDs  29  26  25 
+	Intermediate: 64 # of Groups: 2 Group IDs  15  16 
+	Intermediate: 83 # of Groups: 3 Group IDs  19  24  14 
+	Intermediate: 989 # of Groups: 4 Group IDs  6  10  8  9 
+	Intermediate: 570 # of Groups: 2 Group IDs  23  22 
+	Intermediate: 88 # of Groups: 2 Group IDs  17  21 
+	Intermediate: 1228 # of Groups: 1 Group IDs  18 
+
+Final Graph Cost: 3400926
+
+TWOSTAR: 
+	Cost: 3401105 Root: 79
+
+Parital stars: 
+	Intermediate: 106 # of Groups: 5 Group IDs  32  31  28  30  27 
+	Intermediate: 16 # of Groups: 5 Group IDs  0  33  1  2  4 
+	Intermediate: 1183 # of Groups: 2 Group IDs  13  20 
+	Intermediate: 47 # of Groups: 5 Group IDs  5  3  11  12  7 
+	Intermediate: 275 # of Groups: 3 Group IDs  29  26  25 
+	Intermediate: 64 # of Groups: 2 Group IDs  15  16 
+	Intermediate: 83 # of Groups: 3 Group IDs  19  24  14 
+	Intermediate: 989 # of Groups: 4 Group IDs  6  10  8  9 
+	Intermediate: 570 # of Groups: 2 Group IDs  23  22 
+	Intermediate: 88 # of Groups: 2 Group IDs  17  21 
+	Intermediate: 1228 # of Groups: 1 Group IDs  18 
+
+Final Graph Cost: 3400926
+
+TWOSTAR: 
+	Cost: 3401105 Root: 79
+
+Parital stars: 
+	Intermediate: 106 # of Groups: 5 Group IDs  32  31  28  30  27 
+	Intermediate: 16 # of Groups: 5 Group IDs  0  33  1  2  4 
+	Intermediate: 1183 # of Groups: 2 Group IDs  13  20 
+	Intermediate: 47 # of Groups: 5 Group IDs  5  3  11  12  7 
+	Intermediate: 275 # of Groups: 3 Group IDs  29  26  25 
+	Intermediate: 64 # of Groups: 2 Group IDs  15  16 
+	Intermediate: 83 # of Groups: 3 Group IDs  19  24  14 
+	Intermediate: 989 # of Groups: 4 Group IDs  6  10  8  9 
+	Intermediate: 570 # of Groups: 2 Group IDs  23  22 
+	Intermediate: 88 # of Groups: 2 Group IDs  17  21 
+	Intermediate: 1228 # of Groups: 1 Group IDs  18 
+
+Final Graph Cost: 3400926
+
+TWOSTAR: 
+	Cost: 3401105 Root: 79
+
+Parital stars: 
+	Intermediate: 106 # of Groups: 5 Group IDs  32  31  28  30  27 
+	Intermediate: 16 # of Groups: 5 Group IDs  0  33  1  2  4 
+	Intermediate: 1183 # of Groups: 2 Group IDs  13  20 
+	Intermediate: 47 # of Groups: 5 Group IDs  5  3  11  12  7 
+	Intermediate: 275 # of Groups: 3 Group IDs  29  26  25 
+	Intermediate: 64 # of Groups: 2 Group IDs  15  16 
+	Intermediate: 83 # of Groups: 3 Group IDs  19  24  14 
+	Intermediate: 989 # of Groups: 4 Group IDs  6  10  8  9 
+	Intermediate: 570 # of Groups: 2 Group IDs  23  22 
+	Intermediate: 88 # of Groups: 2 Group IDs  17  21 
+	Intermediate: 1228 # of Groups: 1 Group IDs  18 
+
+Final Graph Cost: 3400926
+
+TWOSTAR: 
+	Cost: 3401105 Root: 79
+
+Parital stars: 
+	Intermediate: 106 # of Groups: 5 Group IDs  32  31  28  30  27 
+	Intermediate: 16 # of Groups: 5 Group IDs  0  33  1  2  4 
+	Intermediate: 1183 # of Groups: 2 Group IDs  13  20 
+	Intermediate: 47 # of Groups: 5 Group IDs  5  3  11  12  7 
+	Intermediate: 275 # of Groups: 3 Group IDs  29  26  25 
+	Intermediate: 64 # of Groups: 2 Group IDs  15  16 
+	Intermediate: 83 # of Groups: 3 Group IDs  19  24  14 
+	Intermediate: 989 # of Groups: 4 Group IDs  6  10  8  9 
+	Intermediate: 570 # of Groups: 2 Group IDs  23  22 
+	Intermediate: 88 # of Groups: 2 Group IDs  17  21 
+	Intermediate: 1228 # of Groups: 1 Group IDs  18 
+
+Final Graph Cost: 3400926
+
+TWOSTAR: 
+	Cost: 3401105 Root: 79
+
+Parital stars: 
+	Intermediate: 106 # of Groups: 5 Group IDs  32  31  28  30  27 
+	Intermediate: 16 # of Groups: 5 Group IDs  0  33  1  2  4 
+	Intermediate: 1183 # of Groups: 2 Group IDs  13  20 
+	Intermediate: 47 # of Groups: 5 Group IDs  5  3  11  12  7 
+	Intermediate: 275 # of Groups: 3 Group IDs  29  26  25 
+	Intermediate: 64 # of Groups: 2 Group IDs  15  16 
+	Intermediate: 83 # of Groups: 3 Group IDs  19  24  14 
+	Intermediate: 989 # of Groups: 4 Group IDs  6  10  8  9 
+	Intermediate: 570 # of Groups: 2 Group IDs  23  22 
+	Intermediate: 88 # of Groups: 2 Group IDs  17  21 
+	Intermediate: 1228 # of Groups: 1 Group IDs  18 
+
+Final Graph Cost: 3400926
+
+TWOSTAR: 
+	Cost: 3401105 Root: 79
+
+Parital stars: 
+	Intermediate: 106 # of Groups: 5 Group IDs  32  31  28  30  27 
+	Intermediate: 16 # of Groups: 5 Group IDs  0  33  1  2  4 
+	Intermediate: 1183 # of Groups: 2 Group IDs  13  20 
+	Intermediate: 47 # of Groups: 5 Group IDs  5  3  11  12  7 
+	Intermediate: 275 # of Groups: 3 Group IDs  29  26  25 
+	Intermediate: 64 # of Groups: 2 Group IDs  15  16 
+	Intermediate: 83 # of Groups: 3 Group IDs  19  24  14 
+	Intermediate: 989 # of Groups: 4 Group IDs  6  10  8  9 
+	Intermediate: 570 # of Groups: 2 Group IDs  23  22 
+	Intermediate: 88 # of Groups: 2 Group IDs  17  21 
+	Intermediate: 1228 # of Groups: 1 Group IDs  18 
+
+Final Graph Cost: 3400926
+
+TWOSTAR: 
+	Cost: 3401105 Root: 79
+
+Parital stars: 
+	Intermediate: 106 # of Groups: 5 Group IDs  32  31  28  30  27 
+	Intermediate: 16 # of Groups: 5 Group IDs  0  33  1  2  4 
+	Intermediate: 1183 # of Groups: 2 Group IDs  13  20 
+	Intermediate: 47 # of Groups: 5 Group IDs  5  3  11  12  7 
+	Intermediate: 275 # of Groups: 3 Group IDs  29  26  25 
+	Intermediate: 64 # of Groups: 2 Group IDs  15  16 
+	Intermediate: 83 # of Groups: 3 Group IDs  19  24  14 
+	Intermediate: 989 # of Groups: 4 Group IDs  6  10  8  9 
+	Intermediate: 570 # of Groups: 2 Group IDs  23  22 
+	Intermediate: 88 # of Groups: 2 Group IDs  17  21 
+	Intermediate: 1228 # of Groups: 1 Group IDs  18 
+
+Final Graph Cost: 3400926
+
+TWOSTAR: 
+	Cost: 3401105 Root: 79
+
+Parital stars: 
+	Intermediate: 106 # of Groups: 5 Group IDs  32  31  28  30  27 
+	Intermediate: 16 # of Groups: 5 Group IDs  0  33  1  2  4 
+	Intermediate: 1183 # of Groups: 2 Group IDs  13  20 
+	Intermediate: 47 # of Groups: 5 Group IDs  5  3  11  12  7 
+	Intermediate: 275 # of Groups: 3 Group IDs  29  26  25 
+	Intermediate: 64 # of Groups: 2 Group IDs  15  16 
+	Intermediate: 83 # of Groups: 3 Group IDs  19  24  14 
+	Intermediate: 989 # of Groups: 4 Group IDs  6  10  8  9 
+	Intermediate: 570 # of Groups: 2 Group IDs  23  22 
+	Intermediate: 88 # of Groups: 2 Group IDs  17  21 
+	Intermediate: 1228 # of Groups: 1 Group IDs  18 
+
+Final Graph Cost: 3400926
+
+
+---------------------------------------------------
+55.txt    (V,E(--> 1645 3186
+---------------------------------------------------
+
+TWOSTAR: 
+	Cost: 5501679 Root: 523
+
+Parital stars: 
+	Intermediate: 6 # of Groups: 5 Group IDs  2  1  3  4  0 
+	Intermediate: 1355 # of Groups: 10 Group IDs  32  22  23  38  27  7  24  12  46  33 
+	Intermediate: 125 # of Groups: 6 Group IDs  44  47  48  39  40  41 
+	Intermediate: 157 # of Groups: 5 Group IDs  51  52  53  49  50 
+	Intermediate: 57 # of Groups: 5 Group IDs  17  19  20  21  18 
+	Intermediate: 50 # of Groups: 5 Group IDs  5  15  8  13  16 
+	Intermediate: 112 # of Groups: 3 Group IDs  34  35  36 
+	Intermediate: 1049 # of Groups: 2 Group IDs  25  28 
+	Intermediate: 35 # of Groups: 4 Group IDs  9  6  11  10 
+	Intermediate: 134 # of Groups: 4 Group IDs  42  45  43  54 
+	Intermediate: 101 # of Groups: 3 Group IDs  37  30  29 
+	Intermediate: 600 # of Groups: 2 Group IDs  14  26 
+	Intermediate: 105 # of Groups: 1 Group IDs  31 
+
+Final Graph Cost: 5501228
+
+TWOSTAR: 
+	Cost: 5501679 Root: 523
+
+Parital stars: 
+	Intermediate: 6 # of Groups: 5 Group IDs  2  1  3  4  0 
+	Intermediate: 1355 # of Groups: 10 Group IDs  32  22  23  38  27  7  24  12  46  33 
+	Intermediate: 125 # of Groups: 6 Group IDs  44  47  48  39  40  41 
+	Intermediate: 157 # of Groups: 5 Group IDs  51  52  53  49  50 
+	Intermediate: 57 # of Groups: 5 Group IDs  17  19  20  21  18 
+	Intermediate: 50 # of Groups: 5 Group IDs  5  15  8  13  16 
+	Intermediate: 112 # of Groups: 3 Group IDs  34  35  36 
+	Intermediate: 1049 # of Groups: 2 Group IDs  25  28 
+	Intermediate: 35 # of Groups: 4 Group IDs  9  6  11  10 
+	Intermediate: 134 # of Groups: 4 Group IDs  42  45  43  54 
+	Intermediate: 101 # of Groups: 3 Group IDs  37  30  29 
+	Intermediate: 600 # of Groups: 2 Group IDs  14  26 
+	Intermediate: 105 # of Groups: 1 Group IDs  31 
+
+Final Graph Cost: 5501228
+
+TWOSTAR: 
+	Cost: 5501679 Root: 523
+
+Parital stars: 
+	Intermediate: 6 # of Groups: 5 Group IDs  2  1  3  4  0 
+	Intermediate: 1355 # of Groups: 10 Group IDs  32  22  23  38  27  7  24  12  46  33 
+	Intermediate: 125 # of Groups: 6 Group IDs  44  47  48  39  40  41 
+	Intermediate: 157 # of Groups: 5 Group IDs  51  52  53  49  50 
+	Intermediate: 57 # of Groups: 5 Group IDs  17  19  20  21  18 
+	Intermediate: 50 # of Groups: 5 Group IDs  5  15  8  13  16 
+	Intermediate: 112 # of Groups: 3 Group IDs  34  35  36 
+	Intermediate: 1049 # of Groups: 2 Group IDs  25  28 
+	Intermediate: 35 # of Groups: 4 Group IDs  9  6  11  10 
+	Intermediate: 134 # of Groups: 4 Group IDs  42  45  43  54 
+	Intermediate: 101 # of Groups: 3 Group IDs  37  30  29 
+	Intermediate: 600 # of Groups: 2 Group IDs  14  26 
+	Intermediate: 105 # of Groups: 1 Group IDs  31 
+
+Final Graph Cost: 5501228
+
+TWOSTAR: 
+	Cost: 5501679 Root: 523
+
+Parital stars: 
+	Intermediate: 6 # of Groups: 5 Group IDs  2  1  3  4  0 
+	Intermediate: 1355 # of Groups: 10 Group IDs  32  22  23  38  27  7  24  12  46  33 
+	Intermediate: 125 # of Groups: 6 Group IDs  44  47  48  39  40  41 
+	Intermediate: 157 # of Groups: 5 Group IDs  51  52  53  49  50 
+	Intermediate: 57 # of Groups: 5 Group IDs  17  19  20  21  18 
+	Intermediate: 50 # of Groups: 5 Group IDs  5  15  8  13  16 
+	Intermediate: 112 # of Groups: 3 Group IDs  34  35  36 
+	Intermediate: 1049 # of Groups: 2 Group IDs  25  28 
+	Intermediate: 35 # of Groups: 4 Group IDs  9  6  11  10 
+	Intermediate: 134 # of Groups: 4 Group IDs  42  45  43  54 
+	Intermediate: 101 # of Groups: 3 Group IDs  37  30  29 
+	Intermediate: 600 # of Groups: 2 Group IDs  14  26 
+	Intermediate: 105 # of Groups: 1 Group IDs  31 
+
+Final Graph Cost: 5501228
+
+TWOSTAR: 
+	Cost: 5501679 Root: 523
+
+Parital stars: 
+	Intermediate: 6 # of Groups: 5 Group IDs  2  1  3  4  0 
+	Intermediate: 1355 # of Groups: 10 Group IDs  32  22  23  38  27  7  24  12  46  33 
+	Intermediate: 125 # of Groups: 6 Group IDs  44  47  48  39  40  41 
+	Intermediate: 157 # of Groups: 5 Group IDs  51  52  53  49  50 
+	Intermediate: 57 # of Groups: 5 Group IDs  17  19  20  21  18 
+	Intermediate: 50 # of Groups: 5 Group IDs  5  15  8  13  16 
+	Intermediate: 112 # of Groups: 3 Group IDs  34  35  36 
+	Intermediate: 1049 # of Groups: 2 Group IDs  25  28 
+	Intermediate: 35 # of Groups: 4 Group IDs  9  6  11  10 
+	Intermediate: 134 # of Groups: 4 Group IDs  42  45  43  54 
+	Intermediate: 101 # of Groups: 3 Group IDs  37  30  29 
+	Intermediate: 600 # of Groups: 2 Group IDs  14  26 
+	Intermediate: 105 # of Groups: 1 Group IDs  31 
+
+Final Graph Cost: 5501228
+
+TWOSTAR: 
+	Cost: 5501679 Root: 523
+
+Parital stars: 
+	Intermediate: 6 # of Groups: 5 Group IDs  2  1  3  4  0 
+	Intermediate: 1355 # of Groups: 10 Group IDs  32  22  23  38  27  7  24  12  46  33 
+	Intermediate: 125 # of Groups: 6 Group IDs  44  47  48  39  40  41 
+	Intermediate: 157 # of Groups: 5 Group IDs  51  52  53  49  50 
+	Intermediate: 57 # of Groups: 5 Group IDs  17  19  20  21  18 
+	Intermediate: 50 # of Groups: 5 Group IDs  5  15  8  13  16 
+	Intermediate: 112 # of Groups: 3 Group IDs  34  35  36 
+	Intermediate: 1049 # of Groups: 2 Group IDs  25  28 
+	Intermediate: 35 # of Groups: 4 Group IDs  9  6  11  10 
+	Intermediate: 134 # of Groups: 4 Group IDs  42  45  43  54 
+	Intermediate: 101 # of Groups: 3 Group IDs  37  30  29 
+	Intermediate: 600 # of Groups: 2 Group IDs  14  26 
+	Intermediate: 105 # of Groups: 1 Group IDs  31 
+
+Final Graph Cost: 5501228
+
+TWOSTAR: 
+	Cost: 5501679 Root: 523
+
+Parital stars: 
+	Intermediate: 6 # of Groups: 5 Group IDs  2  1  3  4  0 
+	Intermediate: 1355 # of Groups: 10 Group IDs  32  22  23  38  27  7  24  12  46  33 
+	Intermediate: 125 # of Groups: 6 Group IDs  44  47  48  39  40  41 
+	Intermediate: 157 # of Groups: 5 Group IDs  51  52  53  49  50 
+	Intermediate: 57 # of Groups: 5 Group IDs  17  19  20  21  18 
+	Intermediate: 50 # of Groups: 5 Group IDs  5  15  8  13  16 
+	Intermediate: 112 # of Groups: 3 Group IDs  34  35  36 
+	Intermediate: 1049 # of Groups: 2 Group IDs  25  28 
+	Intermediate: 35 # of Groups: 4 Group IDs  9  6  11  10 
+	Intermediate: 134 # of Groups: 4 Group IDs  42  45  43  54 
+	Intermediate: 101 # of Groups: 3 Group IDs  37  30  29 
+	Intermediate: 600 # of Groups: 2 Group IDs  14  26 
+	Intermediate: 105 # of Groups: 1 Group IDs  31 
+
+Final Graph Cost: 5501228
+
+TWOSTAR: 
+	Cost: 5501679 Root: 523
+
+Parital stars: 
+	Intermediate: 6 # of Groups: 5 Group IDs  2  1  3  4  0 
+	Intermediate: 1355 # of Groups: 10 Group IDs  32  22  23  38  27  7  24  12  46  33 
+	Intermediate: 125 # of Groups: 6 Group IDs  44  47  48  39  40  41 
+	Intermediate: 157 # of Groups: 5 Group IDs  51  52  53  49  50 
+	Intermediate: 57 # of Groups: 5 Group IDs  17  19  20  21  18 
+	Intermediate: 50 # of Groups: 5 Group IDs  5  15  8  13  16 
+	Intermediate: 112 # of Groups: 3 Group IDs  34  35  36 
+	Intermediate: 1049 # of Groups: 2 Group IDs  25  28 
+	Intermediate: 35 # of Groups: 4 Group IDs  9  6  11  10 
+	Intermediate: 134 # of Groups: 4 Group IDs  42  45  43  54 
+	Intermediate: 101 # of Groups: 3 Group IDs  37  30  29 
+	Intermediate: 600 # of Groups: 2 Group IDs  14  26 
+	Intermediate: 105 # of Groups: 1 Group IDs  31 
+
+Final Graph Cost: 5501228
+
+TWOSTAR: 
+	Cost: 5501679 Root: 523
+
+Parital stars: 
+	Intermediate: 6 # of Groups: 5 Group IDs  2  1  3  4  0 
+	Intermediate: 1355 # of Groups: 10 Group IDs  32  22  23  38  27  7  24  12  46  33 
+	Intermediate: 125 # of Groups: 6 Group IDs  44  47  48  39  40  41 
+	Intermediate: 157 # of Groups: 5 Group IDs  51  52  53  49  50 
+	Intermediate: 57 # of Groups: 5 Group IDs  17  19  20  21  18 
+	Intermediate: 50 # of Groups: 5 Group IDs  5  15  8  13  16 
+	Intermediate: 112 # of Groups: 3 Group IDs  34  35  36 
+	Intermediate: 1049 # of Groups: 2 Group IDs  25  28 
+	Intermediate: 35 # of Groups: 4 Group IDs  9  6  11  10 
+	Intermediate: 134 # of Groups: 4 Group IDs  42  45  43  54 
+	Intermediate: 101 # of Groups: 3 Group IDs  37  30  29 
+	Intermediate: 600 # of Groups: 2 Group IDs  14  26 
+	Intermediate: 105 # of Groups: 1 Group IDs  31 
+
+Final Graph Cost: 5501228
+
+TWOSTAR: 
+	Cost: 5501679 Root: 523
+
+Parital stars: 
+	Intermediate: 6 # of Groups: 5 Group IDs  2  1  3  4  0 
+	Intermediate: 1355 # of Groups: 10 Group IDs  32  22  23  38  27  7  24  12  46  33 
+	Intermediate: 125 # of Groups: 6 Group IDs  44  47  48  39  40  41 
+	Intermediate: 157 # of Groups: 5 Group IDs  51  52  53  49  50 
+	Intermediate: 57 # of Groups: 5 Group IDs  17  19  20  21  18 
+	Intermediate: 50 # of Groups: 5 Group IDs  5  15  8  13  16 
+	Intermediate: 112 # of Groups: 3 Group IDs  34  35  36 
+	Intermediate: 1049 # of Groups: 2 Group IDs  25  28 
+	Intermediate: 35 # of Groups: 4 Group IDs  9  6  11  10 
+	Intermediate: 134 # of Groups: 4 Group IDs  42  45  43  54 
+	Intermediate: 101 # of Groups: 3 Group IDs  37  30  29 
+	Intermediate: 600 # of Groups: 2 Group IDs  14  26 
+	Intermediate: 105 # of Groups: 1 Group IDs  31 
+
+Final Graph Cost: 5501228
+
+
+---------------------------------------------------
+96.txt    (V,E(--> 2518 4985
+---------------------------------------------------
+
+TWOSTAR: 
+	Cost: 96003009 Root: 1341
+
+Parital stars: 
+	Intermediate: 463 # of Groups: 8 Group IDs  88  82  83  84  91  87  86  85 
+	Intermediate: 12 # of Groups: 8 Group IDs  0  5  4  2  3  13  14  15 
+	Intermediate: 79 # of Groups: 6 Group IDs  10  11  17  18  12  20 
+	Intermediate: 654 # of Groups: 4 Group IDs  92  93  94  89 
+	Intermediate: 125 # of Groups: 6 Group IDs  25  34  35  59  36  26 
+	Intermediate: 246 # of Groups: 7 Group IDs  74  75  76  77  80  73  72 
+	Intermediate: 106 # of Groups: 5 Group IDs  27  37  38  23  39 
+	Intermediate: 1745 # of Groups: 8 Group IDs  7  8  9  1  19  21  22  6 
+	Intermediate: 657 # of Groups: 4 Group IDs  71  79  90  69 
+	Intermediate: 195 # of Groups: 5 Group IDs  57  58  95  64  61 
+	Intermediate: 236 # of Groups: 3 Group IDs  78  81  70 
+	Intermediate: 110 # of Groups: 5 Group IDs  28  29  40  16  41 
+	Intermediate: 206 # of Groups: 4 Group IDs  66  65  62  68 
+	Intermediate: 161 # of Groups: 5 Group IDs  50  51  53  48  49 
+	Intermediate: 148 # of Groups: 4 Group IDs  32  45  46  31 
+	Intermediate: 144 # of Groups: 6 Group IDs  24  33  42  43  30  44 
+	Intermediate: 184 # of Groups: 3 Group IDs  54  55  56 
+	Intermediate: 1273 # of Groups: 2 Group IDs  67  63 
+	Intermediate: 176 # of Groups: 2 Group IDs  47  52 
+	Intermediate: 199 # of Groups: 1 Group IDs  60 
+
+Final Graph Cost: 96001913
+
+TWOSTAR: 
+	Cost: 96003009 Root: 1341
+
+Parital stars: 
+	Intermediate: 463 # of Groups: 8 Group IDs  88  82  83  84  91  87  86  85 
+	Intermediate: 12 # of Groups: 8 Group IDs  0  5  4  2  3  13  14  15 
+	Intermediate: 79 # of Groups: 6 Group IDs  10  11  17  18  12  20 
+	Intermediate: 654 # of Groups: 4 Group IDs  92  93  94  89 
+	Intermediate: 125 # of Groups: 6 Group IDs  25  34  35  59  36  26 
+	Intermediate: 246 # of Groups: 7 Group IDs  74  75  76  77  80  73  72 
+	Intermediate: 106 # of Groups: 5 Group IDs  27  37  38  23  39 
+	Intermediate: 1745 # of Groups: 8 Group IDs  7  8  9  1  19  21  22  6 
+	Intermediate: 657 # of Groups: 4 Group IDs  71  79  90  69 
+	Intermediate: 195 # of Groups: 5 Group IDs  57  58  95  64  61 
+	Intermediate: 236 # of Groups: 3 Group IDs  78  81  70 
+	Intermediate: 110 # of Groups: 5 Group IDs  28  29  40  16  41 
+	Intermediate: 206 # of Groups: 4 Group IDs  66  65  62  68 
+	Intermediate: 161 # of Groups: 5 Group IDs  50  51  53  48  49 
+	Intermediate: 148 # of Groups: 4 Group IDs  32  45  46  31 
+	Intermediate: 144 # of Groups: 6 Group IDs  24  33  42  43  30  44 
+	Intermediate: 184 # of Groups: 3 Group IDs  54  55  56 
+	Intermediate: 1273 # of Groups: 2 Group IDs  67  63 
+	Intermediate: 176 # of Groups: 2 Group IDs  47  52 
+	Intermediate: 199 # of Groups: 1 Group IDs  60 
+
+Final Graph Cost: 96001913
+
+TWOSTAR: 
+	Cost: 96003009 Root: 1341
+
+Parital stars: 
+	Intermediate: 463 # of Groups: 8 Group IDs  88  82  83  84  91  87  86  85 
+	Intermediate: 12 # of Groups: 8 Group IDs  0  5  4  2  3  13  14  15 
+	Intermediate: 79 # of Groups: 6 Group IDs  10  11  17  18  12  20 
+	Intermediate: 654 # of Groups: 4 Group IDs  92  93  94  89 
+	Intermediate: 125 # of Groups: 6 Group IDs  25  34  35  59  36  26 
+	Intermediate: 246 # of Groups: 7 Group IDs  74  75  76  77  80  73  72 
+	Intermediate: 106 # of Groups: 5 Group IDs  27  37  38  23  39 
+	Intermediate: 1745 # of Groups: 8 Group IDs  7  8  9  1  19  21  22  6 
+	Intermediate: 657 # of Groups: 4 Group IDs  71  79  90  69 
+	Intermediate: 195 # of Groups: 5 Group IDs  57  58  95  64  61 
+	Intermediate: 236 # of Groups: 3 Group IDs  78  81  70 
+	Intermediate: 110 # of Groups: 5 Group IDs  28  29  40  16  41 
+	Intermediate: 206 # of Groups: 4 Group IDs  66  65  62  68 
+	Intermediate: 161 # of Groups: 5 Group IDs  50  51  53  48  49 
+	Intermediate: 148 # of Groups: 4 Group IDs  32  45  46  31 
+	Intermediate: 144 # of Groups: 6 Group IDs  24  33  42  43  30  44 
+	Intermediate: 184 # of Groups: 3 Group IDs  54  55  56 
+	Intermediate: 1273 # of Groups: 2 Group IDs  67  63 
+	Intermediate: 176 # of Groups: 2 Group IDs  47  52 
+	Intermediate: 199 # of Groups: 1 Group IDs  60 
+
+Final Graph Cost: 96001913
+
+TWOSTAR: 
+	Cost: 96003009 Root: 1341
+
+Parital stars: 
+	Intermediate: 463 # of Groups: 8 Group IDs  88  82  83  84  91  87  86  85 
+	Intermediate: 12 # of Groups: 8 Group IDs  0  5  4  2  3  13  14  15 
+	Intermediate: 79 # of Groups: 6 Group IDs  10  11  17  18  12  20 
+	Intermediate: 654 # of Groups: 4 Group IDs  92  93  94  89 
+	Intermediate: 125 # of Groups: 6 Group IDs  25  34  35  59  36  26 
+	Intermediate: 246 # of Groups: 7 Group IDs  74  75  76  77  80  73  72 
+	Intermediate: 106 # of Groups: 5 Group IDs  27  37  38  23  39 
+	Intermediate: 1745 # of Groups: 8 Group IDs  7  8  9  1  19  21  22  6 
+	Intermediate: 657 # of Groups: 4 Group IDs  71  79  90  69 
+	Intermediate: 195 # of Groups: 5 Group IDs  57  58  95  64  61 
+	Intermediate: 236 # of Groups: 3 Group IDs  78  81  70 
+	Intermediate: 110 # of Groups: 5 Group IDs  28  29  40  16  41 
+	Intermediate: 206 # of Groups: 4 Group IDs  66  65  62  68 
+	Intermediate: 161 # of Groups: 5 Group IDs  50  51  53  48  49 
+	Intermediate: 148 # of Groups: 4 Group IDs  32  45  46  31 
+	Intermediate: 144 # of Groups: 6 Group IDs  24  33  42  43  30  44 
+	Intermediate: 184 # of Groups: 3 Group IDs  54  55  56 
+	Intermediate: 1273 # of Groups: 2 Group IDs  67  63 
+	Intermediate: 176 # of Groups: 2 Group IDs  47  52 
+	Intermediate: 199 # of Groups: 1 Group IDs  60 
+
+Final Graph Cost: 96001913
+
+TWOSTAR: 
+	Cost: 96003009 Root: 1341
+
+Parital stars: 
+	Intermediate: 463 # of Groups: 8 Group IDs  88  82  83  84  91  87  86  85 
+	Intermediate: 12 # of Groups: 8 Group IDs  0  5  4  2  3  13  14  15 
+	Intermediate: 79 # of Groups: 6 Group IDs  10  11  17  18  12  20 
+	Intermediate: 654 # of Groups: 4 Group IDs  92  93  94  89 
+	Intermediate: 125 # of Groups: 6 Group IDs  25  34  35  59  36  26 
+	Intermediate: 246 # of Groups: 7 Group IDs  74  75  76  77  80  73  72 
+	Intermediate: 106 # of Groups: 5 Group IDs  27  37  38  23  39 
+	Intermediate: 1745 # of Groups: 8 Group IDs  7  8  9  1  19  21  22  6 
+	Intermediate: 657 # of Groups: 4 Group IDs  71  79  90  69 
+	Intermediate: 195 # of Groups: 5 Group IDs  57  58  95  64  61 
+	Intermediate: 236 # of Groups: 3 Group IDs  78  81  70 
+	Intermediate: 110 # of Groups: 5 Group IDs  28  29  40  16  41 
+	Intermediate: 206 # of Groups: 4 Group IDs  66  65  62  68 
+	Intermediate: 161 # of Groups: 5 Group IDs  50  51  53  48  49 
+	Intermediate: 148 # of Groups: 4 Group IDs  32  45  46  31 
+	Intermediate: 144 # of Groups: 6 Group IDs  24  33  42  43  30  44 
+	Intermediate: 184 # of Groups: 3 Group IDs  54  55  56 
+	Intermediate: 1273 # of Groups: 2 Group IDs  67  63 
+	Intermediate: 176 # of Groups: 2 Group IDs  47  52 
+	Intermediate: 199 # of Groups: 1 Group IDs  60 
+
+Final Graph Cost: 96001913
+
+TWOSTAR: 
+	Cost: 96003009 Root: 1341
+
+Parital stars: 
+	Intermediate: 463 # of Groups: 8 Group IDs  88  82  83  84  91  87  86  85 
+	Intermediate: 12 # of Groups: 8 Group IDs  0  5  4  2  3  13  14  15 
+	Intermediate: 79 # of Groups: 6 Group IDs  10  11  17  18  12  20 
+	Intermediate: 654 # of Groups: 4 Group IDs  92  93  94  89 
+	Intermediate: 125 # of Groups: 6 Group IDs  25  34  35  59  36  26 
+	Intermediate: 246 # of Groups: 7 Group IDs  74  75  76  77  80  73  72 
+	Intermediate: 106 # of Groups: 5 Group IDs  27  37  38  23  39 
+	Intermediate: 1745 # of Groups: 8 Group IDs  7  8  9  1  19  21  22  6 
+	Intermediate: 657 # of Groups: 4 Group IDs  71  79  90  69 
+	Intermediate: 195 # of Groups: 5 Group IDs  57  58  95  64  61 
+	Intermediate: 236 # of Groups: 3 Group IDs  78  81  70 
+	Intermediate: 110 # of Groups: 5 Group IDs  28  29  40  16  41 
+	Intermediate: 206 # of Groups: 4 Group IDs  66  65  62  68 
+	Intermediate: 161 # of Groups: 5 Group IDs  50  51  53  48  49 
+	Intermediate: 148 # of Groups: 4 Group IDs  32  45  46  31 
+	Intermediate: 144 # of Groups: 6 Group IDs  24  33  42  43  30  44 
+	Intermediate: 184 # of Groups: 3 Group IDs  54  55  56 
+	Intermediate: 1273 # of Groups: 2 Group IDs  67  63 
+	Intermediate: 176 # of Groups: 2 Group IDs  47  52 
+	Intermediate: 199 # of Groups: 1 Group IDs  60 
+
+Final Graph Cost: 96001913
+
+TWOSTAR: 
+	Cost: 96003009 Root: 1341
+
+Parital stars: 
+	Intermediate: 463 # of Groups: 8 Group IDs  88  82  83  84  91  87  86  85 
+	Intermediate: 12 # of Groups: 8 Group IDs  0  5  4  2  3  13  14  15 
+	Intermediate: 79 # of Groups: 6 Group IDs  10  11  17  18  12  20 
+	Intermediate: 654 # of Groups: 4 Group IDs  92  93  94  89 
+	Intermediate: 125 # of Groups: 6 Group IDs  25  34  35  59  36  26 
+	Intermediate: 246 # of Groups: 7 Group IDs  74  75  76  77  80  73  72 
+	Intermediate: 106 # of Groups: 5 Group IDs  27  37  38  23  39 
+	Intermediate: 1745 # of Groups: 8 Group IDs  7  8  9  1  19  21  22  6 
+	Intermediate: 657 # of Groups: 4 Group IDs  71  79  90  69 
+	Intermediate: 195 # of Groups: 5 Group IDs  57  58  95  64  61 
+	Intermediate: 236 # of Groups: 3 Group IDs  78  81  70 
+	Intermediate: 110 # of Groups: 5 Group IDs  28  29  40  16  41 
+	Intermediate: 206 # of Groups: 4 Group IDs  66  65  62  68 
+	Intermediate: 161 # of Groups: 5 Group IDs  50  51  53  48  49 
+	Intermediate: 148 # of Groups: 4 Group IDs  32  45  46  31 
+	Intermediate: 144 # of Groups: 6 Group IDs  24  33  42  43  30  44 
+	Intermediate: 184 # of Groups: 3 Group IDs  54  55  56 
+	Intermediate: 1273 # of Groups: 2 Group IDs  67  63 
+	Intermediate: 176 # of Groups: 2 Group IDs  47  52 
+	Intermediate: 199 # of Groups: 1 Group IDs  60 
+
+Final Graph Cost: 96001913
+
+TWOSTAR: 
+	Cost: 96003009 Root: 1341
+
+Parital stars: 
+	Intermediate: 463 # of Groups: 8 Group IDs  88  82  83  84  91  87  86  85 
+	Intermediate: 12 # of Groups: 8 Group IDs  0  5  4  2  3  13  14  15 
+	Intermediate: 79 # of Groups: 6 Group IDs  10  11  17  18  12  20 
+	Intermediate: 654 # of Groups: 4 Group IDs  92  93  94  89 
+	Intermediate: 125 # of Groups: 6 Group IDs  25  34  35  59  36  26 
+	Intermediate: 246 # of Groups: 7 Group IDs  74  75  76  77  80  73  72 
+	Intermediate: 106 # of Groups: 5 Group IDs  27  37  38  23  39 
+	Intermediate: 1745 # of Groups: 8 Group IDs  7  8  9  1  19  21  22  6 
+	Intermediate: 657 # of Groups: 4 Group IDs  71  79  90  69 
+	Intermediate: 195 # of Groups: 5 Group IDs  57  58  95  64  61 
+	Intermediate: 236 # of Groups: 3 Group IDs  78  81  70 
+	Intermediate: 110 # of Groups: 5 Group IDs  28  29  40  16  41 
+	Intermediate: 206 # of Groups: 4 Group IDs  66  65  62  68 
+	Intermediate: 161 # of Groups: 5 Group IDs  50  51  53  48  49 
+	Intermediate: 148 # of Groups: 4 Group IDs  32  45  46  31 
+	Intermediate: 144 # of Groups: 6 Group IDs  24  33  42  43  30  44 
+	Intermediate: 184 # of Groups: 3 Group IDs  54  55  56 
+	Intermediate: 1273 # of Groups: 2 Group IDs  67  63 
+	Intermediate: 176 # of Groups: 2 Group IDs  47  52 
+	Intermediate: 199 # of Groups: 1 Group IDs  60 
+
+Final Graph Cost: 96001913
+
+TWOSTAR: 
+	Cost: 96003009 Root: 1341
+
+Parital stars: 
+	Intermediate: 463 # of Groups: 8 Group IDs  88  82  83  84  91  87  86  85 
+	Intermediate: 12 # of Groups: 8 Group IDs  0  5  4  2  3  13  14  15 
+	Intermediate: 79 # of Groups: 6 Group IDs  10  11  17  18  12  20 
+	Intermediate: 654 # of Groups: 4 Group IDs  92  93  94  89 
+	Intermediate: 125 # of Groups: 6 Group IDs  25  34  35  59  36  26 
+	Intermediate: 246 # of Groups: 7 Group IDs  74  75  76  77  80  73  72 
+	Intermediate: 106 # of Groups: 5 Group IDs  27  37  38  23  39 
+	Intermediate: 1745 # of Groups: 8 Group IDs  7  8  9  1  19  21  22  6 
+	Intermediate: 657 # of Groups: 4 Group IDs  71  79  90  69 
+	Intermediate: 195 # of Groups: 5 Group IDs  57  58  95  64  61 
+	Intermediate: 236 # of Groups: 3 Group IDs  78  81  70 
+	Intermediate: 110 # of Groups: 5 Group IDs  28  29  40  16  41 
+	Intermediate: 206 # of Groups: 4 Group IDs  66  65  62  68 
+	Intermediate: 161 # of Groups: 5 Group IDs  50  51  53  48  49 
+	Intermediate: 148 # of Groups: 4 Group IDs  32  45  46  31 
+	Intermediate: 144 # of Groups: 6 Group IDs  24  33  42  43  30  44 
+	Intermediate: 184 # of Groups: 3 Group IDs  54  55  56 
+	Intermediate: 1273 # of Groups: 2 Group IDs  67  63 
+	Intermediate: 176 # of Groups: 2 Group IDs  47  52 
+	Intermediate: 199 # of Groups: 1 Group IDs  60 
+
+Final Graph Cost: 96001913
+
+TWOSTAR: 
+	Cost: 96003009 Root: 1341
+
+Parital stars: 
+	Intermediate: 463 # of Groups: 8 Group IDs  88  82  83  84  91  87  86  85 
+	Intermediate: 12 # of Groups: 8 Group IDs  0  5  4  2  3  13  14  15 
+	Intermediate: 79 # of Groups: 6 Group IDs  10  11  17  18  12  20 
+	Intermediate: 654 # of Groups: 4 Group IDs  92  93  94  89 
+	Intermediate: 125 # of Groups: 6 Group IDs  25  34  35  59  36  26 
+	Intermediate: 246 # of Groups: 7 Group IDs  74  75  76  77  80  73  72 
+	Intermediate: 106 # of Groups: 5 Group IDs  27  37  38  23  39 
+	Intermediate: 1745 # of Groups: 8 Group IDs  7  8  9  1  19  21  22  6 
+	Intermediate: 657 # of Groups: 4 Group IDs  71  79  90  69 
+	Intermediate: 195 # of Groups: 5 Group IDs  57  58  95  64  61 
+	Intermediate: 236 # of Groups: 3 Group IDs  78  81  70 
+	Intermediate: 110 # of Groups: 5 Group IDs  28  29  40  16  41 
+	Intermediate: 206 # of Groups: 4 Group IDs  66  65  62  68 
+	Intermediate: 161 # of Groups: 5 Group IDs  50  51  53  48  49 
+	Intermediate: 148 # of Groups: 4 Group IDs  32  45  46  31 
+	Intermediate: 144 # of Groups: 6 Group IDs  24  33  42  43  30  44 
+	Intermediate: 184 # of Groups: 3 Group IDs  54  55  56 
+	Intermediate: 1273 # of Groups: 2 Group IDs  67  63 
+	Intermediate: 176 # of Groups: 2 Group IDs  47  52 
+	Intermediate: 199 # of Groups: 1 Group IDs  60 
+
+Final Graph Cost: 96001913
+
+
+---------------------------------------------------
+99.txt    (V,E(--> 2265 4545
+---------------------------------------------------
+
+TWOSTAR: 
+	Cost: 98002862 Root: 115
+
+Parital stars: 
+	Intermediate: 210 # of Groups: 6 Group IDs  69  76  89  60  59  61 
+	Intermediate: 256 # of Groups: 7 Group IDs  84  85  88  80  75  78  92 
+	Intermediate: 309 # of Groups: 5 Group IDs  93  94  95  96  91 
+	Intermediate: 142 # of Groups: 5 Group IDs  17  21  24  33  44 
+	Intermediate: 28 # of Groups: 3 Group IDs  6  11  8 
+	Intermediate: 282 # of Groups: 11 Group IDs  71  83  87  82  81  86  79  90  72  74  73 
+	Intermediate: 60 # of Groups: 4 Group IDs  7  16  0  19 
+	Intermediate: 21 # of Groups: 7 Group IDs  1  97  4  5  10  2  3 
+	Intermediate: 197 # of Groups: 5 Group IDs  55  63  64  65  57 
+	Intermediate: 1888 # of Groups: 7 Group IDs  46  47  48  56  34  35  36 
+	Intermediate: 227 # of Groups: 3 Group IDs  66  67  68 
+	Intermediate: 157 # of Groups: 5 Group IDs  25  29  20  41  43 
+	Intermediate: 51 # of Groups: 5 Group IDs  12  13  14  9  15 
+	Intermediate: 191 # of Groups: 3 Group IDs  52  53  54 
+	Intermediate: 233 # of Groups: 3 Group IDs  70  77  58 
+	Intermediate: 107 # of Groups: 2 Group IDs  23  26 
+	Intermediate: 188 # of Groups: 4 Group IDs  49  50  51  62 
+	Intermediate: 134 # of Groups: 4 Group IDs  31  32  40  30 
+	Intermediate: 87 # of Groups: 2 Group IDs  18  22 
+	Intermediate: 152 # of Groups: 4 Group IDs  38  39  42  37 
+	Intermediate: 1582 # of Groups: 2 Group IDs  27  45 
+	Intermediate: 2195 # of Groups: 1 Group IDs  28 
+
+Final Graph Cost: 98002106
+
+TWOSTAR: 
+	Cost: 98002862 Root: 115
+
+Parital stars: 
+	Intermediate: 210 # of Groups: 6 Group IDs  69  76  89  60  59  61 
+	Intermediate: 256 # of Groups: 7 Group IDs  84  85  88  80  75  78  92 
+	Intermediate: 309 # of Groups: 5 Group IDs  93  94  95  96  91 
+	Intermediate: 142 # of Groups: 5 Group IDs  17  21  24  33  44 
+	Intermediate: 28 # of Groups: 3 Group IDs  6  11  8 
+	Intermediate: 282 # of Groups: 11 Group IDs  71  83  87  82  81  86  79  90  72  74  73 
+	Intermediate: 60 # of Groups: 4 Group IDs  7  16  0  19 
+	Intermediate: 21 # of Groups: 7 Group IDs  1  97  4  5  10  2  3 
+	Intermediate: 197 # of Groups: 5 Group IDs  55  63  64  65  57 
+	Intermediate: 1888 # of Groups: 7 Group IDs  46  47  48  56  34  35  36 
+	Intermediate: 227 # of Groups: 3 Group IDs  66  67  68 
+	Intermediate: 157 # of Groups: 5 Group IDs  25  29  20  41  43 
+	Intermediate: 51 # of Groups: 5 Group IDs  12  13  14  9  15 
+	Intermediate: 191 # of Groups: 3 Group IDs  52  53  54 
+	Intermediate: 233 # of Groups: 3 Group IDs  70  77  58 
+	Intermediate: 107 # of Groups: 2 Group IDs  23  26 
+	Intermediate: 188 # of Groups: 4 Group IDs  49  50  51  62 
+	Intermediate: 134 # of Groups: 4 Group IDs  31  32  40  30 
+	Intermediate: 87 # of Groups: 2 Group IDs  18  22 
+	Intermediate: 152 # of Groups: 4 Group IDs  38  39  42  37 
+	Intermediate: 1582 # of Groups: 2 Group IDs  27  45 
+	Intermediate: 2195 # of Groups: 1 Group IDs  28 
+
+Final Graph Cost: 98002106
+
+TWOSTAR: 
+	Cost: 98002862 Root: 115
+
+Parital stars: 
+	Intermediate: 210 # of Groups: 6 Group IDs  69  76  89  60  59  61 
+	Intermediate: 256 # of Groups: 7 Group IDs  84  85  88  80  75  78  92 
+	Intermediate: 309 # of Groups: 5 Group IDs  93  94  95  96  91 
+	Intermediate: 142 # of Groups: 5 Group IDs  17  21  24  33  44 
+	Intermediate: 28 # of Groups: 3 Group IDs  6  11  8 
+	Intermediate: 282 # of Groups: 11 Group IDs  71  83  87  82  81  86  79  90  72  74  73 
+	Intermediate: 60 # of Groups: 4 Group IDs  7  16  0  19 
+	Intermediate: 21 # of Groups: 7 Group IDs  1  97  4  5  10  2  3 
+	Intermediate: 197 # of Groups: 5 Group IDs  55  63  64  65  57 
+	Intermediate: 1888 # of Groups: 7 Group IDs  46  47  48  56  34  35  36 
+	Intermediate: 227 # of Groups: 3 Group IDs  66  67  68 
+	Intermediate: 157 # of Groups: 5 Group IDs  25  29  20  41  43 
+	Intermediate: 51 # of Groups: 5 Group IDs  12  13  14  9  15 
+	Intermediate: 191 # of Groups: 3 Group IDs  52  53  54 
+	Intermediate: 233 # of Groups: 3 Group IDs  70  77  58 
+	Intermediate: 107 # of Groups: 2 Group IDs  23  26 
+	Intermediate: 188 # of Groups: 4 Group IDs  49  50  51  62 
+	Intermediate: 134 # of Groups: 4 Group IDs  31  32  40  30 
+	Intermediate: 87 # of Groups: 2 Group IDs  18  22 
+	Intermediate: 152 # of Groups: 4 Group IDs  38  39  42  37 
+	Intermediate: 1582 # of Groups: 2 Group IDs  27  45 
+	Intermediate: 2195 # of Groups: 1 Group IDs  28 
+
+Final Graph Cost: 98002106
+
+TWOSTAR: 
+	Cost: 98002862 Root: 115
+
+Parital stars: 
+	Intermediate: 210 # of Groups: 6 Group IDs  69  76  89  60  59  61 
+	Intermediate: 256 # of Groups: 7 Group IDs  84  85  88  80  75  78  92 
+	Intermediate: 309 # of Groups: 5 Group IDs  93  94  95  96  91 
+	Intermediate: 142 # of Groups: 5 Group IDs  17  21  24  33  44 
+	Intermediate: 28 # of Groups: 3 Group IDs  6  11  8 
+	Intermediate: 282 # of Groups: 11 Group IDs  71  83  87  82  81  86  79  90  72  74  73 
+	Intermediate: 60 # of Groups: 4 Group IDs  7  16  0  19 
+	Intermediate: 21 # of Groups: 7 Group IDs  1  97  4  5  10  2  3 
+	Intermediate: 197 # of Groups: 5 Group IDs  55  63  64  65  57 
+	Intermediate: 1888 # of Groups: 7 Group IDs  46  47  48  56  34  35  36 
+	Intermediate: 227 # of Groups: 3 Group IDs  66  67  68 
+	Intermediate: 157 # of Groups: 5 Group IDs  25  29  20  41  43 
+	Intermediate: 51 # of Groups: 5 Group IDs  12  13  14  9  15 
+	Intermediate: 191 # of Groups: 3 Group IDs  52  53  54 
+	Intermediate: 233 # of Groups: 3 Group IDs  70  77  58 
+	Intermediate: 107 # of Groups: 2 Group IDs  23  26 
+	Intermediate: 188 # of Groups: 4 Group IDs  49  50  51  62 
+	Intermediate: 134 # of Groups: 4 Group IDs  31  32  40  30 
+	Intermediate: 87 # of Groups: 2 Group IDs  18  22 
+	Intermediate: 152 # of Groups: 4 Group IDs  38  39  42  37 
+	Intermediate: 1582 # of Groups: 2 Group IDs  27  45 
+	Intermediate: 2195 # of Groups: 1 Group IDs  28 
+
+Final Graph Cost: 98002106
+
+TWOSTAR: 
+	Cost: 98002862 Root: 115
+
+Parital stars: 
+	Intermediate: 210 # of Groups: 6 Group IDs  69  76  89  60  59  61 
+	Intermediate: 256 # of Groups: 7 Group IDs  84  85  88  80  75  78  92 
+	Intermediate: 309 # of Groups: 5 Group IDs  93  94  95  96  91 
+	Intermediate: 142 # of Groups: 5 Group IDs  17  21  24  33  44 
+	Intermediate: 28 # of Groups: 3 Group IDs  6  11  8 
+	Intermediate: 282 # of Groups: 11 Group IDs  71  83  87  82  81  86  79  90  72  74  73 
+	Intermediate: 60 # of Groups: 4 Group IDs  7  16  0  19 
+	Intermediate: 21 # of Groups: 7 Group IDs  1  97  4  5  10  2  3 
+	Intermediate: 197 # of Groups: 5 Group IDs  55  63  64  65  57 
+	Intermediate: 1888 # of Groups: 7 Group IDs  46  47  48  56  34  35  36 
+	Intermediate: 227 # of Groups: 3 Group IDs  66  67  68 
+	Intermediate: 157 # of Groups: 5 Group IDs  25  29  20  41  43 
+	Intermediate: 51 # of Groups: 5 Group IDs  12  13  14  9  15 
+	Intermediate: 191 # of Groups: 3 Group IDs  52  53  54 
+	Intermediate: 233 # of Groups: 3 Group IDs  70  77  58 
+	Intermediate: 107 # of Groups: 2 Group IDs  23  26 
+	Intermediate: 188 # of Groups: 4 Group IDs  49  50  51  62 
+	Intermediate: 134 # of Groups: 4 Group IDs  31  32  40  30 
+	Intermediate: 87 # of Groups: 2 Group IDs  18  22 
+	Intermediate: 152 # of Groups: 4 Group IDs  38  39  42  37 
+	Intermediate: 1582 # of Groups: 2 Group IDs  27  45 
+	Intermediate: 2195 # of Groups: 1 Group IDs  28 
+
+Final Graph Cost: 98002106
+
+TWOSTAR: 
+	Cost: 98002862 Root: 115
+
+Parital stars: 
+	Intermediate: 210 # of Groups: 6 Group IDs  69  76  89  60  59  61 
+	Intermediate: 256 # of Groups: 7 Group IDs  84  85  88  80  75  78  92 
+	Intermediate: 309 # of Groups: 5 Group IDs  93  94  95  96  91 
+	Intermediate: 142 # of Groups: 5 Group IDs  17  21  24  33  44 
+	Intermediate: 28 # of Groups: 3 Group IDs  6  11  8 
+	Intermediate: 282 # of Groups: 11 Group IDs  71  83  87  82  81  86  79  90  72  74  73 
+	Intermediate: 60 # of Groups: 4 Group IDs  7  16  0  19 
+	Intermediate: 21 # of Groups: 7 Group IDs  1  97  4  5  10  2  3 
+	Intermediate: 197 # of Groups: 5 Group IDs  55  63  64  65  57 
+	Intermediate: 1888 # of Groups: 7 Group IDs  46  47  48  56  34  35  36 
+	Intermediate: 227 # of Groups: 3 Group IDs  66  67  68 
+	Intermediate: 157 # of Groups: 5 Group IDs  25  29  20  41  43 
+	Intermediate: 51 # of Groups: 5 Group IDs  12  13  14  9  15 
+	Intermediate: 191 # of Groups: 3 Group IDs  52  53  54 
+	Intermediate: 233 # of Groups: 3 Group IDs  70  77  58 
+	Intermediate: 107 # of Groups: 2 Group IDs  23  26 
+	Intermediate: 188 # of Groups: 4 Group IDs  49  50  51  62 
+	Intermediate: 134 # of Groups: 4 Group IDs  31  32  40  30 
+	Intermediate: 87 # of Groups: 2 Group IDs  18  22 
+	Intermediate: 152 # of Groups: 4 Group IDs  38  39  42  37 
+	Intermediate: 1582 # of Groups: 2 Group IDs  27  45 
+	Intermediate: 2195 # of Groups: 1 Group IDs  28 
+
+Final Graph Cost: 98002106
+
+TWOSTAR: 
+	Cost: 98002862 Root: 115
+
+Parital stars: 
+	Intermediate: 210 # of Groups: 6 Group IDs  69  76  89  60  59  61 
+	Intermediate: 256 # of Groups: 7 Group IDs  84  85  88  80  75  78  92 
+	Intermediate: 309 # of Groups: 5 Group IDs  93  94  95  96  91 
+	Intermediate: 142 # of Groups: 5 Group IDs  17  21  24  33  44 
+	Intermediate: 28 # of Groups: 3 Group IDs  6  11  8 
+	Intermediate: 282 # of Groups: 11 Group IDs  71  83  87  82  81  86  79  90  72  74  73 
+	Intermediate: 60 # of Groups: 4 Group IDs  7  16  0  19 
+	Intermediate: 21 # of Groups: 7 Group IDs  1  97  4  5  10  2  3 
+	Intermediate: 197 # of Groups: 5 Group IDs  55  63  64  65  57 
+	Intermediate: 1888 # of Groups: 7 Group IDs  46  47  48  56  34  35  36 
+	Intermediate: 227 # of Groups: 3 Group IDs  66  67  68 
+	Intermediate: 157 # of Groups: 5 Group IDs  25  29  20  41  43 
+	Intermediate: 51 # of Groups: 5 Group IDs  12  13  14  9  15 
+	Intermediate: 191 # of Groups: 3 Group IDs  52  53  54 
+	Intermediate: 233 # of Groups: 3 Group IDs  70  77  58 
+	Intermediate: 107 # of Groups: 2 Group IDs  23  26 
+	Intermediate: 188 # of Groups: 4 Group IDs  49  50  51  62 
+	Intermediate: 134 # of Groups: 4 Group IDs  31  32  40  30 
+	Intermediate: 87 # of Groups: 2 Group IDs  18  22 
+	Intermediate: 152 # of Groups: 4 Group IDs  38  39  42  37 
+	Intermediate: 1582 # of Groups: 2 Group IDs  27  45 
+	Intermediate: 2195 # of Groups: 1 Group IDs  28 
+
+Final Graph Cost: 98002106
+
+TWOSTAR: 
+	Cost: 98002862 Root: 115
+
+Parital stars: 
+	Intermediate: 210 # of Groups: 6 Group IDs  69  76  89  60  59  61 
+	Intermediate: 256 # of Groups: 7 Group IDs  84  85  88  80  75  78  92 
+	Intermediate: 309 # of Groups: 5 Group IDs  93  94  95  96  91 
+	Intermediate: 142 # of Groups: 5 Group IDs  17  21  24  33  44 
+	Intermediate: 28 # of Groups: 3 Group IDs  6  11  8 
+	Intermediate: 282 # of Groups: 11 Group IDs  71  83  87  82  81  86  79  90  72  74  73 
+	Intermediate: 60 # of Groups: 4 Group IDs  7  16  0  19 
+	Intermediate: 21 # of Groups: 7 Group IDs  1  97  4  5  10  2  3 
+	Intermediate: 197 # of Groups: 5 Group IDs  55  63  64  65  57 
+	Intermediate: 1888 # of Groups: 7 Group IDs  46  47  48  56  34  35  36 
+	Intermediate: 227 # of Groups: 3 Group IDs  66  67  68 
+	Intermediate: 157 # of Groups: 5 Group IDs  25  29  20  41  43 
+	Intermediate: 51 # of Groups: 5 Group IDs  12  13  14  9  15 
+	Intermediate: 191 # of Groups: 3 Group IDs  52  53  54 
+	Intermediate: 233 # of Groups: 3 Group IDs  70  77  58 
+	Intermediate: 107 # of Groups: 2 Group IDs  23  26 
+	Intermediate: 188 # of Groups: 4 Group IDs  49  50  51  62 
+	Intermediate: 134 # of Groups: 4 Group IDs  31  32  40  30 
+	Intermediate: 87 # of Groups: 2 Group IDs  18  22 
+	Intermediate: 152 # of Groups: 4 Group IDs  38  39  42  37 
+	Intermediate: 1582 # of Groups: 2 Group IDs  27  45 
+	Intermediate: 2195 # of Groups: 1 Group IDs  28 
+
+Final Graph Cost: 98002106
+
+TWOSTAR: 
+	Cost: 98002862 Root: 115
+
+Parital stars: 
+	Intermediate: 210 # of Groups: 6 Group IDs  69  76  89  60  59  61 
+	Intermediate: 256 # of Groups: 7 Group IDs  84  85  88  80  75  78  92 
+	Intermediate: 309 # of Groups: 5 Group IDs  93  94  95  96  91 
+	Intermediate: 142 # of Groups: 5 Group IDs  17  21  24  33  44 
+	Intermediate: 28 # of Groups: 3 Group IDs  6  11  8 
+	Intermediate: 282 # of Groups: 11 Group IDs  71  83  87  82  81  86  79  90  72  74  73 
+	Intermediate: 60 # of Groups: 4 Group IDs  7  16  0  19 
+	Intermediate: 21 # of Groups: 7 Group IDs  1  97  4  5  10  2  3 
+	Intermediate: 197 # of Groups: 5 Group IDs  55  63  64  65  57 
+	Intermediate: 1888 # of Groups: 7 Group IDs  46  47  48  56  34  35  36 
+	Intermediate: 227 # of Groups: 3 Group IDs  66  67  68 
+	Intermediate: 157 # of Groups: 5 Group IDs  25  29  20  41  43 
+	Intermediate: 51 # of Groups: 5 Group IDs  12  13  14  9  15 
+	Intermediate: 191 # of Groups: 3 Group IDs  52  53  54 
+	Intermediate: 233 # of Groups: 3 Group IDs  70  77  58 
+	Intermediate: 107 # of Groups: 2 Group IDs  23  26 
+	Intermediate: 188 # of Groups: 4 Group IDs  49  50  51  62 
+	Intermediate: 134 # of Groups: 4 Group IDs  31  32  40  30 
+	Intermediate: 87 # of Groups: 2 Group IDs  18  22 
+	Intermediate: 152 # of Groups: 4 Group IDs  38  39  42  37 
+	Intermediate: 1582 # of Groups: 2 Group IDs  27  45 
+	Intermediate: 2195 # of Groups: 1 Group IDs  28 
+
+Final Graph Cost: 98002106
+
+TWOSTAR: 
+	Cost: 98002862 Root: 115
+
+Parital stars: 
+	Intermediate: 210 # of Groups: 6 Group IDs  69  76  89  60  59  61 
+	Intermediate: 256 # of Groups: 7 Group IDs  84  85  88  80  75  78  92 
+	Intermediate: 309 # of Groups: 5 Group IDs  93  94  95  96  91 
+	Intermediate: 142 # of Groups: 5 Group IDs  17  21  24  33  44 
+	Intermediate: 28 # of Groups: 3 Group IDs  6  11  8 
+	Intermediate: 282 # of Groups: 11 Group IDs  71  83  87  82  81  86  79  90  72  74  73 
+	Intermediate: 60 # of Groups: 4 Group IDs  7  16  0  19 
+	Intermediate: 21 # of Groups: 7 Group IDs  1  97  4  5  10  2  3 
+	Intermediate: 197 # of Groups: 5 Group IDs  55  63  64  65  57 
+	Intermediate: 1888 # of Groups: 7 Group IDs  46  47  48  56  34  35  36 
+	Intermediate: 227 # of Groups: 3 Group IDs  66  67  68 
+	Intermediate: 157 # of Groups: 5 Group IDs  25  29  20  41  43 
+	Intermediate: 51 # of Groups: 5 Group IDs  12  13  14  9  15 
+	Intermediate: 191 # of Groups: 3 Group IDs  52  53  54 
+	Intermediate: 233 # of Groups: 3 Group IDs  70  77  58 
+	Intermediate: 107 # of Groups: 2 Group IDs  23  26 
+	Intermediate: 188 # of Groups: 4 Group IDs  49  50  51  62 
+	Intermediate: 134 # of Groups: 4 Group IDs  31  32  40  30 
+	Intermediate: 87 # of Groups: 2 Group IDs  18  22 
+	Intermediate: 152 # of Groups: 4 Group IDs  38  39  42  37 
+	Intermediate: 1582 # of Groups: 2 Group IDs  27  45 
+	Intermediate: 2195 # of Groups: 1 Group IDs  28 
+
+Final Graph Cost: 98002106
+
+
+---------------------------------------------------
+LIN/12.stp    (V,E(--> 818 1462
+---------------------------------------------------
+
+TWOSTAR: 
+	Cost: 6778 Root: 670
+
+Parital stars: 
+	Intermediate: 612 # of Groups: 2 Group IDs  4  8 
+	Intermediate: 301 # of Groups: 2 Group IDs  3  7 
+	Intermediate: 399 # of Groups: 2 Group IDs  11  0 
+	Intermediate: 716 # of Groups: 2 Group IDs  1  9 
+	Intermediate: 145 # of Groups: 2 Group IDs  6  2 
+	Intermediate: 5 # of Groups: 1 Group IDs  5 
+	Intermediate: 15 # of Groups: 1 Group IDs  10 
+
+Final Graph Cost: 5669
+
+TWOSTAR: 
+	Cost: 6778 Root: 670
+
+Parital stars: 
+	Intermediate: 612 # of Groups: 2 Group IDs  4  8 
+	Intermediate: 301 # of Groups: 2 Group IDs  3  7 
+	Intermediate: 399 # of Groups: 2 Group IDs  11  0 
+	Intermediate: 716 # of Groups: 2 Group IDs  1  9 
+	Intermediate: 145 # of Groups: 2 Group IDs  6  2 
+	Intermediate: 5 # of Groups: 1 Group IDs  5 
+	Intermediate: 15 # of Groups: 1 Group IDs  10 
+
+Final Graph Cost: 5669
+
+TWOSTAR: 
+	Cost: 6778 Root: 670
+
+Parital stars: 
+	Intermediate: 612 # of Groups: 2 Group IDs  4  8 
+	Intermediate: 301 # of Groups: 2 Group IDs  3  7 
+	Intermediate: 399 # of Groups: 2 Group IDs  11  0 
+	Intermediate: 716 # of Groups: 2 Group IDs  1  9 
+	Intermediate: 145 # of Groups: 2 Group IDs  6  2 
+	Intermediate: 5 # of Groups: 1 Group IDs  5 
+	Intermediate: 15 # of Groups: 1 Group IDs  10 
+
+Final Graph Cost: 5669
+
+TWOSTAR: 
+	Cost: 6778 Root: 670
+
+Parital stars: 
+	Intermediate: 612 # of Groups: 2 Group IDs  4  8 
+	Intermediate: 301 # of Groups: 2 Group IDs  3  7 
+	Intermediate: 399 # of Groups: 2 Group IDs  11  0 
+	Intermediate: 716 # of Groups: 2 Group IDs  1  9 
+	Intermediate: 145 # of Groups: 2 Group IDs  6  2 
+	Intermediate: 5 # of Groups: 1 Group IDs  5 
+	Intermediate: 15 # of Groups: 1 Group IDs  10 
+
+Final Graph Cost: 5669
+
+TWOSTAR: 
+	Cost: 6778 Root: 670
+
+Parital stars: 
+	Intermediate: 612 # of Groups: 2 Group IDs  4  8 
+	Intermediate: 301 # of Groups: 2 Group IDs  3  7 
+	Intermediate: 399 # of Groups: 2 Group IDs  11  0 
+	Intermediate: 716 # of Groups: 2 Group IDs  1  9 
+	Intermediate: 145 # of Groups: 2 Group IDs  6  2 
+	Intermediate: 5 # of Groups: 1 Group IDs  5 
+	Intermediate: 15 # of Groups: 1 Group IDs  10 
+
+Final Graph Cost: 5669
+
+TWOSTAR: 
+	Cost: 6778 Root: 670
+
+Parital stars: 
+	Intermediate: 612 # of Groups: 2 Group IDs  4  8 
+	Intermediate: 301 # of Groups: 2 Group IDs  3  7 
+	Intermediate: 399 # of Groups: 2 Group IDs  11  0 
+	Intermediate: 716 # of Groups: 2 Group IDs  1  9 
+	Intermediate: 145 # of Groups: 2 Group IDs  6  2 
+	Intermediate: 5 # of Groups: 1 Group IDs  5 
+	Intermediate: 15 # of Groups: 1 Group IDs  10 
+
+Final Graph Cost: 5669
+
+TWOSTAR: 
+	Cost: 6778 Root: 670
+
+Parital stars: 
+	Intermediate: 612 # of Groups: 2 Group IDs  4  8 
+	Intermediate: 301 # of Groups: 2 Group IDs  3  7 
+	Intermediate: 399 # of Groups: 2 Group IDs  11  0 
+	Intermediate: 716 # of Groups: 2 Group IDs  1  9 
+	Intermediate: 145 # of Groups: 2 Group IDs  6  2 
+	Intermediate: 5 # of Groups: 1 Group IDs  5 
+	Intermediate: 15 # of Groups: 1 Group IDs  10 
+
+Final Graph Cost: 5669
+
+TWOSTAR: 
+	Cost: 6778 Root: 670
+
+Parital stars: 
+	Intermediate: 612 # of Groups: 2 Group IDs  4  8 
+	Intermediate: 301 # of Groups: 2 Group IDs  3  7 
+	Intermediate: 399 # of Groups: 2 Group IDs  11  0 
+	Intermediate: 716 # of Groups: 2 Group IDs  1  9 
+	Intermediate: 145 # of Groups: 2 Group IDs  6  2 
+	Intermediate: 5 # of Groups: 1 Group IDs  5 
+	Intermediate: 15 # of Groups: 1 Group IDs  10 
+
+Final Graph Cost: 5669
+
+TWOSTAR: 
+	Cost: 6778 Root: 670
+
+Parital stars: 
+	Intermediate: 612 # of Groups: 2 Group IDs  4  8 
+	Intermediate: 301 # of Groups: 2 Group IDs  3  7 
+	Intermediate: 399 # of Groups: 2 Group IDs  11  0 
+	Intermediate: 716 # of Groups: 2 Group IDs  1  9 
+	Intermediate: 145 # of Groups: 2 Group IDs  6  2 
+	Intermediate: 5 # of Groups: 1 Group IDs  5 
+	Intermediate: 15 # of Groups: 1 Group IDs  10 
+
+Final Graph Cost: 5669
+
+
+---------------------------------------------------
+LIN/22.stp    (V,E(--> 3692 6726
+---------------------------------------------------
+
+TWOSTAR: 
+	Cost: 17300 Root: 1
+
+Parital stars: 
+	Intermediate: 1809 # of Groups: 7 Group IDs  14  9  13  19  15  22  17 
+	Intermediate: 661 # of Groups: 5 Group IDs  20  2  24  8  7 
+	Intermediate: 1248 # of Groups: 3 Group IDs  18  25  11 
+	Intermediate: 1389 # of Groups: 4 Group IDs  12  1  27  10 
+	Intermediate: 619 # of Groups: 2 Group IDs  21  3 
+	Intermediate: 35 # of Groups: 3 Group IDs  0  26  23 
+	Intermediate: 937 # of Groups: 2 Group IDs  6  4 
+	Intermediate: 2632 # of Groups: 2 Group IDs  5  16 
+
+Final Graph Cost: 15452
+
+TWOSTAR: 
+	Cost: 17300 Root: 1
+
+Parital stars: 
+	Intermediate: 1809 # of Groups: 7 Group IDs  14  9  13  19  15  22  17 
+	Intermediate: 661 # of Groups: 5 Group IDs  20  2  24  8  7 
+	Intermediate: 1248 # of Groups: 3 Group IDs  18  25  11 
+	Intermediate: 1389 # of Groups: 4 Group IDs  12  1  27  10 
+	Intermediate: 619 # of Groups: 2 Group IDs  21  3 
+	Intermediate: 35 # of Groups: 3 Group IDs  0  26  23 
+	Intermediate: 937 # of Groups: 2 Group IDs  6  4 
+	Intermediate: 2632 # of Groups: 2 Group IDs  5  16 
+
+Final Graph Cost: 15452
+
+TWOSTAR: 
+	Cost: 17300 Root: 1
+
+Parital stars: 
+	Intermediate: 1809 # of Groups: 7 Group IDs  14  9  13  19  15  22  17 
+	Intermediate: 661 # of Groups: 5 Group IDs  20  2  24  8  7 
+	Intermediate: 1248 # of Groups: 3 Group IDs  18  25  11 
+	Intermediate: 1389 # of Groups: 4 Group IDs  12  1  27  10 
+	Intermediate: 619 # of Groups: 2 Group IDs  21  3 
+	Intermediate: 35 # of Groups: 3 Group IDs  0  26  23 
+	Intermediate: 937 # of Groups: 2 Group IDs  6  4 
+	Intermediate: 2632 # of Groups: 2 Group IDs  5  16 
+
+Final Graph Cost: 15452
+
+TWOSTAR: 
+	Cost: 17300 Root: 1
+
+Parital stars: 
+	Intermediate: 1809 # of Groups: 7 Group IDs  14  9  13  19  15  22  17 
+	Intermediate: 661 # of Groups: 5 Group IDs  20  2  24  8  7 
+	Intermediate: 1248 # of Groups: 3 Group IDs  18  25  11 
+	Intermediate: 1389 # of Groups: 4 Group IDs  12  1  27  10 
+	Intermediate: 619 # of Groups: 2 Group IDs  21  3 
+	Intermediate: 35 # of Groups: 3 Group IDs  0  26  23 
+	Intermediate: 937 # of Groups: 2 Group IDs  6  4 
+	Intermediate: 2632 # of Groups: 2 Group IDs  5  16 
+
+Final Graph Cost: 15452
+
+TWOSTAR: 
+	Cost: 17300 Root: 1
+
+Parital stars: 
+	Intermediate: 1809 # of Groups: 7 Group IDs  14  9  13  19  15  22  17 
+	Intermediate: 661 # of Groups: 5 Group IDs  20  2  24  8  7 
+	Intermediate: 1248 # of Groups: 3 Group IDs  18  25  11 
+	Intermediate: 1389 # of Groups: 4 Group IDs  12  1  27  10 
+	Intermediate: 619 # of Groups: 2 Group IDs  21  3 
+	Intermediate: 35 # of Groups: 3 Group IDs  0  26  23 
+	Intermediate: 937 # of Groups: 2 Group IDs  6  4 
+	Intermediate: 2632 # of Groups: 2 Group IDs  5  16 
+
+Final Graph Cost: 15452
+
+TWOSTAR: 
+	Cost: 17300 Root: 1
+
+Parital stars: 
+	Intermediate: 1809 # of Groups: 7 Group IDs  14  9  13  19  15  22  17 
+	Intermediate: 661 # of Groups: 5 Group IDs  20  2  24  8  7 
+	Intermediate: 1248 # of Groups: 3 Group IDs  18  25  11 
+	Intermediate: 1389 # of Groups: 4 Group IDs  12  1  27  10 
+	Intermediate: 619 # of Groups: 2 Group IDs  21  3 
+	Intermediate: 35 # of Groups: 3 Group IDs  0  26  23 
+	Intermediate: 937 # of Groups: 2 Group IDs  6  4 
+	Intermediate: 2632 # of Groups: 2 Group IDs  5  16 
+
+Final Graph Cost: 15452
+
+TWOSTAR: 
+	Cost: 17300 Root: 1
+
+Parital stars: 
+	Intermediate: 1809 # of Groups: 7 Group IDs  14  9  13  19  15  22  17 
+	Intermediate: 661 # of Groups: 5 Group IDs  20  2  24  8  7 
+	Intermediate: 1248 # of Groups: 3 Group IDs  18  25  11 
+	Intermediate: 1389 # of Groups: 4 Group IDs  12  1  27  10 
+	Intermediate: 619 # of Groups: 2 Group IDs  21  3 
+	Intermediate: 35 # of Groups: 3 Group IDs  0  26  23 
+	Intermediate: 937 # of Groups: 2 Group IDs  6  4 
+	Intermediate: 2632 # of Groups: 2 Group IDs  5  16 
+
+Final Graph Cost: 15452
+
+TWOSTAR: 
+	Cost: 17300 Root: 1
+
+Parital stars: 
+	Intermediate: 1809 # of Groups: 7 Group IDs  14  9  13  19  15  22  17 
+	Intermediate: 661 # of Groups: 5 Group IDs  20  2  24  8  7 
+	Intermediate: 1248 # of Groups: 3 Group IDs  18  25  11 
+	Intermediate: 1389 # of Groups: 4 Group IDs  12  1  27  10 
+	Intermediate: 619 # of Groups: 2 Group IDs  21  3 
+	Intermediate: 35 # of Groups: 3 Group IDs  0  26  23 
+	Intermediate: 937 # of Groups: 2 Group IDs  6  4 
+	Intermediate: 2632 # of Groups: 2 Group IDs  5  16 
+
+Final Graph Cost: 15452
+
+TWOSTAR: 
+	Cost: 17300 Root: 1
+
+Parital stars: 
+	Intermediate: 1809 # of Groups: 7 Group IDs  14  9  13  19  15  22  17 
+	Intermediate: 661 # of Groups: 5 Group IDs  20  2  24  8  7 
+	Intermediate: 1248 # of Groups: 3 Group IDs  18  25  11 
+	Intermediate: 1389 # of Groups: 4 Group IDs  12  1  27  10 
+	Intermediate: 619 # of Groups: 2 Group IDs  21  3 
+	Intermediate: 35 # of Groups: 3 Group IDs  0  26  23 
+	Intermediate: 937 # of Groups: 2 Group IDs  6  4 
+	Intermediate: 2632 # of Groups: 2 Group IDs  5  16 
+
+Final Graph Cost: 15452
+
+TWOSTAR: 
+	Cost: 17300 Root: 1
+
+Parital stars: 
+	Intermediate: 1809 # of Groups: 7 Group IDs  14  9  13  19  15  22  17 
+	Intermediate: 661 # of Groups: 5 Group IDs  20  2  24  8  7 
+	Intermediate: 1248 # of Groups: 3 Group IDs  18  25  11 
+	Intermediate: 1389 # of Groups: 4 Group IDs  12  1  27  10 
+	Intermediate: 619 # of Groups: 2 Group IDs  21  3 
+	Intermediate: 35 # of Groups: 3 Group IDs  0  26  23 
+	Intermediate: 937 # of Groups: 2 Group IDs  6  4 
+	Intermediate: 2632 # of Groups: 2 Group IDs  5  16 
+
+Final Graph Cost: 15452
+
+
+---------------------------------------------------
+LIN/27.stp    (V,E(--> 8017 14753
+---------------------------------------------------
+
+TWOSTAR: 
+	Cost: 33810 Root: 5287
+
+Parital stars: 
+	Intermediate: 4412 # of Groups: 7 Group IDs  8  0  4  31  15  9  13 
+	Intermediate: 1933 # of Groups: 5 Group IDs  20  21  3  35  18 
+	Intermediate: 878 # of Groups: 4 Group IDs  14  1  17  11 
+	Intermediate: 6292 # of Groups: 4 Group IDs  28  32  12  30 
+	Intermediate: 779 # of Groups: 3 Group IDs  24  2  23 
+	Intermediate: 3956 # of Groups: 2 Group IDs  25  26 
+	Intermediate: 173 # of Groups: 3 Group IDs  7  16  10 
+	Intermediate: 5907 # of Groups: 2 Group IDs  34  5 
+	Intermediate: 5971 # of Groups: 2 Group IDs  22  33 
+	Intermediate: 4769 # of Groups: 2 Group IDs  27  6 
+	Intermediate: 1450 # of Groups: 2 Group IDs  29  19 
+
+Final Graph Cost: 30507
+
+TWOSTAR: 
+	Cost: 33810 Root: 5287
+
+Parital stars: 
+	Intermediate: 4412 # of Groups: 7 Group IDs  8  0  4  31  15  9  13 
+	Intermediate: 1933 # of Groups: 5 Group IDs  20  21  3  35  18 
+	Intermediate: 878 # of Groups: 4 Group IDs  14  1  17  11 
+	Intermediate: 6292 # of Groups: 4 Group IDs  28  32  12  30 
+	Intermediate: 779 # of Groups: 3 Group IDs  24  2  23 
+	Intermediate: 3956 # of Groups: 2 Group IDs  25  26 
+	Intermediate: 173 # of Groups: 3 Group IDs  7  16  10 
+	Intermediate: 5907 # of Groups: 2 Group IDs  34  5 
+	Intermediate: 5971 # of Groups: 2 Group IDs  22  33 
+	Intermediate: 4769 # of Groups: 2 Group IDs  27  6 
+	Intermediate: 1450 # of Groups: 2 Group IDs  29  19 
+
+Final Graph Cost: 30507
+
+TWOSTAR: 
+	Cost: 33810 Root: 5287
+
+Parital stars: 
+	Intermediate: 4412 # of Groups: 7 Group IDs  8  0  4  31  15  9  13 
+	Intermediate: 1933 # of Groups: 5 Group IDs  20  21  3  35  18 
+	Intermediate: 878 # of Groups: 4 Group IDs  14  1  17  11 
+	Intermediate: 6292 # of Groups: 4 Group IDs  28  32  12  30 
+	Intermediate: 779 # of Groups: 3 Group IDs  24  2  23 
+	Intermediate: 3956 # of Groups: 2 Group IDs  25  26 
+	Intermediate: 173 # of Groups: 3 Group IDs  7  16  10 
+	Intermediate: 5907 # of Groups: 2 Group IDs  34  5 
+	Intermediate: 5971 # of Groups: 2 Group IDs  22  33 
+	Intermediate: 4769 # of Groups: 2 Group IDs  27  6 
+	Intermediate: 1450 # of Groups: 2 Group IDs  29  19 
+
+Final Graph Cost: 30507
+
+TWOSTAR: 
+	Cost: 33810 Root: 5287
+
+Parital stars: 
+	Intermediate: 4412 # of Groups: 7 Group IDs  8  0  4  31  15  9  13 
+	Intermediate: 1933 # of Groups: 5 Group IDs  20  21  3  35  18 
+	Intermediate: 878 # of Groups: 4 Group IDs  14  1  17  11 
+	Intermediate: 6292 # of Groups: 4 Group IDs  28  32  12  30 
+	Intermediate: 779 # of Groups: 3 Group IDs  24  2  23 
+	Intermediate: 3956 # of Groups: 2 Group IDs  25  26 
+	Intermediate: 173 # of Groups: 3 Group IDs  7  16  10 
+	Intermediate: 5907 # of Groups: 2 Group IDs  34  5 
+	Intermediate: 5971 # of Groups: 2 Group IDs  22  33 
+	Intermediate: 4769 # of Groups: 2 Group IDs  27  6 
+	Intermediate: 1450 # of Groups: 2 Group IDs  29  19 
+
+Final Graph Cost: 30507
+
+TWOSTAR: 
+	Cost: 33810 Root: 5287
+
+Parital stars: 
+	Intermediate: 4412 # of Groups: 7 Group IDs  8  0  4  31  15  9  13 
+	Intermediate: 1933 # of Groups: 5 Group IDs  20  21  3  35  18 
+	Intermediate: 878 # of Groups: 4 Group IDs  14  1  17  11 
+	Intermediate: 6292 # of Groups: 4 Group IDs  28  32  12  30 
+	Intermediate: 779 # of Groups: 3 Group IDs  24  2  23 
+	Intermediate: 3956 # of Groups: 2 Group IDs  25  26 
+	Intermediate: 173 # of Groups: 3 Group IDs  7  16  10 
+	Intermediate: 5907 # of Groups: 2 Group IDs  34  5 
+	Intermediate: 5971 # of Groups: 2 Group IDs  22  33 
+	Intermediate: 4769 # of Groups: 2 Group IDs  27  6 
+	Intermediate: 1450 # of Groups: 2 Group IDs  29  19 
+
+Final Graph Cost: 30507
+
+TWOSTAR: 
+	Cost: 33810 Root: 5287
+
+Parital stars: 
+	Intermediate: 4412 # of Groups: 7 Group IDs  8  0  4  31  15  9  13 
+	Intermediate: 1933 # of Groups: 5 Group IDs  20  21  3  35  18 
+	Intermediate: 878 # of Groups: 4 Group IDs  14  1  17  11 
+	Intermediate: 6292 # of Groups: 4 Group IDs  28  32  12  30 
+	Intermediate: 779 # of Groups: 3 Group IDs  24  2  23 
+	Intermediate: 3956 # of Groups: 2 Group IDs  25  26 
+	Intermediate: 173 # of Groups: 3 Group IDs  7  16  10 
+	Intermediate: 5907 # of Groups: 2 Group IDs  34  5 
+	Intermediate: 5971 # of Groups: 2 Group IDs  22  33 
+	Intermediate: 4769 # of Groups: 2 Group IDs  27  6 
+	Intermediate: 1450 # of Groups: 2 Group IDs  29  19 
+
+Final Graph Cost: 30507
+
+TWOSTAR: 
+	Cost: 33810 Root: 5287
+
+Parital stars: 
+	Intermediate: 4412 # of Groups: 7 Group IDs  8  0  4  31  15  9  13 
+	Intermediate: 1933 # of Groups: 5 Group IDs  20  21  3  35  18 
+	Intermediate: 878 # of Groups: 4 Group IDs  14  1  17  11 
+	Intermediate: 6292 # of Groups: 4 Group IDs  28  32  12  30 
+	Intermediate: 779 # of Groups: 3 Group IDs  24  2  23 
+	Intermediate: 3956 # of Groups: 2 Group IDs  25  26 
+	Intermediate: 173 # of Groups: 3 Group IDs  7  16  10 
+	Intermediate: 5907 # of Groups: 2 Group IDs  34  5 
+	Intermediate: 5971 # of Groups: 2 Group IDs  22  33 
+	Intermediate: 4769 # of Groups: 2 Group IDs  27  6 
+	Intermediate: 1450 # of Groups: 2 Group IDs  29  19 
+
+Final Graph Cost: 30507
+
+TWOSTAR: 
+	Cost: 33810 Root: 5287
+
+Parital stars: 
+	Intermediate: 4412 # of Groups: 7 Group IDs  8  0  4  31  15  9  13 
+	Intermediate: 1933 # of Groups: 5 Group IDs  20  21  3  35  18 
+	Intermediate: 878 # of Groups: 4 Group IDs  14  1  17  11 
+	Intermediate: 6292 # of Groups: 4 Group IDs  28  32  12  30 
+	Intermediate: 779 # of Groups: 3 Group IDs  24  2  23 
+	Intermediate: 3956 # of Groups: 2 Group IDs  25  26 
+	Intermediate: 173 # of Groups: 3 Group IDs  7  16  10 
+	Intermediate: 5907 # of Groups: 2 Group IDs  34  5 
+	Intermediate: 5971 # of Groups: 2 Group IDs  22  33 
+	Intermediate: 4769 # of Groups: 2 Group IDs  27  6 
+	Intermediate: 1450 # of Groups: 2 Group IDs  29  19 
+
+Final Graph Cost: 30507
+
+TWOSTAR: 
+	Cost: 33810 Root: 5287
+
+Parital stars: 
+	Intermediate: 4412 # of Groups: 7 Group IDs  8  0  4  31  15  9  13 
+	Intermediate: 1933 # of Groups: 5 Group IDs  20  21  3  35  18 
+	Intermediate: 878 # of Groups: 4 Group IDs  14  1  17  11 
+	Intermediate: 6292 # of Groups: 4 Group IDs  28  32  12  30 
+	Intermediate: 779 # of Groups: 3 Group IDs  24  2  23 
+	Intermediate: 3956 # of Groups: 2 Group IDs  25  26 
+	Intermediate: 173 # of Groups: 3 Group IDs  7  16  10 
+	Intermediate: 5907 # of Groups: 2 Group IDs  34  5 
+	Intermediate: 5971 # of Groups: 2 Group IDs  22  33 
+	Intermediate: 4769 # of Groups: 2 Group IDs  27  6 
+	Intermediate: 1450 # of Groups: 2 Group IDs  29  19 
+
+Final Graph Cost: 30507
+Error in MPI_Isend(139734655923580, 13894, 6319776, 64, -27, 6322848) (-12)
+Error in NBC_Start_round() (-12)
+--------------------------------------------------------------------------
+mpirun noticed that process rank 0 with PID 4432 on node compute-0-0 exited on signal 9 (Killed).
+--------------------------------------------------------------------------
+
+

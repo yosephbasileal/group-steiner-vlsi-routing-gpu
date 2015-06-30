@@ -77,8 +77,25 @@ void buildWrapper(struct Solution minSolution, int V, int numGroups, int * P,int
 			}
 			//printf("\n\n");
 		}
-		//print(S,V);
+		//print(S,V,"Solution Graph");
 		printf("Final Graph Cost: %d\n", caclGraphCost(S,V));
+
+
+		/////////////////////////////////////////////not done yet
+		FILE *fp = fopen("solution.gr", "ab+");
+		for(int i = 0; i < V; i++) {
+			for(int j = 0; j < V; j++) {
+				int out = S[i * V + j];
+				if(out  == INF)
+				   continue;
+				else
+				  fprintf(fp,"%d %d %d\n",i+1,j+1,out);
+			}
+		}
+		printf("\n");
+		///////////////////////////////////////////////
+		
+
 		//printf("NonTer part of solution: %d\n",countNonTerminals(S,V,numTer, terminals));
 	}//parent process
 

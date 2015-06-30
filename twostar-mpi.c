@@ -11,11 +11,13 @@
 bool gprint = false; // print graph and metric closure -o
 bool debug = false;	// print more deatails for debugging -d
 bool serial = false; //construct metric closure in serial or parallel -n
+bool stpFile = false; //an option to read standard stp file -t
 
 //File headers
 #include "lib/macros.h"
 #include "lib/utils.h"
 #include "lib/readFile.h"
+#include "lib/readFile2.h"
 #include "lib/floydSerial.h"
 #include "lib/onestar.h"
 #include "lib/twostar.h"
@@ -38,7 +40,7 @@ int main(int argc, char *argv[])
 
 	//graph variables
 	unsigned int V, E, numTer, numGroups;
-	int *D, *G, *P, *term, *groups, *D_sub, *onestar, *onestar_sub, *onestar_V, *onestar_sub_V;
+	int *D, *G, *P, *C, *term, *groups, *D_sub, *onestar, *onestar_sub, *onestar_V, *onestar_sub_V;
 
 	//solution variables
 	int MINIMUM, overall_min;
@@ -55,7 +57,7 @@ int main(int argc, char *argv[])
 	/*--------------------------------------------Parent process------------------------------------------------*/
 	if(!procId)  {
 		int r;
-		while ((r = getopt(argc, argv, "odn")) != -1) { //command line args
+		while ((r = getopt(argc, argv, "odnt")) != -1) { //command line args
 			switch(r)
 			{
 				case 'o':
@@ -67,6 +69,9 @@ int main(int argc, char *argv[])
 				case 'n':
 					serial = true;
 					break;
+				case 't':
+					stpFile = true;
+					break;
 				default:
 					//printUsage();
 					exit(1);
@@ -74,7 +79,12 @@ int main(int argc, char *argv[])
 		}
 
 		//read graph from file and allocate memory
-		readFile(&D, &G, &P, &term, &groups, &V, &E, &numTer, &numGroups);
+		if(stpFile) {
+			readFile2(&D, &G, &P, &C, &term, &groups, &V, &E, &numTer, &numGroups);
+		}
+		else {
+			readFile(&D, &G, &P, &term, &groups, &V, &E, &numTer, &numGroups);
+		}
 
 		//broadcast size variables
 		MPI_Bcast(&V, 1, MPI_INT, 0, MPI_COMM_WORLD);
