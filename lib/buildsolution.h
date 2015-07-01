@@ -11,7 +11,7 @@ int getPath(int i, int j, int V, int * path, int * P, int * G) {
 }
 
 
-void buildWrapper(struct Solution minSolution, int V, int numGroups, int * P,int * G, int * D, int * onestar, int * onestar_V, int * terminals, int numTer, int perParent, int perChild, int numProc, int procId, struct TwoStar * twostar) {
+void buildWrapper(struct Solution minSolution, int V, int E,int numGroups, int * P,int * G, int * D, int *C, int * onestar, int * onestar_V, int * terminals, int numTer, int perParent, int perChild, int numProc, int procId, struct TwoStar * twostar) {
 	
 	int root, cost, count, *partialStar1;
 	int minProc;
@@ -77,25 +77,15 @@ void buildWrapper(struct Solution minSolution, int V, int numGroups, int * P,int
 			}
 			//printf("\n\n");
 		}
+
+
 		//print(S,V,"Solution Graph");
 		printf("Final Graph Cost: %d\n", caclGraphCost(S,V));
-
-
-		/////////////////////////////////////////////not done yet
-		FILE *fp = fopen("solution.gr", "ab+");
-		for(int i = 0; i < V; i++) {
-			for(int j = 0; j < V; j++) {
-				int out = S[i * V + j];
-				if(out  == INF)
-				   continue;
-				else
-				  fprintf(fp,"%d %d %d\n",i+1,j+1,out);
-			}
-		}
-		printf("\n");
-		///////////////////////////////////////////////
 		
-
+		if(stpFile) {
+			writetoFile(G, C, V, "graph.in");
+			writetoFile(S, C, V, "graph.out");
+		}
 		//printf("NonTer part of solution: %d\n",countNonTerminals(S,V,numTer, terminals));
 	}//parent process
 

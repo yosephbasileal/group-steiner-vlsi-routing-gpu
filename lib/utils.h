@@ -12,6 +12,7 @@ void printTerm(int numTer, int* terminals);
 void printGroups(int numGroups, int numTer, int* groups);
 void printPartialStars(int* partialStar1, int numGroups, int count);
 void printOnestar(int* onestar, int numGroups, int V, char* name);
+void writetoFile(int* S, int* C, int V, char* filename);
 
 void printTwoStarCost(int root, int cost);
 void printCpuID(int procId);

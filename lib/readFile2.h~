@@ -66,7 +66,7 @@ void readFile2(int ** D, int ** G, int ** P, int ** C, int ** term, int ** group
 	}
 	
 	int groupsSec = 0;
-
+	//skip Comment section
 	while(getline(&buffer, &size, stdin) != -1) {
 		if(buffer[0] == 'S') {
 			if((strcmp(buffer,"Section Groups\n") == 0) || (strcmp(buffer,"SECTION Groups\n") == 0)) {

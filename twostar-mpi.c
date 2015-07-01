@@ -178,7 +178,7 @@ int main(int argc, char *argv[])
 		
 
 		//if(build) {
-		buildWrapper(minSolution,V,numGroups,P,G,D,onestar,onestar_V,term,numTer,perParent,perChild,numProc,procId,&twostar);
+		buildWrapper(minSolution,V,E,numGroups,P,G,D,C,onestar,onestar_V,term,numTer,perParent,perChild,numProc,procId,&twostar);
 		//}
 	}//end parent process
 	
@@ -237,7 +237,7 @@ int main(int argc, char *argv[])
 		//get minimum of all
 		MPI_Reduce(&solution,&minSolution,1,MPI_2INT,MPI_MINLOC,0,MPI_COMM_WORLD);		
 
-		buildWrapper(minSolution,V,numGroups,P,G,D,onestar,onestar_V,term,numTer,perParent,perChild,numProc,procId,&twostar);
+		buildWrapper(minSolution,V,E,numGroups,P,G,D,C,onestar,onestar_V,term,numTer,perParent,perChild,numProc,procId,&twostar);
 	}//end child processes
 
 	MPI_Finalize();
