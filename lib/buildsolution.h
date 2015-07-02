@@ -11,7 +11,7 @@ int getPath(int i, int j, int V, int * path, int * P, int * G) {
 }
 
 
-void buildWrapper(struct Solution minSolution, int V, int E,int numGroups, int * P,int * G, int * D, int *C, int * onestar, int * onestar_V, int * terminals, int numTer, int perParent, int perChild, int numProc, int procId, struct TwoStar * twostar) {
+void buildWrapper(FILE * fout, struct Solution minSolution, int V, int E,int numGroups, int * P,int * G, int * D, int *C, int * onestar, int * onestar_V, int * terminals, int numTer, int perParent, int perChild, int numProc, int procId, struct TwoStar * twostar) {
 	
 	int root, cost, count, *partialStar1;
 	int minProc;
@@ -46,8 +46,8 @@ void buildWrapper(struct Solution minSolution, int V, int E,int numGroups, int *
 			}
 		}
 	
-		printTwoStarCost(root, cost);
-		printPartialStars(partialStar1,numGroups,count);
+		printTwoStarCost(fout,root, cost);
+		printPartialStars(fout,partialStar1,numGroups,count);
 	
 		path = (int *) malloc(sizeof(int) * 2 * V);
 		for(int i = 0; i < count; i++) { //for each partial star
@@ -77,10 +77,11 @@ void buildWrapper(struct Solution minSolution, int V, int E,int numGroups, int *
 			}
 			//printf("\n\n");
 		}
-
-
-		//print(S,V,"Solution Graph");
-		printf("Final Graph Cost: %d\n", caclGraphCost(S,V));
+		if(gprint) {
+			print(fout, S,V,"Solution Graph");
+		}
+	
+		fprintf(fout,"Final Graph Cost: %d\n", caclGraphCost(S,V));
 		
 		if(stpFile) {
 			writetoFile(G, C, V, "graph.in");

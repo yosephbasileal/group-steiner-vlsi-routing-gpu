@@ -15,8 +15,6 @@ void readFile2(int ** D, int ** G, int ** P, int ** C, int ** term, int ** group
 	fscanf(stdin,"%s %d",buffer,V); //read # of Nodes
 	fscanf(stdin,"%s %d",buffer,E); //read # of edges
 	
-	printf("V: %d  E: %d", *V, *E);
-	
 	//allocate memory
 	*D = (int *) malloc(sizeof(int) * (*V) * (*V));//metric closure
 	*G = (int *) malloc(sizeof(int) * (*V) * (*V));//graph

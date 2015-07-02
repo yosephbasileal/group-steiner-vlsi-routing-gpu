@@ -7,15 +7,16 @@ bool validNumProc(int V, int numProc);
 int* calcLaunchPar(int numProc, int V);
 int getProcId(int root, int perChild, int perParent, int numProc, int V);
 
-void print(int* G, int V, char* name);
-void printTerm(int numTer, int* terminals);
-void printGroups(int numGroups, int numTer, int* groups);
-void printPartialStars(int* partialStar1, int numGroups, int count);
-void printOnestar(int* onestar, int numGroups, int V, char* name);
-void writetoFile(int* S, int* C, int V, char* filename);
+void print(FILE * fout, int* G, int V, char* name);
+void printTerm(FILE * fout, int numTer, int* terminals);
+void printGroups(FILE * fout, int numGroups, int numTer, int* groups);
+void printPartialStars(FILE * fout, int* partialStar1, int numGroups, int count);
+void printOnestar(FILE * fout, int* onestar, int numGroups, int V, char* name);
 
-void printTwoStarCost(int root, int cost);
-void printCpuID(int procId);
+void printTwoStarCost(FILE * fout, int root, int cost);
+void printCpuID(FILE * fout, int procId);
+
+void writetoFile(int* S, int* C, int V, char* filename);
 
 int caclGraphCost(int* G, int V);
 int isTerminal(int v, int numTer, int* terminals);

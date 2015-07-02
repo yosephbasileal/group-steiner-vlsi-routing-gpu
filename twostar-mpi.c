@@ -6,6 +6,7 @@
 #include <limits.h>
 #include <getopt.h>
 #include <string.h>
+#include <time.h>
 
 //Global variables
 bool gprint = false; // print graph and metric closure -o
@@ -52,7 +53,13 @@ int main(int argc, char *argv[])
 	//variables for mapping roots to processes
 	int *pars;
 	int perParent;
-	int perChild;	
+	int perChild;
+
+	FILE * fout = fopen("twostar.out", "w+");
+
+	//time variables
+	clock_t start, end;
+	double cpu_time_used;
 
 	/*--------------------------------------------Parent process------------------------------------------------*/
 	if(!procId)  {
@@ -78,6 +85,8 @@ int main(int argc, char *argv[])
 			}
 		}
 
+		start = clock();
+		printf("Reading graph from file...\n");
 		//read graph from file and allocate memory
 		if(stpFile) {
 			readFile2(&D, &G, &P, &C, &term, &groups, &V, &E, &numTer, &numGroups);
@@ -85,6 +94,8 @@ int main(int argc, char *argv[])
 		else {
 			readFile(&D, &G, &P, &term, &groups, &V, &E, &numTer, &numGroups);
 		}
+		
+		fprintf(fout,"\nV: %d  E: %d\n",V,E);
 
 		//broadcast size variables
 		MPI_Bcast(&V, 1, MPI_INT, 0, MPI_COMM_WORLD);
@@ -111,21 +122,18 @@ int main(int argc, char *argv[])
 		perChild = pars[0];
 
 		//output for debug
-		if(debug) {	
-			printf("Number of vertices: %d\n", V);
-			printf("Parent process gets: %d\n", pars[1]);
-			printf("%d child processes get: %d\n", numProc - 1, pars[0]);
+		if(debug) {
+			fprintf(fout, "\nParent process gets: %d process(es)\n", pars[1]);
+			fprintf(fout, "%d child process(es) get: %d process(es)\n", numProc - 1, pars[0]);
 		}
 
 		//construct metric closure
 		if(!serial) {
-			if(debug) {
-				printf("Construction metric closure on the GPU...\n");			
-			}
+			printf("Constructing metric closure on the GPU...\n");
 			fw_gpu(V, G, D, P);
 		} else{
 			if(debug) {
-				printf("Construction metric closure on the CPU...\n");			
+				printf("Constructing metric closure on the CPU...\n");			
 			}
 			//floydWarshall(V, G, D);
 			floydWarshallWithPath(V,G,D,P);
@@ -136,13 +144,14 @@ int main(int argc, char *argv[])
 
 		//output for debug
 		if(gprint) {
-			print(G,V,"Graph");
-			print(D,V,"Metric Closure");
-			print(P,V,"Predecessors");
-			printTerm(numTer, term);
-			printGroups(numGroups, numTer, groups);
+			print(fout,G,V,"Graph");
+			print(fout,D,V,"Metric Closure");
+			print(fout,P,V,"Predecessors");
+			printTerm(fout,numTer, term);
+			printGroups(fout,numGroups, numTer, groups);
 		}
-
+		
+		printf("Constructing onestar tress...\n");	
 		//reciveing buffer for distributing some rows of metric closure
 		D_sub = (int *) malloc(sizeof(int) * V * perChild);
 
@@ -158,18 +167,24 @@ int main(int argc, char *argv[])
 
 		//output onestar
 		if(gprint) {
-			printOnestar(onestar,numGroups,V,"One star cost");
-			printOnestar(onestar_V,numGroups,V,"One star vertices");
+			printOnestar(fout,onestar,numGroups,V,"One star cost");
+			printOnestar(fout,onestar_V,numGroups,V,"One star vertices");
 		}
 
 		//check if metric closure broadcast is done
 		MPI_Wait(&request, &status);
-
+		
+		printf("Constructing twostar trees...\n");	
 		//construct two star
 		twostarwrapper(V,numGroups,perChild,perParent,numProc,procId,D,onestar,&solution,&twostar);
 
 		//get minimum from all using reduction
 		MPI_Reduce(&solution,&minSolution,1,MPI_2INT,MPI_MINLOC,0,MPI_COMM_WORLD);
+
+		end = clock();
+		cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
+		
+		fprintf(fout, "\nTotal CPU time: %lf\n", cpu_time_used);
 
 		//ouput overall minimum cost
 		//if(!build) {		
@@ -178,7 +193,8 @@ int main(int argc, char *argv[])
 		
 
 		//if(build) {
-		buildWrapper(minSolution,V,E,numGroups,P,G,D,C,onestar,onestar_V,term,numTer,perParent,perChild,numProc,procId,&twostar);
+		printf("Post-processing tree to construct solution graph...\n");	
+		buildWrapper(fout, minSolution,V,E,numGroups,P,G,D,C,onestar,onestar_V,term,numTer,perParent,perChild,numProc,procId,&twostar);
 		//}
 	}//end parent process
 	
@@ -237,7 +253,7 @@ int main(int argc, char *argv[])
 		//get minimum of all
 		MPI_Reduce(&solution,&minSolution,1,MPI_2INT,MPI_MINLOC,0,MPI_COMM_WORLD);		
 
-		buildWrapper(minSolution,V,E,numGroups,P,G,D,C,onestar,onestar_V,term,numTer,perParent,perChild,numProc,procId,&twostar);
+		buildWrapper(fout, minSolution,V,E,numGroups,P,G,D,C,onestar,onestar_V,term,numTer,perParent,perChild,numProc,procId,&twostar);
 	}//end child processes
 
 	MPI_Finalize();

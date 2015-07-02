@@ -5,10 +5,6 @@ void readFile(int ** D, int ** G, int ** P, int ** term, int ** groups, int * V,
 	//get size of graph	
 	scanf("%d %d", V, E);
 
-	if(debug) {
-		printf("V: %d  E: %d\n",*V,*E);
-	}
-
 	//allocate memory
 	*D = (int *) malloc(sizeof(int) * (*V) * (*V));
 	*G = (int *) malloc(sizeof(int) * (*V) * (*V));

@@ -86,18 +86,18 @@ int getProcId(int root, int perChild, int perParent, int numProc, int V) {
  * @param V size of matrix
  * @param name name of Graph to print
  */
-void print(int* G, int V, char* name) {
-	printf("%s: \n\t", name);
+void print(FILE * fout, int* G, int V, char* name) {
+	fprintf(fout, "%s: \n\t", name);
 	for(int i = 0; i < V; i++, printf("\n\t")) {
 		for(int j = 0; j < V; j++) {
 		   int out = G[i * V + j];
 		   if(out  == INF)
-		      printf("%3s " , "INF");
+		      fprintf(fout, "%3s " , "INF");
 		   else
-		      printf("%3d " , out );
+		      fprintf(fout, "%3d " , out );
 		}
 	}
-	printf("\n");
+	fprintf(fout, "\n");
 }
 
 
@@ -106,16 +106,16 @@ void print(int* G, int V, char* name) {
  * @param numTer number of terminals vertices in graph
  * @param terminals array of terminal vertices
  */
-void printTerm(int numTer, int* terminals) {
-	printf("\nTerminal vertices: \n");
+void printTerm(FILE * fout, int numTer, int* terminals) {
+	fprintf(fout, "\nTerminal vertices: \n");
 
-	printf("\t# of vertices: %d  ",numTer);
-	printf("List of vertices: ");
+	fprintf(fout, "\t# of vertices: %d  ",numTer);
+	fprintf(fout, "List of vertices: ");
 
 	for(int i = 0; i < numTer; i++) {
-		printf("%d ", terminals[i]);
+		fprintf(fout, "%d ", terminals[i]);
 	}
-	printf("\n");
+	fprintf(fout, "\n");
 }
 
 /** Print groups
@@ -124,20 +124,20 @@ void printTerm(int numTer, int* terminals) {
  * @param numTer number of terminals vertices in graph
  * @param groups array of groups
  */
-void printGroups(int numGroups, int numTer, int* groups) {
-	printf("\nGroups: \n");
+void printGroups(FILE * fout, int numGroups, int numTer, int* groups) {
+	fprintf(fout, "\nGroups: \n");
 
-	printf("\tNum of groups: %d\n",numGroups);
-	printf("\tPer group: %d\n",numTer/numGroups);
+	fprintf(fout, "\tNum of groups: %d\n",numGroups);
+	fprintf(fout, "\tPer group: %d\n",numTer/numGroups);
 
 	for(int i = 0; i < numGroups; i++) {
-		printf("\t\tGroup %d:", i);
+		fprintf(fout, "\t\tGroup %d:", i);
 		for(int j = 0; j < numTer/numGroups; j++) {
-			printf(" %d ", groups[(i * (numTer/numGroups)) + j]);
+			fprintf(fout, " %d ", groups[(i * (numTer/numGroups)) + j]);
 		}
-		printf("\n");
+		fprintf(fout, "\n");
 	}
-	printf("\n");
+	fprintf(fout, "\n");
 }
 
 
@@ -147,18 +147,18 @@ void printGroups(int numGroups, int numTer, int* groups) {
  * @param numGroups number of groups in graph
  * @param count number of partial stars
  */
-void printPartialStars(int* partialstars, int numGroups, int count) {
-	printf("\nParital stars: \n");
+void printPartialStars(FILE * fout, int* partialstars, int numGroups, int count) {
+	fprintf(fout, "\nParital stars: \n");
 
 	for(int i = 0; i < count; i++) {
 		int* curStar = partialstars + (i * (2 + numGroups));
-		printf("\tIntermediate: %d # of Groups: %d Group IDs ",curStar[0],curStar[1]);
+		fprintf(fout, "\tIntermediate: %d # of Groups: %d Group IDs ",curStar[0],curStar[1]);
 		for(int j = 0; j < curStar[1]; j++) {
-			printf(" %d ", curStar[j+2]);
+			fprintf(fout, " %d ", curStar[j+2]);
 		}
-		printf("\n");
+		fprintf(fout, "\n");
 	}
-	printf("\n");
+	fprintf(fout, "\n");
 }
 
 
@@ -169,15 +169,15 @@ void printPartialStars(int* partialstars, int numGroups, int count) {
  * @param V number of vertices in graph
  * @param name name to print
  */
-void printOnestar(int* onestar, int numGroups, int V, char* name) {
-	printf("\n%s: \n", name);
+void printOnestar(FILE * fout, int* onestar, int numGroups, int V, char* name) {
+	fprintf(fout,"\n%s: \n", name);
 	
 	for(int i = 0; i < V; i++) {
-		printf("\tRoot%d:  ", i);
+		fprintf(fout, "\tRoot%d:  ", i);
 		for(int j = 0; j < numGroups; j++) {
-		  printf("%3d  ", onestar[i * numGroups + j]);
+		  fprintf(fout, "%3d  ", onestar[i * numGroups + j]);
 		}		 
-		printf("\n");
+		fprintf(fout, "\n");
 	}
 }
 
@@ -187,9 +187,9 @@ void printOnestar(int* onestar, int numGroups, int V, char* name) {
  * @param root root ID of two star
  * @param cost cost of two star
  */
-void printTwoStarCost(int root, int cost) {
-	printf("\nTWOSTAR: \n");
-	printf("\tCost: %d Root: %d\n", cost, root);
+void printTwoStarCost(FILE * fout, int root, int cost) {
+	fprintf(fout, "\nTWOSTAR: \n");
+	fprintf(fout, "\tCost: %d Root: %d\n", cost, root);
 }
 
 
@@ -197,8 +197,8 @@ void printTwoStarCost(int root, int cost) {
  *
  * @param procId process ID of current processs
  */
-void printCpuID(int procId) {
-	printf("Process ID = %d CPU ID = %d\n", procId, sched_getcpu());
+void printCpuID(FILE * fout, int procId) {
+	fprintf(fout, "Process ID = %d CPU ID = %d\n", procId, sched_getcpu());
 }
 
 
@@ -261,7 +261,7 @@ void writetoFile(int* S, int *C, int V, char* filename) {
 
 	//write coordinates
 	for(int i = 0; i < V; i++) {
-		fprintf(fp,"%d %d %d\n",i,C[i * 2 +0], C[i * 2 +1]);
+		fprintf(fp,"%d %d %d\n",i+1,C[i * 2 +0], C[i * 2 +1]);
 	}
 }
 
