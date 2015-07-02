@@ -88,7 +88,7 @@ int getProcId(int root, int perChild, int perParent, int numProc, int V) {
  */
 void print(FILE * fout, int* G, int V, char* name) {
 	fprintf(fout, "%s: \n\t", name);
-	for(int i = 0; i < V; i++, printf("\n\t")) {
+	for(int i = 0; i < V; i++, fprintf(fout,"\n\t")) {
 		for(int j = 0; j < V; j++) {
 		   int out = G[i * V + j];
 		   if(out  == INF)
@@ -187,9 +187,9 @@ void printOnestar(FILE * fout, int* onestar, int numGroups, int V, char* name) {
  * @param root root ID of two star
  * @param cost cost of two star
  */
-void printTwoStarCost(FILE * fout, int root, int cost) {
+void printTwoStarCost(FILE * fout, int root, long cost) {
 	fprintf(fout, "\nTWOSTAR: \n");
-	fprintf(fout, "\tCost: %d Root: %d\n", cost, root);
+	fprintf(fout, "\tCost: %ld Root: %d\n", cost, root);
 }
 
 

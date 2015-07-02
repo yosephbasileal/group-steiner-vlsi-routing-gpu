@@ -13,12 +13,12 @@ void printGroups(FILE * fout, int numGroups, int numTer, int* groups);
 void printPartialStars(FILE * fout, int* partialStar1, int numGroups, int count);
 void printOnestar(FILE * fout, int* onestar, int numGroups, int V, char* name);
 
-void printTwoStarCost(FILE * fout, int root, int cost);
+void printTwoStarCost(FILE * fout, int root, long cost);
 void printCpuID(FILE * fout, int procId);
 
 void writetoFile(int* S, int* C, int V, char* filename);
 
-int caclGraphCost(int* G, int V);
+long caclGraphCost(int* G, int V);
 int isTerminal(int v, int numTer, int* terminals);
 int countNonTerminals(int* G, int V, int numTer, int* terminals);
 void copypartialStar(int* A, int * B, int numGroups, int count);

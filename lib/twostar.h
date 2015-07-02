@@ -2,19 +2,19 @@
 #include "remSpanned.h"
 
 struct Solution {
-	int cost;
+	long cost;
 	int root;
 };
 
 struct TwoStar {
-	int cost;
+	long cost;
 	int root;
 	int numPar;
 	int* partialstars;
 };
 
-int twoStar(int root,int *groupIds,int *onestar,int numGroups,int remGroups,int V, int *D, int *partialStar1,int *intermSet,int *newGroupIds, int * countPar) {		
-	int TOTAL_COST = 0;
+long twoStar(int root,int *groupIds,int *onestar,int numGroups,int remGroups,int V, int *D, int *partialStar1,int *intermSet,int *newGroupIds, int * countPar) {		
+	long TOTAL_COST = 0;
 	remGroups = numGroups;
 	for(int i = 0; i < numGroups;i++)
 		groupIds[i] = i;
@@ -23,7 +23,7 @@ int twoStar(int root,int *groupIds,int *onestar,int numGroups,int remGroups,int 
 	int c = 0; //count partial stars
 
 	//Find two star
-	while(remGroups > 0) { 
+	while(remGroups > 0) {
 		int * curParStar = partialStar1 + (c * (2 + numGroups));
 		partialStar(root,groupIds,onestar,numGroups,remGroups, V, D + (root * V),curParStar,intermSet); //find current partial star
 		intermSet[0] += 1; //increase counter for number of intermediates
@@ -32,9 +32,8 @@ int twoStar(int root,int *groupIds,int *onestar,int numGroups,int remGroups,int 
 		for(int i = 0; i < curParStar[1]; i++) {
 			TOTAL_COST += onestar[(curParStar[0] * numGroups) + curParStar[i+2]]; //intermediate to groups cost
 		}
-
 		TOTAL_COST += D[root * V + curParStar[0]]; //root to intermediate cost
-	
+
 		//increment counter of partial stars		
 		c++;
 
@@ -52,8 +51,8 @@ int twoStar(int root,int *groupIds,int *onestar,int numGroups,int remGroups,int 
 }
 
 void twostarwrapper(int V, int numGroups, int perChild, int perParent, int numProc, int procId, int * D, int * onestar, struct Solution *solution, struct TwoStar * twostar) {
-	int TOTAL_COST;
-	int MINIMUM = INT_MAX;
+	long TOTAL_COST;
+	long MINIMUM = LONG_MAX;
 	int minRoot;
 	int minNumPar;
 	int countPar;
@@ -109,7 +108,7 @@ void twostarwrapper(int V, int numGroups, int perChild, int perParent, int numPr
 	solution->cost = MINIMUM;
 
 	//if(debug) {
-		//printf("MINIMUM STEINER COST: %d,   root: %d, proc ID: %d\n", MINIMUM, minRoot,procId);
+	//printf("MINIMUM STEINER COST: %ld,   root: %d, proc ID: %d\n", MINIMUM, minRoot,procId);
 	//}
 	free(intermSet);
 	free(groupIds);

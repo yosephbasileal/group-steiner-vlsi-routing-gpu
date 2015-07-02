@@ -179,7 +179,7 @@ int main(int argc, char *argv[])
 		twostarwrapper(V,numGroups,perChild,perParent,numProc,procId,D,onestar,&solution,&twostar);
 
 		//get minimum from all using reduction
-		MPI_Reduce(&solution,&minSolution,1,MPI_2INT,MPI_MINLOC,0,MPI_COMM_WORLD);
+		MPI_Reduce(&solution,&minSolution,1,MPI_LONG_INT,MPI_MINLOC,0,MPI_COMM_WORLD);
 
 		end = clock();
 		cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
@@ -251,7 +251,7 @@ int main(int argc, char *argv[])
 		twostarwrapper(V,numGroups,perChild,perParent,numProc,procId,D,onestar,&solution,&twostar);
 
 		//get minimum of all
-		MPI_Reduce(&solution,&minSolution,1,MPI_2INT,MPI_MINLOC,0,MPI_COMM_WORLD);		
+		MPI_Reduce(&solution,&minSolution,1,MPI_LONG_INT,MPI_MINLOC,0,MPI_COMM_WORLD);		
 
 		buildWrapper(fout, minSolution,V,E,numGroups,P,G,D,C,onestar,onestar_V,term,numTer,perParent,perChild,numProc,procId,&twostar);
 	}//end child processes

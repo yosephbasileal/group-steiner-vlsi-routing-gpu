@@ -187,9 +187,9 @@ void printOnestar(FILE * fout, int* onestar, int numGroups, int V, char* name) {
  * @param root root ID of two star
  * @param cost cost of two star
  */
-void printTwoStarCost(FILE * fout, int root, int cost) {
+void printTwoStarCost(FILE * fout, int root, long cost) {
 	fprintf(fout, "\nTWOSTAR: \n");
-	fprintf(fout, "\tCost: %d Root: %d\n", cost, root);
+	fprintf(fout, "\tCost: %ld Root: %d\n", cost, root);
 }
 
 
@@ -208,8 +208,8 @@ void printCpuID(FILE * fout, int procId) {
  * @param V size of graph
  * @return total graph cost
  */
-int caclGraphCost(int* G, int V) {
-	int sum = 0;
+long caclGraphCost(int* G, int V) {
+	long sum = 0;
 	int curr;
 	for(int i = 0; i < V; i++) {
 		for(int j = 0; j < V; j++) {

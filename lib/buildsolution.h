@@ -12,8 +12,8 @@ int getPath(int i, int j, int V, int * path, int * P, int * G) {
 
 
 void buildWrapper(FILE * fout, struct Solution minSolution, int V, int E,int numGroups, int * P,int * G, int * D, int *C, int * onestar, int * onestar_V, int * terminals, int numTer, int perParent, int perChild, int numProc, int procId, struct TwoStar * twostar) {
-	
-	int root, cost, count, *partialStar1;
+	long cost;
+	int root, count, *partialStar1;
 	int minProc;
 	int * path, * S;
 	root = minSolution.root;
@@ -81,7 +81,7 @@ void buildWrapper(FILE * fout, struct Solution minSolution, int V, int E,int num
 			print(fout, S,V,"Solution Graph");
 		}
 	
-		fprintf(fout,"Final Graph Cost: %d\n", caclGraphCost(S,V));
+		fprintf(fout,"Final Graph Cost: %ld\n", caclGraphCost(S,V));
 		
 		if(stpFile) {
 			writetoFile(G, C, V, "graph.in");

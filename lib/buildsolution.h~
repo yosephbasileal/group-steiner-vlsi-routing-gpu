@@ -11,9 +11,9 @@ int getPath(int i, int j, int V, int * path, int * P, int * G) {
 }
 
 
-void buildWrapper(struct Solution minSolution, int V, int E,int numGroups, int * P,int * G, int * D, int *C, int * onestar, int * onestar_V, int * terminals, int numTer, int perParent, int perChild, int numProc, int procId, struct TwoStar * twostar) {
-	
-	int root, cost, count, *partialStar1;
+void buildWrapper(FILE * fout, struct Solution minSolution, int V, int E,int numGroups, int * P,int * G, int * D, int *C, int * onestar, int * onestar_V, int * terminals, int numTer, int perParent, int perChild, int numProc, int procId, struct TwoStar * twostar) {
+	long cost;
+	int root, count, *partialStar1;
 	int minProc;
 	int * path, * S;
 	root = minSolution.root;
