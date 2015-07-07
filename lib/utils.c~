@@ -128,12 +128,12 @@ void printGroups(FILE * fout, int numGroups, int numTer, int* groups) {
 	fprintf(fout, "\nGroups: \n");
 
 	fprintf(fout, "\tNum of groups: %d\n",numGroups);
-	fprintf(fout, "\tPer group: %d\n",numTer/numGroups);
 
 	for(int i = 0; i < numGroups; i++) {
-		fprintf(fout, "\t\tGroup %d:", i);
-		for(int j = 0; j < numTer/numGroups; j++) {
-			fprintf(fout, " %d ", groups[(i * (numTer/numGroups)) + j]);
+		int curr = groups[i * numTer + 0];
+		fprintf(fout, "\t\tGroup %d (%d):", i,curr);
+		for(int j = 1; j <= curr; j++) {
+			fprintf(fout, " %d ", groups[i * numTer + j]);
 		}
 		fprintf(fout, "\n");
 	}
@@ -208,8 +208,8 @@ void printCpuID(FILE * fout, int procId) {
  * @param V size of graph
  * @return total graph cost
  */
-int caclGraphCost(int* G, int V) {
-	int sum = 0;
+long caclGraphCost(int* G, int V) {
+	long sum = 0;
 	int curr;
 	for(int i = 0; i < V; i++) {
 		for(int j = 0; j < V; j++) {
@@ -332,4 +332,13 @@ void copypartialStar(int* A, int* B, int numGroups, int count) {
 			curStarB[j+2] = curStarA[j+2];
 		}
 	}
+}
+
+int getNextAvailableRoot(int * rootAvail, int V) {
+	for(int i = 0; i < V; i++) {
+		if(rootsAvail[i]) {
+			return i;
+		}
+	}
+	return -1;
 }

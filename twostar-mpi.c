@@ -13,12 +13,14 @@ bool gprint = false; // print graph and metric closure -o
 bool debug = false;	// print more deatails for debugging -d
 bool serial = false; //construct metric closure in serial or parallel -n
 bool stpFile = false; //an option to read standard stp file -t
+bool doMST = false; //do MST after twostar to improve cost -m
 
 //File headers
 #include "lib/macros.h"
 #include "lib/utils.h"
 #include "lib/readFile.h"
 #include "lib/readFile2.h"
+#include "lib/mst.h"
 #include "lib/floydSerial.h"
 #include "lib/onestar.h"
 #include "lib/twostar.h"
@@ -48,7 +50,6 @@ int main(int argc, char *argv[])
 	struct Solution solution;
 	struct Solution minSolution;
 	struct TwoStar twostar;
-	//struct Solution solutionTree
 
 	//variables for mapping roots to processes
 	int *pars;
@@ -64,7 +65,7 @@ int main(int argc, char *argv[])
 	/*--------------------------------------------Parent process------------------------------------------------*/
 	if(!procId)  {
 		int r;
-		while ((r = getopt(argc, argv, "odnt")) != -1) { //command line args
+		while ((r = getopt(argc, argv, "odntm")) != -1) { //command line args
 			switch(r)
 			{
 				case 'o':
@@ -78,6 +79,9 @@ int main(int argc, char *argv[])
 					break;
 				case 't':
 					stpFile = true;
+					break;
+				case 'm':
+					doMST = true;
 					break;
 				default:
 					//printUsage();
@@ -107,7 +111,8 @@ int main(int argc, char *argv[])
 		onestar_V = (int *) malloc(sizeof(int) * V * numGroups);
 
 		//broadbast groups
-		MPI_Bcast(groups, numTer, MPI_INT, 0, MPI_COMM_WORLD);
+		//MPI_Bcast(groups, numTer, MPI_INT, 0, MPI_COMM_WORLD);
+		MPI_Bcast(groups, numTer*numGroups, MPI_INT, 0, MPI_COMM_WORLD);
 
 		//validate number of processes
 		if(!validNumProc(V, numProc)) {
@@ -208,14 +213,17 @@ int main(int argc, char *argv[])
 
 		//allocate memory
 		D = (int *) malloc(sizeof(int) * V * V);
-		groups = (int *) malloc (sizeof(int) * numTer);
+		//groups = (int *) malloc (sizeof(int) * numTer);
+		groups = (int *) malloc (sizeof(int) * numTer * numGroups);
+
 
 		//buffer for combined onestar cost matrix
 		onestar = (int *) malloc(sizeof(int) * V * numGroups);
 		onestar_V = (int *) malloc(sizeof(int) * V * numGroups);
 
 		//broadbast groups
-		MPI_Bcast(groups, numTer, MPI_INT, 0, MPI_COMM_WORLD);
+		//MPI_Bcast(groups, numTer, MPI_INT, 0, MPI_COMM_WORLD);
+		MPI_Bcast(groups, numTer*numGroups, MPI_INT, 0, MPI_COMM_WORLD);
 
 		//validate number of processes
 		if (!validNumProc(V, numProc)) {

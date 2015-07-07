@@ -35,7 +35,6 @@ void readFile(int ** D, int ** G, int ** P, int ** term, int ** groups, int * V,
 	//read terminals
 	scanf("%d",numTer);
 	*term = (int *) malloc(sizeof(int) * (*numTer));
-	*groups = (int *) malloc (sizeof(int) * (*numTer));
 
 	for(int i = 0; i < (*numTer); i++) {
 		int v;
@@ -45,11 +44,24 @@ void readFile(int ** D, int ** G, int ** P, int ** term, int ** groups, int * V,
 
 	//read groups
 	scanf("%d", numGroups);
-	for(int i = 0; i < (*numGroups); i++) {
+	//*groups = (int *) malloc (sizeof(int) * (*numTer));
+	*groups = (int *) malloc(sizeof(int) * (*numTer)* (*numGroups) );
+	/*for(int i = 0; i < (*numGroups); i++) {
 		for(int j = 0; j < (*numTer)/(*numGroups); j++) {
 		  int v;
 		  scanf("%d", &v);
 		  (*groups)[(i * ((*numTer)/(*numGroups))) + j] = v - 1;
 		}
+	}*/
+	for(int i = 0; i < (*numGroups); i++) {
+		int currSize;
+		scanf("%d",&currSize);
+		(*groups)[i * (*numTer) + 0] = currSize;
+		for(int j = 1; j <= currSize; j++) {
+		  int v;
+		  scanf("%d", &v);
+		  (*groups)[i * (*numTer) + j] = v - 1;
+		}
 	}
+
 }

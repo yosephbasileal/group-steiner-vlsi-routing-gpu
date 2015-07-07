@@ -128,12 +128,12 @@ void printGroups(FILE * fout, int numGroups, int numTer, int* groups) {
 	fprintf(fout, "\nGroups: \n");
 
 	fprintf(fout, "\tNum of groups: %d\n",numGroups);
-	fprintf(fout, "\tPer group: %d\n",numTer/numGroups);
 
 	for(int i = 0; i < numGroups; i++) {
-		fprintf(fout, "\t\tGroup %d:", i);
-		for(int j = 0; j < numTer/numGroups; j++) {
-			fprintf(fout, " %d ", groups[(i * (numTer/numGroups)) + j]);
+		int curr = groups[i * numTer + 0];
+		fprintf(fout, "\t\tGroup %d (%d):", i,curr);
+		for(int j = 1; j <= curr; j++) {
+			fprintf(fout, " %d ", groups[i * numTer + j]);
 		}
 		fprintf(fout, "\n");
 	}

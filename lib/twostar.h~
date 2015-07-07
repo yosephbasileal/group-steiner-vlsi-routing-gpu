@@ -85,9 +85,9 @@ void twostarwrapper(int V, int numGroups, int perChild, int perParent, int numPr
 	}
 
 	//The first (perParent - perChild) roots are calculated by the parent process
-	if (!procId) {
-		for(int j = 0; j < (perParent - perChild); j++) {
-			root = j;
+	if (procId < (perParent - perChild)) {
+		//for(int j = 0; j < (perParent - perChild); j++) {
+			root = procId;
 			TOTAL_COST = twoStar(root,groupIds,onestar,numGroups,remGroups,V,D, partialStar1,intermSet,newGroupIds,&countPar);
 			if(TOTAL_COST < MINIMUM) { //update minimum
 				MINIMUM = TOTAL_COST;
@@ -95,7 +95,7 @@ void twostarwrapper(int V, int numGroups, int perChild, int perParent, int numPr
 				minNumPar = countPar;
 				copypartialStar(partialStar1,minParitalStar,numGroups,countPar);
 			}
-		}
+		//}
 	}
 	//store solution tree
 	twostar->root = minRoot;

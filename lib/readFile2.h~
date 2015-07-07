@@ -55,7 +55,6 @@ void readFile2(int ** D, int ** G, int ** P, int ** C, int ** term, int ** group
 	//read terminals
 	scanf("%d",numTer);
 	*term = (int *) malloc(sizeof(int) * (*numTer));
-	*groups = (int *) malloc (sizeof(int) * (*numTer));
 	
 	for(int i = 0; i < (*numTer); i++) {
 		int v;
@@ -80,11 +79,15 @@ void readFile2(int ** D, int ** G, int ** P, int ** C, int ** term, int ** group
 	if(groupsSec) { //groups data in file
 		//read groups
 		fscanf(stdin,"%s %d",buffer,numGroups); //read # of groups
+		*groups = (int *) malloc(sizeof(int) * (*numTer)* (*numGroups));
 		for(int i = 0; i < (*numGroups); i++) {
-			for(int j = 0; j < (*numTer)/(*numGroups); j++) {
-				int v;
-				fscanf(stdin,"%s %d",buffer, &v);
-				(*groups)[(i * ((*numTer)/(*numGroups))) + j] = v - 1;
+			int currSize;
+			scanf("%d",&currSize);
+			(*groups)[i * (*numTer) + 0] = currSize;
+			for(int j = 1; j <= currSize; j++) {
+			  int v;
+			  scanf("%d", &v);
+			  (*groups)[i * (*numTer) + j] = v - 1;
 			}
 		}
 	}
@@ -92,10 +95,8 @@ void readFile2(int ** D, int ** G, int ** P, int ** C, int ** term, int ** group
 		//copy groups from terminals
 		*numGroups = *numTer;
 		for(int i = 0; i < (*numGroups); i++) {
-			for(int j = 0; j < (*numTer)/(*numGroups); j++) {
-				int v = (*term)[i * ((*numTer)/(*numGroups)) + j];
-				(*groups)[(i * ((*numTer)/(*numGroups))) + j] = v;
-			}
+			(*groups)[i * (*numTer) + 0] = 1; //one terminal per group
+			(*groups)[i * (*numTer) + 1] = (*term)[i];
 		}
 	}
 	
@@ -108,7 +109,6 @@ void readFile2(int ** D, int ** G, int ** P, int ** C, int ** term, int ** group
 	}
 	
 	//read coordinates
-	
 	for(int v = 0; v < (*V); v++) {
 		fscanf(stdin,"%s %d %d %d", buffer, &v1, &x, &y);
 		(*C)[v * 2 + 0] = x;

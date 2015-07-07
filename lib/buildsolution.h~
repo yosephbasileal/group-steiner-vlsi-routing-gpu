@@ -81,11 +81,34 @@ void buildWrapper(FILE * fout, struct Solution minSolution, int V, int E,int num
 			print(fout, S,V,"Solution Graph");
 		}
 	
-		fprintf(fout,"Final Graph Cost: %d\n", caclGraphCost(S,V));
+		fprintf(fout,"Final Graph Cost: %ld\n", caclGraphCost(S,V));
 		
 		if(stpFile) {
 			writetoFile(G, C, V, "graph.in");
 			writetoFile(S, C, V, "graph.out");
+		}
+
+		if(doMST) {
+			int * connected = (int *) malloc(sizeof(int)  * V); //connected[i] = 0 means is disconnected
+			for(int i =0; i < V; i++) { //initialize all to not connected
+				connected[i] = 0;
+			}
+			int newV = getConnectedVert(S,connected,V);
+			int * N = (int *) malloc(sizeof(int) * newV * newV); //new graph with only the connected vertices
+			
+			for(int i = 0; i < newV; i++) {
+				for(int j = 0; j < newV; j++) {
+					N[i * newV + j] = INF;
+				}
+			}
+			//print(fout,N,newV,"org");
+			//removeUnconnected(S,N,connected,V,newV);
+			//print(fout,N,newV,"from S");
+			removeUnconnected2(N,G,connected,V,newV);
+			print(fout,N,newV,"from G");
+			primMSTwrapper(N,newV);
+			print(fout,N,newV,"MST from S");
+			fprintf(fout,"MST Graph Cost: %ld\n", caclGraphCost(N,newV));
 		}
 		//printf("NonTer part of solution: %d\n",countNonTerminals(S,V,numTer, terminals));
 	}//parent process
