@@ -16,15 +16,15 @@ bool stpFile = false; //an option to read standard stp file -t
 bool doMST = false; //do MST after twostar to improve cost -m
 
 //File headers
-#include "lib/macros.h"
-#include "lib/utils.h"
-#include "lib/readFile.h"
-#include "lib/readFile2.h"
-#include "lib/mst.h"
-#include "lib/floydSerial.h"
-#include "lib/onestar.h"
-#include "lib/twostar.h"
-#include "lib/buildsolution.h"
+#include "macros.h"
+#include "utils.h"
+#include "readFile.h"
+#include "readFile2.h"
+#include "mst.h"
+#include "floydSerial.h"
+#include "onestar.h"
+#include "twostar.h"
+#include "buildsolution.h"
 
 void fw_gpu(const unsigned int n, const int * const G, int * const d, int * const p);
 
