@@ -60,7 +60,10 @@ int main(int argc, char *argv[])
 
 	//time variables
 	clock_t start, end;
-	double cpu_time_used;
+	clock_t gpu_s, gpu_e, cpu_s, cpu_e;
+	double gpu_time, cpu_time;
+	double total_time_used;
+
 
 	/*--------------------------------------------Parent process------------------------------------------------*/
 	if(!procId)  {
@@ -132,6 +135,7 @@ int main(int argc, char *argv[])
 			fprintf(fout, "%d child process(es) get: %d process(es)\n", numProc - 1, pars[0]);
 		}
 
+		gpu_s = clock();
 		//construct metric closure
 		if(!serial) {
 			printf("Constructing metric closure on the GPU...\n");
@@ -143,6 +147,9 @@ int main(int argc, char *argv[])
 			//floydWarshall(V, G, D);
 			floydWarshallWithPath(V,G,D,P);
 		}
+		gpu_e = clock();
+		gpu_time = ((double) (gpu_e - gpu_s)) / CLOCKS_PER_SEC;
+		fprintf(fout, "\nTotal GPU time (FW): %lf\n", gpu_time);
 
 		//broadcast metric closure - non-blocking
 		MPI_Ibcast(D,V*V, MPI_INT, 0, MPI_COMM_WORLD,&request);
@@ -164,11 +171,17 @@ int main(int argc, char *argv[])
 		onestar_sub = (int *) malloc(sizeof(int) * perChild * numGroups);
 		onestar_sub_V= (int *) malloc(sizeof(int) * perChild * numGroups);
 
+		cpu_s = clock();
 		//construct one star
 		onestarWrapper(V,numTer,perChild,perParent,numProc,procId,numGroups,D,D_sub,onestar,onestar_sub,onestar_V, onestar_sub_V,groups);
+		
+		cpu_e = clock();
+		cpu_time = ((double) (cpu_e - cpu_s)) / CLOCKS_PER_SEC;
 
 		//broadbast onestar
 		MPI_Bcast(onestar, V * numGroups, MPI_INT, 0, MPI_COMM_WORLD);
+
+		cpu_s = clock();
 
 		//output onestar
 		if(gprint) {
@@ -183,13 +196,19 @@ int main(int argc, char *argv[])
 		//construct two star
 		twostarwrapper(V,numGroups,perChild,perParent,numProc,procId,D,onestar,&solution,&twostar);
 
+		cpu_e = clock();
+		cpu_time = cpu_time + (((double) (cpu_e - cpu_s)) / CLOCKS_PER_SEC);
+		fprintf(fout, "\nTotal CPU time : %lf\n", cpu_time);
+
 		//get minimum from all using reduction
 		MPI_Reduce(&solution,&minSolution,1,MPI_LONG_INT,MPI_MINLOC,0,MPI_COMM_WORLD);
 
-		end = clock();
-		cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
 		
-		fprintf(fout, "\nTotal CPU time: %lf\n", cpu_time_used);
+
+		end = clock();
+		total_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
+		
+		fprintf(fout, "\nTotal time: %lf\n", total_time_used);
 
 		//ouput overall minimum cost
 		//if(!build) {		

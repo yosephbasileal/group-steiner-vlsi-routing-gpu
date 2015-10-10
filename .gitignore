@@ -1,8 +1,13 @@
 *.o
 *.exe
 
+*.in
 *.out
 
 *.c~
 *.cu~
 *.h~
+
+/hosts
+/log
+/grouped
