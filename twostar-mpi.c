@@ -18,14 +18,15 @@ bool doMST = false; //do MST after twostar to improve cost -m
 //File headers
 #include "macros.h"
 #include "utils.h"
-#include "readFile.h"
-#include "readFile2.h"
+#include "read-file.h"
+#include "read-file2.h"
 #include "mst.h"
-#include "floydSerial.h"
+#include "fw-serial.h"
 #include "onestar.h"
 #include "twostar.h"
-#include "buildsolution.h"
+#include "build-solution.h"
 
+//Function prototype for floyd-warshal
 void fw_gpu(const unsigned int n, const int * const G, int * const d, int * const p);
 
 //Main
@@ -63,7 +64,6 @@ int main(int argc, char *argv[])
 	clock_t gpu_s, gpu_e, cpu_s, cpu_e;
 	double gpu_time, cpu_time;
 	double total_time_used;
-
 
 	/*--------------------------------------------Parent process------------------------------------------------*/
 	if(!procId)  {
@@ -217,7 +217,8 @@ int main(int argc, char *argv[])
 		
 
 		//if(build) {
-		printf("Post-processing tree to construct solution graph...\n");	
+		printf("Post-processing tree to construct solution graph...\n");
+		//build solution
 		buildWrapper(fout, minSolution,V,E,numGroups,P,G,D,C,onestar,onestar_V,term,numTer,perParent,perChild,numProc,procId,&twostar);
 		//}
 	}//end parent process
@@ -280,6 +281,7 @@ int main(int argc, char *argv[])
 		//get minimum of all
 		MPI_Reduce(&solution,&minSolution,1,MPI_LONG_INT,MPI_MINLOC,0,MPI_COMM_WORLD);		
 
+		//build solution
 		buildWrapper(fout, minSolution,V,E,numGroups,P,G,D,C,onestar,onestar_V,term,numTer,perParent,perChild,numProc,procId,&twostar);
 	}//end child processes
 

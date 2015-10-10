@@ -1,4 +1,4 @@
-#include "partialStar.h"
+#include "partial-star.h"
 #include "remSpanned.h"
 
 struct Solution {
