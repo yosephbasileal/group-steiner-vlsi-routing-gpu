@@ -8,6 +8,8 @@
 *.cu~
 *.h~
 
+*.swp
+
 /hosts
 /log
 /grouped
