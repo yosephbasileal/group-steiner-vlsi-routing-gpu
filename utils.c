@@ -28,38 +28,38 @@
  * @return true if numProc is greater than zero and less than V
  */
 bool validNumProc(int V, int numProc) {
-	return (numProc > 0 && numProc <= V);
+  return (numProc > 0 && numProc <= V);
 }
 
 
 /** Calculates how many roots each proc gets
- * 	 
+ *    
  * @param numProc total number of processes launched 
  * @param V total number of vertices in graph
  * @return number of vertices per parent and per child in an array
  */
 int* calcLaunchPar(int numProc, int V) {
-	//par[0] = perChild, par[0] = perParent
-	int* par = (int *) malloc(sizeof(int) * 2);
-	
-	int d = V/numProc; //difference
-	int r = V%numProc; //remainder
-	
-	if (r == 0) {
-		par[0] = d;
-		par[1] = d;
-	
-	} else {
-		par[0] = d;
-		par[1] = d + r;
-	}
+  //par[0] = perChild, par[0] = perParent
+  int* par = (int *) malloc(sizeof(int) * 2);
+  
+  int d = V/numProc; //difference
+  int r = V%numProc; //remainder
+  
+  if (r == 0) {
+    par[0] = d;
+    par[1] = d;
+  
+  } else {
+    par[0] = d;
+    par[1] = d + r;
+  }
 
-	return par;
+  return par;
 }
 
 
 /** Calculates the ID of process that handled a given root when constructing onestar or twostar
- * 	 
+ *    
  * @param root rootId
  * @param perChild number of processes assigned per child
  * @param perParent number of processes assigned per parent
@@ -67,16 +67,16 @@ int* calcLaunchPar(int numProc, int V) {
  * @return ID of process that handler the given root 
  */
 int getProcId(int root, int perChild, int perParent, int numProc, int V) {
-	int diff = perParent - perChild; //after the first diff number of roots (which are assigned to proc 0) round robin is used 
-	int procId = 0;
-	if(root < diff) {
-		procId = 0;
-	}
-	else {
-		int i = (root - diff)/(numProc); //get in which round of the round robin process this root get assigned to a process
-		procId = root - ((i * numProc) + diff); //rearrange root = (perParent - perChild) + (i * numProc) + procId, taken from onestarwrapper function
-	}	
-	return procId;
+  int diff = perParent - perChild; //after the first diff number of roots (which are assigned to proc 0) round robin is used 
+  int procId = 0;
+  if(root < diff) {
+    procId = 0;
+  }
+  else {
+    int i = (root - diff)/(numProc); //get in which round of the round robin process this root get assigned to a process
+    procId = root - ((i * numProc) + diff); //rearrange root = (perParent - perChild) + (i * numProc) + procId, taken from onestarwrapper function
+  }  
+  return procId;
 }
 
 
@@ -87,17 +87,17 @@ int getProcId(int root, int perChild, int perParent, int numProc, int V) {
  * @param name name of Graph to print
  */
 void print(FILE * fout, int* G, int V, char* name) {
-	fprintf(fout, "%s: \n\t", name);
-	for(int i = 0; i < V; i++, fprintf(fout,"\n\t")) {
-		for(int j = 0; j < V; j++) {
-		   int out = G[i * V + j];
-		   if(out  == INF)
-		      fprintf(fout, "%3s " , "INF");
-		   else
-		      fprintf(fout, "%3d " , out );
-		}
-	}
-	fprintf(fout, "\n");
+  fprintf(fout, "%s: \n\t", name);
+  for(int i = 0; i < V; i++, fprintf(fout,"\n\t")) {
+    for(int j = 0; j < V; j++) {
+       int out = G[i * V + j];
+       if(out  == INF)
+          fprintf(fout, "%3s " , "INF");
+       else
+          fprintf(fout, "%3d " , out );
+    }
+  }
+  fprintf(fout, "\n");
 }
 
 
@@ -107,15 +107,15 @@ void print(FILE * fout, int* G, int V, char* name) {
  * @param terminals array of terminal vertices
  */
 void printTerm(FILE * fout, int numTer, int* terminals) {
-	fprintf(fout, "\nTerminal vertices: \n");
+  fprintf(fout, "\nTerminal vertices: \n");
 
-	fprintf(fout, "\t# of vertices: %d  ",numTer);
-	fprintf(fout, "List of vertices: ");
+  fprintf(fout, "\t# of vertices: %d  ",numTer);
+  fprintf(fout, "List of vertices: ");
 
-	for(int i = 0; i < numTer; i++) {
-		fprintf(fout, "%d ", terminals[i]);
-	}
-	fprintf(fout, "\n");
+  for(int i = 0; i < numTer; i++) {
+    fprintf(fout, "%d ", terminals[i]);
+  }
+  fprintf(fout, "\n");
 }
 
 /** Print groups
@@ -125,19 +125,19 @@ void printTerm(FILE * fout, int numTer, int* terminals) {
  * @param groups array of groups
  */
 void printGroups(FILE * fout, int numGroups, int numTer, int* groups) {
-	fprintf(fout, "\nGroups: \n");
+  fprintf(fout, "\nGroups: \n");
 
-	fprintf(fout, "\tNum of groups: %d\n",numGroups);
+  fprintf(fout, "\tNum of groups: %d\n",numGroups);
 
-	for(int i = 0; i < numGroups; i++) {
-		int curr = groups[i * numTer + 0];
-		fprintf(fout, "\t\tGroup %d (%d):", i,curr);
-		for(int j = 1; j <= curr; j++) {
-			fprintf(fout, " %d ", groups[i * numTer + j]);
-		}
-		fprintf(fout, "\n");
-	}
-	fprintf(fout, "\n");
+  for(int i = 0; i < numGroups; i++) {
+    int curr = groups[i * numTer + 0];
+    fprintf(fout, "\t\tGroup %d (%d):", i,curr);
+    for(int j = 1; j <= curr; j++) {
+      fprintf(fout, " %d ", groups[i * numTer + j]);
+    }
+    fprintf(fout, "\n");
+  }
+  fprintf(fout, "\n");
 }
 
 
@@ -148,17 +148,17 @@ void printGroups(FILE * fout, int numGroups, int numTer, int* groups) {
  * @param count number of partial stars
  */
 void printPartialStars(FILE * fout, int* partialstars, int numGroups, int count) {
-	fprintf(fout, "\nParital stars: \n");
+  fprintf(fout, "\nParital stars: \n");
 
-	for(int i = 0; i < count; i++) {
-		int* curStar = partialstars + (i * (2 + numGroups));
-		fprintf(fout, "\tIntermediate: %d # of Groups: %d Group IDs ",curStar[0],curStar[1]);
-		for(int j = 0; j < curStar[1]; j++) {
-			fprintf(fout, " %d ", curStar[j+2]);
-		}
-		fprintf(fout, "\n");
-	}
-	fprintf(fout, "\n");
+  for(int i = 0; i < count; i++) {
+    int* curStar = partialstars + (i * (2 + numGroups));
+    fprintf(fout, "\tIntermediate: %d # of Groups: %d Group IDs ",curStar[0],curStar[1]);
+    for(int j = 0; j < curStar[1]; j++) {
+      fprintf(fout, " %d ", curStar[j+2]);
+    }
+    fprintf(fout, "\n");
+  }
+  fprintf(fout, "\n");
 }
 
 
@@ -170,15 +170,15 @@ void printPartialStars(FILE * fout, int* partialstars, int numGroups, int count)
  * @param name name to print
  */
 void printOnestar(FILE * fout, int* onestar, int numGroups, int V, char* name) {
-	fprintf(fout,"\n%s: \n", name);
-	
-	for(int i = 0; i < V; i++) {
-		fprintf(fout, "\tRoot%d:  ", i);
-		for(int j = 0; j < numGroups; j++) {
-		  fprintf(fout, "%3d  ", onestar[i * numGroups + j]);
-		}		 
-		fprintf(fout, "\n");
-	}
+  fprintf(fout,"\n%s: \n", name);
+  
+  for(int i = 0; i < V; i++) {
+    fprintf(fout, "\tRoot%d:  ", i);
+    for(int j = 0; j < numGroups; j++) {
+      fprintf(fout, "%3d  ", onestar[i * numGroups + j]);
+    }     
+    fprintf(fout, "\n");
+  }
 }
 
 
@@ -188,8 +188,8 @@ void printOnestar(FILE * fout, int* onestar, int numGroups, int V, char* name) {
  * @param cost cost of two star
  */
 void printTwoStarCost(FILE * fout, int root, long cost) {
-	fprintf(fout, "\nTWOSTAR: \n");
-	fprintf(fout, "\tCost: %ld Root: %d\n", cost, root);
+  fprintf(fout, "\nTWOSTAR: \n");
+  fprintf(fout, "\tCost: %ld Root: %d\n", cost, root);
 }
 
 
@@ -198,7 +198,7 @@ void printTwoStarCost(FILE * fout, int root, long cost) {
  * @param procId process ID of current processs
  */
 void printCpuID(FILE * fout, int procId) {
-	fprintf(fout, "Process ID = %d CPU ID = %d\n", procId, sched_getcpu());
+  fprintf(fout, "Process ID = %d CPU ID = %d\n", procId, sched_getcpu());
 }
 
 
@@ -209,60 +209,60 @@ void printCpuID(FILE * fout, int procId) {
  * @return total graph cost
  */
 long caclGraphCost(int* G, int V) {
-	long sum = 0;
-	int curr;
-	for(int i = 0; i < V; i++) {
-		for(int j = 0; j < V; j++) {
-			if (i <= j) { //graph is undirected symmetric , just count upper or lower triangle
-				continue;
-			}
-			int curr = G[i * V + j]; //get G[i][j]
-			if(curr  == INF) { //if not edge between i and j, continue
-			  continue;
-			}
-			sum += curr; //add to sum
-		}
-	}
-	return sum;
+  long sum = 0;
+  int curr;
+  for(int i = 0; i < V; i++) {
+    for(int j = 0; j < V; j++) {
+      if (i <= j) { //graph is undirected symmetric , just count upper or lower triangle
+        continue;
+      }
+      int curr = G[i * V + j]; //get G[i][j]
+      if(curr  == INF) { //if not edge between i and j, continue
+        continue;
+      }
+      sum += curr; //add to sum
+    }
+  }
+  return sum;
 }
 
 int countEdges(int * G, int V) {
-	int count = 0;	
-	for(int i =0; i < V; i++) {
-		for(int j = 0; j < V; j++) {
-			if(i >= j) continue;
-			if(G[i * V + j] != INF) {
-				count++;
-			}
-		}
-	}
-	return count;
+  int count = 0;  
+  for(int i =0; i < V; i++) {
+    for(int j = 0; j < V; j++) {
+      if(i >= j) continue;
+      if(G[i * V + j] != INF) {
+        count++;
+      }
+    }
+  }
+  return count;
 }
 
 void writetoFile(int* S, int *C, int V, char* filename) {
-	int E = countEdges(S,V);
-	FILE *fp = fopen(filename, "w+");
-	//write graph size
-	fprintf(fp,"%d %d\n\n",V,E);
+  int E = countEdges(S,V);
+  FILE *fp = fopen(filename, "w+");
+  //write graph size
+  fprintf(fp,"%d %d\n\n",V,E);
 
-	//write edges
-	for(int i = 0; i < V; i++) {
-		for(int j = 0; j < V; j++) {
-			if(i >=j)
-				continue;
-			int out = S[i * V + j];
-			if(out  == INF)
-			   continue;
-			else
-			  fprintf(fp,"%d %d %d\n",i+1,j+1,out);
-		}
-	}
-	fprintf(fp,"\n");
+  //write edges
+  for(int i = 0; i < V; i++) {
+    for(int j = 0; j < V; j++) {
+      if(i >=j)
+        continue;
+      int out = S[i * V + j];
+      if(out  == INF)
+         continue;
+      else
+        fprintf(fp,"%d %d %d\n",i+1,j+1,out);
+    }
+  }
+  fprintf(fp,"\n");
 
-	//write coordinates
-	for(int i = 0; i < V; i++) {
-		fprintf(fp,"%d %d %d\n",i+1,C[i * 2 +0], C[i * 2 +1]);
-	}
+  //write coordinates
+  for(int i = 0; i < V; i++) {
+    fprintf(fp,"%d %d %d\n",i+1,C[i * 2 +0], C[i * 2 +1]);
+  }
 }
 
 /** Checks if a vertex is a terminal vertex
@@ -273,10 +273,10 @@ void writetoFile(int* S, int *C, int V, char* filename) {
  * @return 1 if is terminal and 0 if is non-terminal
  */
 int isTerminal(int v, int numTer, int* terminals) {
-	for(int i = 0; i < numTer; i++)
-		if(v == terminals[i])
-			return 1;
-	return 0;
+  for(int i = 0; i < numTer; i++)
+    if(v == terminals[i])
+      return 1;
+  return 0;
 }
 
 
@@ -289,23 +289,23 @@ int isTerminal(int v, int numTer, int* terminals) {
  * @return total count of terminals vertices in solution graph G
  */
 int countNonTerminals(int* G, int V, int numTer, int* terminals) {
-	int count = 0;
-	for(int i = 0; i < V; i++) { //for each vertex 'i' in the graph
-		if(isTerminal(i,numTer,terminals)) { //if is known to be terminal skip 
-			continue;
-		}
-		int edge = 0;
-		for(int j = 0; j < V; j++) { //for each vetex 'j' in i'th row 
-			if(G[i * V + j] != INF) { //if atlease one edge then count
-				edge = 1;
-				break;
-			}
-		}
-		if(edge == 1) {
-			count++;
-		}
-	}
-	return count;
+  int count = 0;
+  for(int i = 0; i < V; i++) { //for each vertex 'i' in the graph
+    if(isTerminal(i,numTer,terminals)) { //if is known to be terminal skip 
+      continue;
+    }
+    int edge = 0;
+    for(int j = 0; j < V; j++) { //for each vetex 'j' in i'th row 
+      if(G[i * V + j] != INF) { //if atlease one edge then count
+        edge = 1;
+        break;
+      }
+    }
+    if(edge == 1) {
+      count++;
+    }
+  }
+  return count;
 }
 
 
@@ -317,37 +317,37 @@ int countNonTerminals(int* G, int V, int numTer, int* terminals) {
  * @param count number of parital stars in A
  */
 void copypartialStar(int* A, int* B, int numGroups, int count) {
-	//A - from, B - to
-	for(int i = 0; i < count; i++) { //for each partial star
-		//get a partial star
-		int * curStarA = A + (i * (2 + numGroups));
-		int * curStarB = B + (i * (2 + numGroups));
+  //A - from, B - to
+  for(int i = 0; i < count; i++) { //for each partial star
+    //get a partial star
+    int * curStarA = A + (i * (2 + numGroups));
+    int * curStarB = B + (i * (2 + numGroups));
 
-		//copy intermediate and num of groups
-		curStarB[0] = curStarA[0];
-		curStarB[1] = curStarA[1];
+    //copy intermediate and num of groups
+    curStarB[0] = curStarA[0];
+    curStarB[1] = curStarA[1];
 
-		//copy groups
-		for(int j = 0; j < curStarA[1]; j++) {
-			curStarB[j+2] = curStarA[j+2];
-		}
-	}
+    //copy groups
+    for(int j = 0; j < curStarA[1]; j++) {
+      curStarB[j+2] = curStarA[j+2];
+    }
+  }
 }
 
 int getNextAvailableRoot(int * rootsAvail, int V, int procId) {
-	for(int i = 0; i < V; i++) {
-		if(rootsAvail[i]) {
-			rootsAvail[i] = 0;
-			return i;
-		}
-	}
-	return -1;
+  for(int i = 0; i < V; i++) {
+    if(rootsAvail[i]) {
+      rootsAvail[i] = 0;
+      return i;
+    }
+  }
+  return -1;
 }
 
 int printAvailRoot(int * rootsAvail, int V) {
-	printf("Roots avail: \n");
-	for(int i = 0; i < V; i++) {
-		printf(" %d",rootsAvail[i]);
-	}
-	printf("\n");
+  printf("Roots avail: \n");
+  for(int i = 0; i < V; i++) {
+    printf(" %d",rootsAvail[i]);
+  }
+  printf("\n");
 }

@@ -10,6 +10,8 @@
 
 *.swp
 
+*.sh
+
 /hosts
 /log
 /grouped

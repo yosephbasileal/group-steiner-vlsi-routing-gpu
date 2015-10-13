@@ -59,115 +59,115 @@ void primMST(int * graph, int V, int * parent)
 // A utility function to print the constructed MST stored in parent[]
 int primMSTwrapper(int * graph, int V)
 {
-	int * parent = (int *) malloc(sizeof(int) * V); // Array to store constructed MST
+  int * parent = (int *) malloc(sizeof(int) * V); // Array to store constructed MST
 
-	primMST(graph,V,parent);
-	
-	int * mst = (int *) malloc(sizeof(int) * V * V);
-	for(int i = 0; i < V; i++) {
-		for(int j = 0; j < V; j++) {
-			mst[i * V + j] = INF;
-		}
-	}
+  primMST(graph,V,parent);
+  
+  int * mst = (int *) malloc(sizeof(int) * V * V);
+  for(int i = 0; i < V; i++) {
+    for(int j = 0; j < V; j++) {
+      mst[i * V + j] = INF;
+    }
+  }
    for (int i = 1; i < V; i++) {
-		//printf("%d - %d    %d \n", parent[i], i, graph[i * V + parent[i]]);
-		mst[parent[i] * V + i] = graph[i * V + parent[i]];
-		mst[i * V + parent[i]] = graph[parent[i] * V + i];
-	}
+    //printf("%d - %d    %d \n", parent[i], i, graph[i * V + parent[i]]);
+    mst[parent[i] * V + i] = graph[i * V + parent[i]];
+    mst[i * V + parent[i]] = graph[parent[i] * V + i];
+  }
    
-	for(int i = 0; i < V; i++) {
-		for(int j =0; j < V; j++) {
-			graph[i * V + j] = mst[i * V + j];
-		}
-	}
+  for(int i = 0; i < V; i++) {
+    for(int j =0; j < V; j++) {
+      graph[i * V + j] = mst[i * V + j];
+    }
+  }
 }
 
 
 int getConnectedVert(int * S, int * connected, int V) {
-	int count = 0;
-	for(int i = 0; i < V; i++) {
-		for(int j =0; j < V; j++) {
-			if(i <= j) {
-				continue;
-			}
-			int curr = S[i * V + j];
-			if(curr == INF) {
-				continue;
-			}
-			if(connected[i] == 0) {
-				connected[i] = 1; //is connected, update
-				count++;
-			}
-			if(connected[j] == 0) {	
-				connected[j] = 1; //is connected, update
-				count++;
-			}	
-		}
-	}
-	return count;
+  int count = 0;
+  for(int i = 0; i < V; i++) {
+    for(int j =0; j < V; j++) {
+      if(i <= j) {
+        continue;
+      }
+      int curr = S[i * V + j];
+      if(curr == INF) {
+        continue;
+      }
+      if(connected[i] == 0) {
+        connected[i] = 1; //is connected, update
+        count++;
+      }
+      if(connected[j] == 0) {  
+        connected[j] = 1; //is connected, update
+        count++;
+      }  
+    }
+  }
+  return count;
 }
 
 int getNewVertID(int * connected, int v) { //getID for mst graph from solution graph
-	int newV = 0;	
-	for(int i = 0; i < v; i++) { //count number of conected nodes before v
-		if(connected[i] == 1) {
-			newV++;
-		}
-	}
-	return newV;
+  int newV = 0;  
+  for(int i = 0; i < v; i++) { //count number of conected nodes before v
+    if(connected[i] == 1) {
+      newV++;
+    }
+  }
+  return newV;
 }
 
 int getOldVertID(int * connected, int V,  int v) { //getID for solution graph from mst graph
-	int oldV;
-	int count;
-	for(int i = 0; i < V; i++) { //count number of conected nodes before v
-		if(connected[i] == 1) {
-			count++;
-		}
-		if(count - 1 == v) {
-			oldV = i;
-			break;
-		} 
-	}
-	return oldV;
+  int oldV;
+  int count;
+  for(int i = 0; i < V; i++) { //count number of conected nodes before v
+    if(connected[i] == 1) {
+      count++;
+    }
+    if(count - 1 == v) {
+      oldV = i;
+      break;
+    } 
+  }
+  return oldV;
 }
 
 void removeUnconnected(int * S, int * N, int * connected, int V, int newV) {
-	for(int i = 0; i < V; i++) {
-		for(int j =0; j < V; j++) {
-			if(i <= j) {
-				continue;
-			}
-			int curr = S[i * V + j];
-			if(curr == INF) {
-				continue;
-			}
-			int newI = getNewVertID(connected,i);
-			int newJ = getNewVertID(connected,j);
+  for(int i = 0; i < V; i++) {
+    for(int j =0; j < V; j++) {
+      if(i <= j) {
+        continue;
+      }
+      int curr = S[i * V + j];
+      if(curr == INF) {
+        continue;
+      }
+      int newI = getNewVertID(connected,i);
+      int newJ = getNewVertID(connected,j);
 
-			N[newI * newV + newJ] = curr;
-			N[newJ * newV + newI] = curr;
-		}
-	}
+      N[newI * newV + newJ] = curr;
+      N[newJ * newV + newI] = curr;
+    }
+  }
 }
 
 void removeUnconnected2(int *N, int *G, int *connected, int V, int newV) {
-	for(int i = 0; i < V; i++) {
-		for(int j = 0; j < V; j++) {
-			if(i <= j) {
-				continue;
-			}
-			int curr = G[i * V + j];
-			if(curr == INF) {
-				continue;
-			}
-			if(connected[i] == 1 && connected[j] == 1) {
-				int newI = getNewVertID(connected,i);
-				int newJ = getNewVertID(connected,j);
-				N[newI * newV + newJ] = curr;
-				N[newJ * newV + newI] = curr;
-			}
-		}		
-	}
+  for(int i = 0; i < V; i++) {
+    for(int j = 0; j < V; j++) {
+      if(i <= j) {
+        continue;
+      }
+      int curr = G[i * V + j];
+      if(curr == INF) {
+        continue;
+      }
+      if(connected[i] == 1 && connected[j] == 1) {
+        int newI = getNewVertID(connected,i);
+        int newJ = getNewVertID(connected,j);
+        N[newI * newV + newJ] = curr;
+        N[newJ * newV + newI] = curr;
+      }
+    }    
+  }
 }
 
