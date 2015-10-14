@@ -22,8 +22,8 @@ bool doMST = false; //do MST after twostar to improve cost -m
 #include "read-file2.h"
 #include "mst.h"
 #include "fw-serial.h"
-#include "onestar.h"
-#include "twostar.h"
+#include "one-star.h"
+#include "two-star.h"
 #include "build-solution.h"
 
 //Function prototype for floyd-warshal
