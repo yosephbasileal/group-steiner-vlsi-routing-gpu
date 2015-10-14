@@ -10,7 +10,7 @@
 
 //Global variables
 bool gprint = false; // print graph and metric closure -o
-bool debug = false;  // print more deatails for debugging -d
+bool debug = false;  // print more details for debugging -d
 bool serial = false; //construct metric closure in serial or parallel -n
 bool stpFile = false; //an option to read standard stp file -t
 bool doMST = false; //do MST after twostar to improve cost -m
@@ -27,7 +27,7 @@ bool doMST = false; //do MST after twostar to improve cost -m
 #include "build-solution.h"
 
 //Function prototype for floyd-warshal
-void fw_gpu(const unsigned int n, const int * const G, int * const d, int * const p);
+void fw_gpu(const unsigned int, const int * const, int * const, int * const );
 
 //Main
 int main(int argc, char *argv[])
@@ -44,7 +44,8 @@ int main(int argc, char *argv[])
 
   //graph variables
   unsigned int V, E, numTer, numGroups;
-  int *D, *G, *P, *C, *term, *groups, *D_sub, *onestar, *onestar_sub, *onestar_V, *onestar_sub_V;
+  int *D, *G, *P, *C, *term, *groups, *D_sub;
+  int *onestar, *onestar_sub, *onestar_V, *onestar_sub_V;
 
   //solution variables
   int MINIMUM, overall_min;
@@ -57,7 +58,8 @@ int main(int argc, char *argv[])
   int perParent;
   int perChild;
 
-  FILE * fout = fopen("twostar.out", "w+");
+  //file to print debugging output to
+  FILE * fout = fopen("debug.out", "w+");
 
   //time variables
   clock_t start, end;
@@ -65,10 +67,11 @@ int main(int argc, char *argv[])
   double gpu_time, cpu_time;
   double total_time_used;
 
-  /*--------------------------------------------Parent process------------------------------------------------*/
+  /*----------------------------Parent process---------------------------*/
   if(!procId)  {
     int r;
-    while ((r = getopt(argc, argv, "odntm")) != -1) { //command line args
+    //check command line arguments
+    while ((r = getopt(argc, argv, "odntm")) != -1) {
       switch(r)
       {
         case 'o':
@@ -92,9 +95,12 @@ int main(int argc, char *argv[])
       }
     }
 
+    //start timer
     start = clock();
+
     printf("Reading graph from file...\n");
-    //read graph from file and allocate memory
+
+    //read grph from file and allocate memory
     if(stpFile) {
       readFile2(&D, &G, &P, &C, &term, &groups, &V, &E, &numTer, &numGroups);
     }
@@ -102,9 +108,10 @@ int main(int argc, char *argv[])
       readFile(&D, &G, &P, &term, &groups, &V, &E, &numTer, &numGroups);
     }
     
+    //write graph size to output file
     fprintf(fout,"\nV: %d  E: %d\n",V,E);
 
-    //broadcast size variables
+    //broadcast size variables to all child processes
     MPI_Bcast(&V, 1, MPI_INT, 0, MPI_COMM_WORLD);
     MPI_Bcast(&numTer, 1, MPI_INT, 0, MPI_COMM_WORLD);
     MPI_Bcast(&numGroups, 1, MPI_INT, 0, MPI_COMM_WORLD);
@@ -114,7 +121,6 @@ int main(int argc, char *argv[])
     onestar_V = (int *) malloc(sizeof(int) * V * numGroups);
 
     //broadbast groups
-    //MPI_Bcast(groups, numTer, MPI_INT, 0, MPI_COMM_WORLD);
     MPI_Bcast(groups, numTer*numGroups, MPI_INT, 0, MPI_COMM_WORLD);
 
     //validate number of processes
@@ -135,18 +141,19 @@ int main(int argc, char *argv[])
       fprintf(fout, "%d child process(es) get: %d process(es)\n", numProc - 1, pars[0]);
     }
 
+    //start gpu timer
     gpu_s = clock();
+
     //construct metric closure
     if(!serial) {
       printf("Constructing metric closure on the GPU...\n");
-      fw_gpu(V, G, D, P);
+      fw_gpu(V,G,D,P);
     } else{
-      if(debug) {
-        printf("Constructing metric closure on the CPU...\n");      
-      }
-      //floydWarshall(V, G, D);
+      printf("Constructing metric closure on the CPU...\n");
       floydWarshallWithPath(V,G,D,P);
     }
+
+    //end gpu timer
     gpu_e = clock();
     gpu_time = ((double) (gpu_e - gpu_s)) / CLOCKS_PER_SEC;
     fprintf(fout, "\nTotal GPU time (FW): %lf\n", gpu_time);
@@ -164,6 +171,7 @@ int main(int argc, char *argv[])
     }
     
     printf("Constructing onestar tress...\n");  
+    
     //reciveing buffer for distributing some rows of metric closure
     D_sub = (int *) malloc(sizeof(int) * V * perChild);
 
@@ -171,16 +179,20 @@ int main(int argc, char *argv[])
     onestar_sub = (int *) malloc(sizeof(int) * perChild * numGroups);
     onestar_sub_V= (int *) malloc(sizeof(int) * perChild * numGroups);
 
+    //start cpu timer
     cpu_s = clock();
+
     //construct one star
     onestarWrapper(V,numTer,perChild,perParent,numProc,procId,numGroups,D,D_sub,onestar,onestar_sub,onestar_V, onestar_sub_V,groups);
-    
+   
+    //end cpu timer 
     cpu_e = clock();
     cpu_time = ((double) (cpu_e - cpu_s)) / CLOCKS_PER_SEC;
 
     //broadbast onestar
     MPI_Bcast(onestar, V * numGroups, MPI_INT, 0, MPI_COMM_WORLD);
 
+    //start cpu timer
     cpu_s = clock();
 
     //output onestar
@@ -193,9 +205,11 @@ int main(int argc, char *argv[])
     MPI_Wait(&request, &status);
     
     printf("Constructing twostar trees...\n");  
+    
     //construct two star
     twostarwrapper(V,numGroups,perChild,perParent,numProc,procId,D,onestar,&solution,&twostar);
 
+    //end cpu timer
     cpu_e = clock();
     cpu_time = cpu_time + (((double) (cpu_e - cpu_s)) / CLOCKS_PER_SEC);
     fprintf(fout, "\nTotal CPU time : %lf\n", cpu_time);
@@ -203,28 +217,19 @@ int main(int argc, char *argv[])
     //get minimum from all using reduction
     MPI_Reduce(&solution,&minSolution,1,MPI_LONG_INT,MPI_MINLOC,0,MPI_COMM_WORLD);
 
-    
-
+    //end timer
     end = clock();
-    total_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
-    
+    total_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;    
     fprintf(fout, "\nTotal time: %lf\n", total_time_used);
-
-    //ouput overall minimum cost
-    //if(!build) {    
-      //printf("\nOVERALL MINIMUM STEINER COST: %d Root: %d\n\n", minSolution.cost, minSolution.root);
-    //}
-    
-
-    //if(build) {
+ 
     printf("Post-processing tree to construct solution graph...\n");
+
     //build solution
-    buildWrapper(fout, minSolution,V,E,numGroups,P,G,D,C,onestar,onestar_V,term,numTer,perParent,perChild,numProc,procId,&twostar);
-    //}
+    buildWrapper(fout,minSolution,V,E,numGroups,P,G,D,C,onestar,onestar_V,term,numTer,perParent,perChild,numProc,procId,&twostar);
   }//end parent process
   
 
-  /*--------------------------------------------Child processes------------------------------------------------*/
+  /*---------------------------Child processes---------------------------*/
   if(procId) {
     //broadcast size variables
     MPI_Bcast(&V, 1, MPI_INT, 0, MPI_COMM_WORLD);
@@ -233,16 +238,13 @@ int main(int argc, char *argv[])
 
     //allocate memory
     D = (int *) malloc(sizeof(int) * V * V);
-    //groups = (int *) malloc (sizeof(int) * numTer);
     groups = (int *) malloc (sizeof(int) * numTer * numGroups);
-
 
     //buffer for combined onestar cost matrix
     onestar = (int *) malloc(sizeof(int) * V * numGroups);
     onestar_V = (int *) malloc(sizeof(int) * V * numGroups);
 
     //broadbast groups
-    //MPI_Bcast(groups, numTer, MPI_INT, 0, MPI_COMM_WORLD);
     MPI_Bcast(groups, numTer*numGroups, MPI_INT, 0, MPI_COMM_WORLD);
 
     //validate number of processes

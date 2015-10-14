@@ -4,7 +4,6 @@
  * This is a collection of utility functions used by twostar-mpi
  *
  * @author Basileal Imana
- * @version 
  */
 
 //Libraries
@@ -226,11 +225,19 @@ long caclGraphCost(int* G, int V) {
   return sum;
 }
 
+/** Counted the number of edges in a solution graph
+ *
+ * @param G graph of size VxV
+ * @param V size of graph
+ */
 int countEdges(int * G, int V) {
   int count = 0;  
   for(int i =0; i < V; i++) {
     for(int j = 0; j < V; j++) {
-      if(i >= j) continue;
+      //since grpah is undirected hence symmetric, ignore elements below the diagonal
+      if(i >= j) {
+        continue;
+      }
       if(G[i * V + j] != INF) {
         count++;
       }
@@ -280,7 +287,7 @@ int isTerminal(int v, int numTer, int* terminals) {
 }
 
 
-/** Counts number of non-terminals part of a solution graph
+/** Counts number of non-terminals of a solution graph
  *
  * @param G graph of size VxV
  * @param V size of graph

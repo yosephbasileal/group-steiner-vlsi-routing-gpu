@@ -1,7 +1,7 @@
 #ifndef UTILS_H
 #define URILS_H
 
-//Prototypes
+//Function prototypes
 int sched_getcpu(void);
 bool validNumProc(int V, int numProc);
 int* calcLaunchPar(int numProc, int V);
