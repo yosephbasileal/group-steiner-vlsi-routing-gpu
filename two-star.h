@@ -1,3 +1,11 @@
+/**
+ * File: two-star.h 
+ *
+ * Contains two-star tree contrucion functions
+ *
+ * @author Basileal Imana and Suhas Maringanti
+ */
+
 #include "partial-star.h"
 
 //Stores cost and root of solution twostar tree

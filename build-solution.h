@@ -1,3 +1,12 @@
+/**
+ * File: build-solution.h
+ *
+ * Builds solution graph given where the root of the minimum cost tree is
+ * 
+ * @author Basileal Imana and Suhas Maringanti
+ */
+
+//draws an edge betwen two vertices
 void drawEdge(int i, int j, int V, int * S, int * G) {
   S[i * V + j] = G[i * V + j];
   S[j * V + i] = G[j * V + i];
@@ -10,7 +19,7 @@ int getPath(int i, int j, int V, int * path, int * P, int * G) {
   return count;
 }
 
-
+//builds solution graph
 void buildWrapper(FILE * fout, struct Solution minSolution, int V, int E,int numGroups, int * P,int * G, int * D, int *C, int * onestar, int * onestar_V, int * terminals, int numTer, int perParent, int perChild, int numProc, int procId, struct TwoStar * twostar) {
   long cost;
   int root, count, *partialStar1;
@@ -101,16 +110,10 @@ void buildWrapper(FILE * fout, struct Solution minSolution, int V, int E,int num
           N[i * newV + j] = INF;
         }
       }
-      //print(fout,N,newV,"org");
-      //removeUnconnected(S,N,connected,V,newV);
-      //print(fout,N,newV,"from S");
       removeUnconnected2(N,G,connected,V,newV);
-      //print(fout,N,newV,"from G");
       primMSTwrapper(N,newV);
-      //print(fout,N,newV,"MST from S");
       fprintf(fout,"MST Graph Cost: %ld\n", caclGraphCost(N,newV));
     }
-    //printf("NonTer part of solution: %d\n",countNonTerminals(S,V,numTer, terminals));
   }//parent process
 
 

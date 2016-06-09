@@ -1,3 +1,11 @@
+/**
+ * File: fw-serial.h
+ *
+ * Flowd Warshal algorithm serial implementation
+ * 
+ * @author Basileal Imana and Suhas Maringanti
+ */
+
 //Serial floyd warshall algorithm for APSP problem
 void floydWarshall(int V, int *graph, int *dist ) {
    int i, j, k;

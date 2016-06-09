@@ -1,3 +1,12 @@
+/**
+ * File: main.c
+ *
+ * Main Steiner Class
+ *
+ * @author Basileal Imana and Suhas Maringanti
+ */
+
+
 //Library headers
 #include "mpi.h"
 #include <stdio.h>

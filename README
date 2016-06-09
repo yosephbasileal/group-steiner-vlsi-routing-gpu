@@ -1,5 +1,0 @@
-run example
-	mpirun -n 13 --hostfile $HOME/hosts ./twostar < grouped/11.txt
-
-to open a folder 
-	nautilus /home/basileal/

@@ -1,3 +1,12 @@
+/**
+ * File: fw-cuda.cu
+ *
+ * Floyd Warshall algorithm CUDA implementation
+ *
+ * @author Mateusz Bojanowski
+ * @source https://github.com/MTB90/CUDA_Blocked_Floyd-Warshall
+ */
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<unistd.h>
