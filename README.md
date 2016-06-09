@@ -5,6 +5,7 @@ A parallel approximation algorithm for the GSP based off an existing heuristic o
 
 # Usage
 `make`
+
 `mpirun -n 64 --hostfile $HOME/hosts ./main -t < testdata/wrp2-11.stp`
 
 # Dependencies
